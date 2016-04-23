@@ -1,0 +1,2 @@
+# Stringizer
+String Manipulation Library
