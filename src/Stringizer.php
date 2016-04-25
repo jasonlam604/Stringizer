@@ -122,12 +122,6 @@ class Stringizer
         return $this;
     }
 
-    public function lowercaseWords()
-    {
-        $this->value = (new LowercaseWords((new Uppercase($this->value))->execute()))->execute();
-        return $this;
-    }
-
     public function lowercaseFirst($ignoreUppercaseFirst=false)
     {
         if(!$ignoreUppercaseFirst) {
