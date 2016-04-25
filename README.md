@@ -1,2 +1,7 @@
 # Stringizer
-String Manipulation Library
+Stringizer is a standalone String Utility Library
+
+
+## Status
+
+Under Development and Unstable.

@@ -1,0 +1,25 @@
+{
+    "name": "jasonlam604/stringizer",
+    "type": "library",
+    "description": "Stringizer is a string manipulation Library that supports method chaining",
+    "keywords": ["library","string","manipulation","chaining"],
+    "license": "MIT",
+    "homepage": "https://github.com/jasonlam604/Stringizer",
+    "authors": [
+        {
+            "name": "Jason Lam",
+            "email": "jasonlam604@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.6.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "5.3.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Stringizer\\": "src"
+        }
+    }
+}
