@@ -18,7 +18,7 @@ use Stringizer\Transformers\StringFirstOccurrence;
 use Stringizer\Transformers\Reverse;
 use Stringizer\Transformers\StartsWith;
 use Stringizer\Transformers\EndsWith;
-use Stringizer\Transformers\Hashcode;
+use Stringizer\Transformers\HashCode;
 use Stringizer\Transformers\Truncate;
 
 /**
@@ -111,7 +111,7 @@ class Stringizer
 
     public function hashCode()
     {
-        return (new Hashcode($this->value))->execute();
+        return (new HashCode($this->value))->execute();
     }
 
     /**
