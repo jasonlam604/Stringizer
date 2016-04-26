@@ -8,7 +8,6 @@ use Stringizer\Transformers\Uppercase;
 use Stringizer\Transformers\UppercaseFirst;
 use Stringizer\Transformers\UppercaseWords;
 use Stringizer\Transformers\LowercaseFirst;
-use Stringizer\Transformers\LowercaseWords;
 use Stringizer\Transformers\Trim;
 use Stringizer\Transformers\TrimLeft;
 use Stringizer\Transformers\TrimRight;
@@ -17,6 +16,9 @@ use Stringizer\Transformers\Width;
 use Stringizer\Transformers\SubString;
 use Stringizer\Transformers\StringFirstOccurrence;
 use Stringizer\Transformers\Reverse;
+use Stringizer\Transformers\StartsWith;
+use Stringizer\Transformers\EndsWith;
+use Stringizer\Transformers\Hashcode;
 
 /**
  * Stringizer
@@ -101,6 +103,16 @@ class Stringizer
         return $this;
     }
 
+    public function endsWith($needle)
+    {
+        return (new EndsWith($this->value,$needle))->execute();
+    }
+
+    public function hashCode()
+    {
+        return (new Hashcode($this->value))->execute();
+    }
+
     /**
      * Length
      *
@@ -135,6 +147,11 @@ class Stringizer
     {
         $this->value = (new Reverse($this->value))->execute();
         return $this;
+    }
+
+    public function startsWith($needle)
+    {
+        return (new StartsWith($this->value,$needle))->execute();
     }
 
     public function subString($start,$length=null)
