@@ -19,6 +19,7 @@ use Stringizer\Transformers\Reverse;
 use Stringizer\Transformers\StartsWith;
 use Stringizer\Transformers\EndsWith;
 use Stringizer\Transformers\Hashcode;
+use Stringizer\Transformers\Truncate;
 
 /**
  * Stringizer
@@ -189,14 +190,8 @@ class Stringizer
      */
     public function truncate($numberToTruncate)
     {
-        if (filter_var($numberToTruncate, FILTER_VALIDATE_INT) === false) {
-            throw new \InvalidArgumentException("Value to truncate by is not a number");
-        } elseif (filter_var($numberToTruncate, FILTER_VALIDATE_INT, array("options" => array("min_range"=>0, "max_range"=>$this->length()))) === false) {
-            throw new \InvalidArgumentException("Value to truncate by is out of bounds");
-        } else {
-            $this->value = (new SubString($this->value,0,$this->length() - $numberToTruncate))->execute();
-            return $this;
-        }
+        $this->value = (new Truncate($this->value,$numberToTruncate))->execute();
+        return $this;
     }
 
     public function truncateMatch($stringToMatch,$truncateBefore=false)
