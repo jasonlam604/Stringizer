@@ -20,6 +20,7 @@ use Stringizer\Transformers\StartsWith;
 use Stringizer\Transformers\EndsWith;
 use Stringizer\Transformers\HashCode;
 use Stringizer\Transformers\Truncate;
+use Stringizer\Transformers\IndexOf;
 
 /**
  * Stringizer
@@ -112,6 +113,16 @@ class Stringizer
     public function hashCode()
     {
         return (new HashCode($this->value))->execute();
+    }
+
+    public function indexOf($needle,$offset=0)
+    {
+        return (new IndexOf($this->value,$needle,$offset))->execute();
+    }
+
+    public function indexOfCaseInsensitive($needle,$offset=0)
+    {
+        return (new IndexOf($this->value,$needle,$offset,true))->execute();
     }
 
     /**
@@ -212,7 +223,7 @@ class Stringizer
         return $this;
     }
 
-    public function truncateMatchInsensitive($stringToMatch,$truncateBefore=false)
+    public function truncateMatchCaseInsensitive($stringToMatch,$truncateBefore=false)
     {
         $this->value = (new StringFirstOccurrence($this->value,$stringToMatch,!$truncateBefore))->enableCaseInsensitive()->execute();
         return $this;
