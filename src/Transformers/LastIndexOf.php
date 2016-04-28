@@ -2,14 +2,14 @@
 namespace Stringizer\Transformers;
 
 /**
- * IndexOf, Finds position of first occurrence of a string within another
+ * LastIndexOf, Finds position of first occurrence of a string within another
  *
  * @link https://github.com/jasonlam604/Stringizer
  * @copyright Copyright (c) 2016 Jason Lam
  * @license https://github.com/jasonlam604/Stringizer/blob/master/LICENSE (MIT License)
  *         
  */
-class IndexOf extends Transformer implements TransformerInterface
+class LastIndexOf extends Transformer implements TransformerInterface
 {
 
     private $needle;
@@ -28,13 +28,13 @@ class IndexOf extends Transformer implements TransformerInterface
     }
 
     /**
-     * IndexOf
+     * LastIndexOf
      */
     public function execute()
     {
         if ($this->isCaseInsensitive)
-            return mb_stripos($this->getValue(), $this->needle, $this->fromIndex);
+            return mb_strripos($this->getValue(), $this->needle, $this->fromIndex);
         else
-            return mb_strpos($this->getValue(), $this->needle, $this->fromIndex);
+            return mb_strrpos($this->getValue(), $this->needle, $this->fromIndex);
     }
 }

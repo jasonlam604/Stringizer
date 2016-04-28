@@ -1,7 +1,6 @@
 <?php
 namespace Stringizer;
 
-use Stringizer\Exceptions\TransformerException;
 use Stringizer\Transformers\Concat;
 use Stringizer\Transformers\Lowercase;
 use Stringizer\Transformers\Uppercase;
@@ -14,14 +13,14 @@ use Stringizer\Transformers\TrimRight;
 use Stringizer\Transformers\Length;
 use Stringizer\Transformers\Width;
 use Stringizer\Transformers\SubString;
-use Stringizer\Transformers\StringFirstOccurrence;
 use Stringizer\Transformers\Reverse;
 use Stringizer\Transformers\StartsWith;
 use Stringizer\Transformers\EndsWith;
 use Stringizer\Transformers\HashCode;
 use Stringizer\Transformers\Truncate;
-use Stringizer\Transformers\IndexOf;
 use Stringizer\Transformers\TruncateMatch;
+use Stringizer\Transformers\IndexOf;
+use Stringizer\Transformers\LastIndexOf;
 
 /**
  * Stringizer
@@ -64,8 +63,8 @@ class Stringizer
     /**
      * Constructor
      *
-     * @param string $stringValue
-     * @param string $stringEncoding
+     * @param string $stringValue            
+     * @param string $stringEncoding            
      *
      * @throws \InvalidArgumentException
      */
@@ -78,24 +77,25 @@ class Stringizer
         } elseif (is_object($stringValue) && ! method_exists($stringValue, "__toString")) {
             throw new \InvalidArgumentException("Given object does not have a __toString method");
         }
-
+        
         $this->value = (string) $stringValue;
-
+        
         $this->valueOriginal = $this->value;
-
-        if(empty($encoding))
+        
+        if (empty($encoding))
             $encoding = \mb_internal_encoding();
-
+        
         $this->setEncoding($encoding);
     }
 
     /**
      * Append 2 String values
      *
-     * @param string $value
+     * @param string $value            
      *
-     * @param string $preAppend flag when true to prepend value
-     *
+     * @param string $preAppend
+     *            flag when true to prepend value
+     *            
      * @return \Stringizer\Stringizer
      */
     public function concat($value, $preAppend = false)
@@ -108,7 +108,7 @@ class Stringizer
 
     public function endsWith($needle)
     {
-        return (new EndsWith($this->value,$needle))->execute();
+        return (new EndsWith($this->value, $needle))->execute();
     }
 
     public function hashCode()
@@ -116,14 +116,24 @@ class Stringizer
         return (new HashCode($this->value))->execute();
     }
 
-    public function indexOf($needle,$offset=0)
+    public function indexOf($needle, $offset = 0)
     {
-        return (new IndexOf($this->value,$needle,$offset))->execute();
+        return (new IndexOf($this->value, $needle, $offset))->execute();
     }
 
-    public function indexOfCaseInsensitive($needle,$offset=0)
+    public function indexOfCaseInsensitive($needle, $offset = 0)
     {
-        return (new IndexOf($this->value,$needle,$offset,true))->execute();
+        return (new IndexOf($this->value, $needle, $offset, true))->execute();
+    }
+
+    public function lastIndexOf($needle, $offset = 0)
+    {
+        return (new LastIndexOf($this->value, $needle, $offset))->execute();
+    }
+
+    public function lastIndexOfCaseInsensitive($needle, $offset = 0)
+    {
+        return (new LastIndexOf($this->value, $needle, $offset, true))->execute();
     }
 
     /**
@@ -147,9 +157,9 @@ class Stringizer
         return $this;
     }
 
-    public function lowercaseFirst($ignoreUppercaseFirst=false)
+    public function lowercaseFirst($ignoreUppercaseFirst = false)
     {
-        if(!$ignoreUppercaseFirst) {
+        if (! $ignoreUppercaseFirst) {
             $this->value = (new Uppercase($this->value))->execute();
         }
         $this->value = (new LowercaseFirst($this->value))->execute();
@@ -164,12 +174,12 @@ class Stringizer
 
     public function startsWith($needle)
     {
-        return (new StartsWith($this->value,$needle))->execute();
+        return (new StartsWith($this->value, $needle))->execute();
     }
 
-    public function subString($start,$length=null)
+    public function subString($start, $length = null)
     {
-        $this->value = (new SubString($this->value,$start,$length))->execute();
+        $this->value = (new SubString($this->value, $start, $length))->execute();
         return $this;
     }
 
@@ -194,7 +204,7 @@ class Stringizer
     /**
      * Truncate remove the number of indicated values at the end of the string
      *
-     * @param int $numberToTruncate
+     * @param int $numberToTruncate            
      *
      * @throws \InvalidArgumentException
      *
@@ -202,14 +212,14 @@ class Stringizer
      */
     public function truncate($numberToTruncate)
     {
-        $this->value = (new Truncate($this->value,$numberToTruncate))->execute();
+        $this->value = (new Truncate($this->value, $numberToTruncate))->execute();
         return $this;
     }
 
-    public function truncateMatch($stringToMatch,$truncateBefore=false)
+    public function truncateMatch($stringToMatch, $truncateBefore = false)
     {
-        $result = (new TruncateMatch($this->value, $stringToMatch,!$truncateBefore))->execute();
-        if($result === FALSE) {
+        $result = (new TruncateMatch($this->value, $stringToMatch, ! $truncateBefore))->execute();
+        if ($result === FALSE) {
             return $result;
         } else {
             $this->value = $result;
@@ -217,10 +227,10 @@ class Stringizer
         }
     }
 
-    public function truncateMatchCaseInsensitive($stringToMatch,$truncateBefore=false)
+    public function truncateMatchCaseInsensitive($stringToMatch, $truncateBefore = false)
     {
-        $result = (new TruncateMatch($this->value, $stringToMatch,!$truncateBefore))->enableCaseInsensitive()->execute();
-        if($result === FALSE) {
+        $result = (new TruncateMatch($this->value, $stringToMatch, ! $truncateBefore))->enableCaseInsensitive()->execute();
+        if ($result === FALSE) {
             return $result;
         } else {
             $this->value = $result;
@@ -240,9 +250,9 @@ class Stringizer
         return $this;
     }
 
-    public function uppercaseFirst($ignoreLowercaseFirst=false)
+    public function uppercaseFirst($ignoreLowercaseFirst = false)
     {
-        if(!$ignoreLowercaseFirst) {
+        if (! $ignoreLowercaseFirst) {
             $this->value = (new Lowercase($this->value))->execute();
         }
         $this->value = (new UppercaseFirst($this->value))->execute();
@@ -254,9 +264,6 @@ class Stringizer
         return (new Width($this->value))->execute();
     }
 
-
-
-
     public function enableTransformerExceptions()
     {
         $this->isTransformerException = true;
@@ -264,11 +271,11 @@ class Stringizer
 
     public function setEncoding($encoding)
     {
-        if(!isset($encoding))
+        if (! isset($encoding))
             throw new \Exception("Given encoding value not valid");
-
-        $this->encoding =  $encoding;
-
+        
+        $this->encoding = $encoding;
+        
         mb_internal_encoding($this->encoding);
     }
 
