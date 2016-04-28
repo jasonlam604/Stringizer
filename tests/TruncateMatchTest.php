@@ -25,23 +25,13 @@ class TruncateAtMatch extends PHPUnit_Framework_TestCase
 
     public function testNoTransforamtionDueToNoMatch()
     {
+        // No Match
         $s = new Stringizer("FizzBuzzFooBar");
-        $this->assertEquals("FizzBuzzFooBar", $s->truncateMatch("Blank"));
+        $this->assertEquals(FALSE, $s->truncateMatch("Blank"));
 
         // No Match - case sensitive
         $s = new Stringizer("FizzBuzzFooBar");
-        $this->assertEquals("FizzBuzzFooBar", $s->truncateMatch("foo"));
-    }
-
-    /**
-     * @expectedException Stringizer\Exceptions\TransformerException
-     */
-    public function testNoTransforamtionDueToNoMatchForceException()
-    {
-        // No Match - case sensitive
-        $s = new Stringizer("FizzBuzzFooBar");
-        $s->enableTransformerExceptions();
-        $this->assertEquals("FizzBuzzFooBar", $s->truncateMatch("foo"));
+        $this->assertEquals(FALSE, $s->truncateMatch("foo"));
     }
 
     public function testTruncateMatchBefore()

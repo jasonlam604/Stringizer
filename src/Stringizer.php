@@ -21,6 +21,7 @@ use Stringizer\Transformers\EndsWith;
 use Stringizer\Transformers\HashCode;
 use Stringizer\Transformers\Truncate;
 use Stringizer\Transformers\IndexOf;
+use Stringizer\Transformers\TruncateMatch;
 
 /**
  * Stringizer
@@ -207,26 +208,24 @@ class Stringizer
 
     public function truncateMatch($stringToMatch,$truncateBefore=false)
     {
-        $result = (new StringFirstOccurrence($this->value,$stringToMatch,!$truncateBefore))->execute();
-
-        if($result === FALSE)
-        {
-            if($this->isTransformerException)
-                throw new TransformerException("Truncate Match on " . $this->value . " with needle " . $stringToMatch . " not found");
-
-            return $this;
-
+        $result = (new TruncateMatch($this->value, $stringToMatch,!$truncateBefore))->execute();
+        if($result === FALSE) {
+            return $result;
         } else {
             $this->value = $result;
+            return $this;
         }
-
-        return $this;
     }
 
     public function truncateMatchCaseInsensitive($stringToMatch,$truncateBefore=false)
     {
-        $this->value = (new StringFirstOccurrence($this->value,$stringToMatch,!$truncateBefore))->enableCaseInsensitive()->execute();
-        return $this;
+        $result = (new TruncateMatch($this->value, $stringToMatch,!$truncateBefore))->enableCaseInsensitive()->execute();
+        if($result === FALSE) {
+            return $result;
+        } else {
+            $this->value = $result;
+            return $this;
+        }
     }
 
     public function uppercase()
