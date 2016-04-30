@@ -22,6 +22,7 @@ use Stringizer\Transformers\TruncateMatch;
 use Stringizer\Transformers\IndexOf;
 use Stringizer\Transformers\LastIndexOf;
 use Stringizer\Transformers\Split;
+use Stringizer\Transformers\Replace;
 
 /**
  * Stringizer
@@ -64,8 +65,8 @@ class Stringizer
     /**
      * Constructor
      *
-     * @param string $stringValue
-     * @param string $stringEncoding
+     * @param string $stringValue            
+     * @param string $stringEncoding            
      *
      * @throws \InvalidArgumentException
      */
@@ -78,25 +79,25 @@ class Stringizer
         } elseif (is_object($stringValue) && ! method_exists($stringValue, "__toString")) {
             throw new \InvalidArgumentException("Given object does not have a __toString method");
         }
-
+        
         $this->value = (string) $stringValue;
-
+        
         $this->valueOriginal = $this->value;
-
+        
         if (empty($encoding))
             $encoding = \mb_internal_encoding();
-
+        
         $this->setEncoding($encoding);
     }
 
     /**
      * Append 2 String values
      *
-     * @param string $value
+     * @param string $value            
      *
      * @param string $preAppend
      *            flag when true to prepend value
-     *
+     *            
      * @return \Stringizer\Stringizer
      */
     public function concat($value, $preAppend = false)
@@ -124,7 +125,7 @@ class Stringizer
 
     public function indexOfCaseInsensitive($needle, $offset = 0)
     {
-        return (new IndexOf($this->value, $needle, $offset, true))->execute();
+        return (new IndexOf($this->value, $needle, $offset))->enableCaseInsensitive()->execute();
     }
 
     public function lastIndexOf($needle, $offset = 0)
@@ -134,7 +135,7 @@ class Stringizer
 
     public function lastIndexOfCaseInsensitive($needle, $offset = 0)
     {
-        return (new LastIndexOf($this->value, $needle, $offset, true))->execute();
+        return (new LastIndexOf($this->value, $needle, $offset, true))->enableCaseInsensitive()->execute();
     }
 
     /**
@@ -167,6 +168,18 @@ class Stringizer
         return $this;
     }
 
+    public function replace($needles, $replacements)
+    {
+        $this->value = (new Replace($this->value, $needles, $replacements))->execute();
+        return $this;
+    }
+
+    public function replaceIncaseSensitive($needles, $replacements)
+    {
+        $this->value = (new Replace($this->value, $needles, $replacements))->enableCaseInsensitive()->execute();
+        return $this;
+    }
+
     public function reverse()
     {
         $this->value = (new Reverse($this->value))->execute();
@@ -178,9 +191,9 @@ class Stringizer
         return (new StartsWith($this->value, $needle))->execute();
     }
 
-    public function split($delimiter=",")
+    public function split($delimiter = ",")
     {
-        return (new Split($this->value,$delimiter))->execute();
+        return (new Split($this->value, $delimiter))->execute();
     }
 
     public function subString($start, $length = null)
@@ -210,7 +223,7 @@ class Stringizer
     /**
      * Truncate remove the number of indicated values at the end of the string
      *
-     * @param int $numberToTruncate
+     * @param int $numberToTruncate            
      *
      * @throws \InvalidArgumentException
      *
@@ -279,9 +292,9 @@ class Stringizer
     {
         if (! isset($encoding))
             throw new \Exception("Given encoding value not valid");
-
+        
         $this->encoding = $encoding;
-
+        
         mb_internal_encoding($this->encoding);
     }
 

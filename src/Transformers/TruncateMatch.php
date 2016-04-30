@@ -10,14 +10,12 @@ use Stringizer\Transformers\StringFirstOccurrence;
  * @copyright Copyright (c) 2016 Jason Lam
  * @license https://github.com/jasonlam604/Stringizer/blob/master/LICENSE (MIT License)
  */
-class TruncateMatch extends Transformer implements TransformerInterface
+class TruncateMatch extends TransformerCaseInsensitive implements TransformerInterface
 {
 
     private $stringToMatch;
 
     private $truncateBefore;
-
-    private $caseInsensitive;
 
     public function __construct($value, $stringToMatch, $truncateBefore = false)
     {
@@ -25,14 +23,6 @@ class TruncateMatch extends Transformer implements TransformerInterface
         
         $this->stringToMatch = $stringToMatch;
         $this->truncateBefore = $truncateBefore;
-        $this->caseInsensitive = false;
-    }
-
-    public function enableCaseInsensitive()
-    {
-        $this->caseInsensitive = true;
-        
-        return $this;
     }
 
     /**
@@ -40,7 +30,7 @@ class TruncateMatch extends Transformer implements TransformerInterface
      */
     public function execute()
     {
-        if ($this->caseInsensitive)
+        if ($this->isCaseInsensitive())
             $result = (new StringFirstOccurrence($this->getValue(), $this->stringToMatch, $this->truncateBefore))->enableCaseInsensitive()->execute();
         else
             $result = (new StringFirstOccurrence($this->getValue(), $this->stringToMatch, $this->truncateBefore))->execute();
