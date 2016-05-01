@@ -23,6 +23,7 @@ use Stringizer\Transformers\IndexOf;
 use Stringizer\Transformers\LastIndexOf;
 use Stringizer\Transformers\Split;
 use Stringizer\Transformers\Replace;
+use Stringizer\Transformers\Pad;
 
 /**
  * Stringizer
@@ -165,6 +166,24 @@ class Stringizer
             $this->value = (new Uppercase($this->value))->execute();
         }
         $this->value = (new LowercaseFirst($this->value))->execute();
+        return $this;
+    }
+
+    public function padBoth($padValue, $padAmount)
+    {
+        $this->value = (new Pad($this->value, $padValue, $padAmount, STR_PAD_BOTH))->execute();
+        return $this;
+    }
+
+    public function padLeft($padValue, $padAmount)
+    {
+        $this->value = (new Pad($this->value, $padValue, $padAmount, STR_PAD_LEFT))->execute();
+        return $this;
+    }
+
+    public function padRight($padValue, $padAmount)
+    {
+        $this->value = (new Pad($this->value, $padValue, $padAmount, STR_PAD_RIGHT))->execute();
         return $this;
     }
 
