@@ -24,6 +24,8 @@ use Stringizer\Transformers\LastIndexOf;
 use Stringizer\Transformers\Split;
 use Stringizer\Transformers\Replace;
 use Stringizer\Transformers\Pad;
+use Stringizer\Transformers\RemoveNonAscii;
+use Stringizer\Transformers\RemoveAccents;
 
 /**
  * Stringizer
@@ -196,6 +198,18 @@ class Stringizer
     public function replaceIncaseSensitive($needles, $replacements)
     {
         $this->value = (new Replace($this->value, $needles, $replacements))->enableCaseInsensitive()->execute();
+        return $this;
+    }
+
+    public function removeAccents()
+    {
+        $this->value = (new RemoveAccents($this->value))->execute();
+        return $this;
+    }
+
+    public function removeNonAscii()
+    {
+        $this->value = (new RemoveNonAscii($this->value))->execute();
         return $this;
     }
 

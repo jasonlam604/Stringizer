@@ -46,7 +46,7 @@ class ReplaceTest extends PHPUnit_Framework_TestCase
         // Replacement becase the case is not matching
         $s = new Stringizer("Fizz Buzz Fizz Buzz Fizz Buzz");
         $this->assertEquals("Fizz Buzz Fizz Buzz Fizz Buzz", $s->replace("buzz", "bar"));
-
+        
         $s = new Stringizer("Fizz Buzz Fizz Buzz Fizz Buzz");
         $this->assertEquals("Fizz bar Fizz bar Fizz bar", $s->replaceIncaseSensitive("buzz", "bar"));
     }

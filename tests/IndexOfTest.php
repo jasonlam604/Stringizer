@@ -11,10 +11,10 @@ class IndexOfTest extends PHPUnit_Framework_TestCase
     {
         $s = new Stringizer("文字列のそれ");
         $this->assertEquals(2, $s->indexOf("列"));
-
+        
         $s = new Stringizer("Fizz Buzz Foo Bar");
         $this->assertEquals(10, $s->indexOf("Foo"));
-
+        
         $s = new Stringizer("Fizz Buzz Foo Bar");
         $this->assertEquals(FALSE, $s->indexOf("bad"));
     }
@@ -22,8 +22,8 @@ class IndexOfTest extends PHPUnit_Framework_TestCase
     public function testValidIndexOfWithOffset()
     {
         $s = new Stringizer("Foo Buzz Foo Bar");
-        $this->assertEquals(0, $s->indexOf("Foo",0));
-        $this->assertEquals(9, $s->indexOf("Foo",1));
+        $this->assertEquals(0, $s->indexOf("Foo", 0));
+        $this->assertEquals(9, $s->indexOf("Foo", 1));
     }
 
     public function testValidIndexOfCaseInsenitive()
@@ -31,7 +31,7 @@ class IndexOfTest extends PHPUnit_Framework_TestCase
         // Case Sensitive
         $s = new Stringizer("Fizz Buzz Foo Bar");
         $this->assertEquals(FALSE, $s->indexOf("foo"));
-
+        
         // Case-InSensitive
         $s = new Stringizer("Fizz Buzz Foo Bar");
         $this->assertEquals(10, $s->indexOfCaseInsensitive("foo"));

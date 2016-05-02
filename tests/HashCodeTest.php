@@ -13,18 +13,17 @@ class HashCodeTest extends PHPUnit_Framework_TestCase
      *
      *
      * public class HelloWorld {
-     *    public static void main(String[] args) {
+     * public static void main(String[] args) {
      *
-     *      System.out.println( ("Hello, World").hashCode());
-     *    }
+     * System.out.println( ("Hello, World").hashCode());
      * }
-     *
+     * }
      */
     public function testValidStartsWith()
     {
         $s = new Stringizer("Hello, World");
         $this->assertEquals("-505841268", $s->hashCode());
-
+        
         $s = new Stringizer("Hello, World");
         $this->assertNotEquals("bad-match", $s->hashCode());
     }

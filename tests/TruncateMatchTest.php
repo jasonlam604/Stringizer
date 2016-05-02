@@ -12,7 +12,7 @@ class TruncateAtMatch extends PHPUnit_Framework_TestCase
         // Notice there are two symbols of ラ it truncates at first match
         $s = new Stringizer("文字列のそれ");
         $this->assertEquals("文字列", $s->truncateMatch("の"));
-
+        
         $s = new Stringizer("FizzBuzzFooBar");
         $this->assertEquals("FizzBuzz", $s->truncateMatch("Foo"));
     }
@@ -28,7 +28,7 @@ class TruncateAtMatch extends PHPUnit_Framework_TestCase
         // No Match
         $s = new Stringizer("FizzBuzzFooBar");
         $this->assertEquals(FALSE, $s->truncateMatch("Blank"));
-
+        
         // No Match - case sensitive
         $s = new Stringizer("FizzBuzzFooBar");
         $this->assertEquals(FALSE, $s->truncateMatch("foo"));

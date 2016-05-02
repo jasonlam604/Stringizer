@@ -11,10 +11,10 @@ class LastIndexOfTest extends PHPUnit_Framework_TestCase
     {
         $s = new Stringizer("文字列のそれ");
         $this->assertEquals(2, $s->lastIndexOf("列"));
-
+        
         $s = new Stringizer("Fizz Buzz Foo Bar");
         $this->assertEquals(10, $s->lastIndexOf("Foo"));
-
+        
         $s = new Stringizer("Fizz Buzz Foo Bar");
         $this->assertEquals(FALSE, $s->lastIndexOf("bad"));
     }
@@ -31,7 +31,7 @@ class LastIndexOfTest extends PHPUnit_Framework_TestCase
         // Case Sensitive
         $s = new Stringizer("Fizz Buzz Foo Bar");
         $this->assertEquals(FALSE, $s->lastIndexOf("foo"));
-
+        
         // Case-InSensitive
         $s = new Stringizer("Fizz Buzz Foo Bar");
         $this->assertEquals(10, $s->lastIndexOfCaseInsensitive("foo"));
