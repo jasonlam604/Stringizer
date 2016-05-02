@@ -7,9 +7,9 @@ namespace Stringizer\Transformers;
  * @link https://github.com/jasonlam604/Stringizer
  * @copyright Copyright (c) 2016 Jason Lam
  * @license https://github.com/jasonlam604/Stringizer/blob/master/LICENSE (MIT License)
- *         
+ *
  */
-class RemoveNonAscii extends TransformerCaseInsensitive implements TransformerInterface
+class RemoveNonAscii extends Transformer implements TransformerInterface
 {
 
     public function __construct($value)
