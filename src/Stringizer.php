@@ -27,6 +27,7 @@ use Stringizer\Transformers\Pad;
 use Stringizer\Transformers\RemoveNonAscii;
 use Stringizer\Transformers\RemoveAccents;
 use Stringizer\Transformers\Camelize;
+use Stringizer\Transformers\RemoveWhitespace;
 
 /**
  * Stringizer
@@ -69,8 +70,8 @@ class Stringizer
     /**
      * Constructor
      *
-     * @param string $stringValue
-     * @param string $stringEncoding
+     * @param string $stringValue            
+     * @param string $stringEncoding            
      *
      * @throws \InvalidArgumentException
      */
@@ -83,14 +84,14 @@ class Stringizer
         } elseif (is_object($stringValue) && ! method_exists($stringValue, "__toString")) {
             throw new \InvalidArgumentException("Given object does not have a __toString method");
         }
-
+        
         $this->value = (string) $stringValue;
-
+        
         $this->valueOriginal = $this->value;
-
+        
         if (empty($encoding))
             $encoding = \mb_internal_encoding();
-
+        
         $this->setEncoding($encoding);
     }
 
@@ -103,11 +104,11 @@ class Stringizer
     /**
      * Append 2 String values
      *
-     * @param string $value
+     * @param string $value            
      *
      * @param string $preAppend
      *            flag when true to prepend value
-     *
+     *            
      * @return \Stringizer\Stringizer
      */
     public function concat($value, $preAppend = false)
@@ -220,6 +221,12 @@ class Stringizer
         return $this;
     }
 
+    public function removeWhitespace()
+    {
+        $this->value = (new RemoveWhitespace($this->value))->execute();
+        return $this;
+    }
+
     public function reverse()
     {
         $this->value = (new Reverse($this->value))->execute();
@@ -263,7 +270,7 @@ class Stringizer
     /**
      * Truncate remove the number of indicated values at the end of the string
      *
-     * @param int $numberToTruncate
+     * @param int $numberToTruncate            
      *
      * @throws \InvalidArgumentException
      *
@@ -332,9 +339,9 @@ class Stringizer
     {
         if (! isset($encoding))
             throw new \Exception("Given encoding value not valid");
-
+        
         $this->encoding = $encoding;
-
+        
         mb_internal_encoding($this->encoding);
     }
 
