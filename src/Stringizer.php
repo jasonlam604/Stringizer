@@ -64,14 +64,16 @@ class Stringizer
      * Flag indicator represent throwing exceptions on tranformers that result in nothing
      * ie: TruncateMatch and the given string is not found by default applis no change
      * but an exception is required then the flag 'isTransformerException is to be enabled
+     *
+     * NOT Being used, comment for now
      */
-    private $isTransformerException;
+    //private $isTransformerException;
 
     /**
      * Constructor
      *
-     * @param string $stringValue            
-     * @param string $stringEncoding            
+     * @param string $stringValue
+     * @param string $stringEncoding
      *
      * @throws \InvalidArgumentException
      */
@@ -84,14 +86,14 @@ class Stringizer
         } elseif (is_object($stringValue) && ! method_exists($stringValue, "__toString")) {
             throw new \InvalidArgumentException("Given object does not have a __toString method");
         }
-        
+
         $this->value = (string) $stringValue;
-        
+
         $this->valueOriginal = $this->value;
-        
+
         if (empty($encoding))
             $encoding = \mb_internal_encoding();
-        
+
         $this->setEncoding($encoding);
     }
 
@@ -104,11 +106,11 @@ class Stringizer
     /**
      * Append 2 String values
      *
-     * @param string $value            
+     * @param string $value
      *
      * @param string $preAppend
      *            flag when true to prepend value
-     *            
+     *
      * @return \Stringizer\Stringizer
      */
     public function concat($value, $preAppend = false)
@@ -270,7 +272,7 @@ class Stringizer
     /**
      * Truncate remove the number of indicated values at the end of the string
      *
-     * @param int $numberToTruncate            
+     * @param int $numberToTruncate
      *
      * @throws \InvalidArgumentException
      *
@@ -330,18 +332,20 @@ class Stringizer
         return (new Width($this->value))->execute();
     }
 
+    /*
     public function enableTransformerExceptions()
     {
         $this->isTransformerException = true;
     }
+    */
 
     public function setEncoding($encoding)
     {
         if (! isset($encoding))
             throw new \Exception("Given encoding value not valid");
-        
+
         $this->encoding = $encoding;
-        
+
         mb_internal_encoding($this->encoding);
     }
 
