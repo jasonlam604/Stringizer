@@ -22,7 +22,6 @@ class StringFirstOccurrence extends TransformerCaseInsensitive implements Transf
         parent::__construct($value);
         $this->needle = $needle;
         $this->beforeNeedle = $beforeNeedle;
-        $this->caseInsensitive = false;
     }
 
     /**
