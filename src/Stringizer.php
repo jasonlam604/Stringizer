@@ -28,6 +28,7 @@ use Stringizer\Transformers\RemoveNonAscii;
 use Stringizer\Transformers\RemoveAccents;
 use Stringizer\Transformers\Camelize;
 use Stringizer\Transformers\RemoveWhitespace;
+use Stringizer\Transformers\Contains;
 
 /**
  * Stringizer
@@ -67,13 +68,13 @@ class Stringizer
      *
      * NOT Being used, comment for now
      */
-    //private $isTransformerException;
-
+    // private $isTransformerException;
+    
     /**
      * Constructor
      *
-     * @param string $stringValue
-     * @param string $stringEncoding
+     * @param string $stringValue            
+     * @param string $stringEncoding            
      *
      * @throws \InvalidArgumentException
      */
@@ -86,14 +87,14 @@ class Stringizer
         } elseif (is_object($stringValue) && ! method_exists($stringValue, "__toString")) {
             throw new \InvalidArgumentException("Given object does not have a __toString method");
         }
-
+        
         $this->value = (string) $stringValue;
-
+        
         $this->valueOriginal = $this->value;
-
+        
         if (empty($encoding))
             $encoding = \mb_internal_encoding();
-
+        
         $this->setEncoding($encoding);
     }
 
@@ -106,11 +107,11 @@ class Stringizer
     /**
      * Append 2 String values
      *
-     * @param string $value
+     * @param string $value            
      *
      * @param string $preAppend
      *            flag when true to prepend value
-     *
+     *            
      * @return \Stringizer\Stringizer
      */
     public function concat($value, $preAppend = false)
@@ -119,6 +120,16 @@ class Stringizer
         $transformer->setPreAppend($preAppend);
         $this->value = $transformer->execute();
         return $this;
+    }
+
+    public function contains($needle)
+    {
+        return (new Contains($this->value, $needle))->execute();
+    }
+
+    public function containsIncaseSensitive($needle)
+    {
+        return (new Contains($this->value, $needle))->enableCaseInsensitive()->execute();
     }
 
     public function endsWith($needle)
@@ -272,7 +283,7 @@ class Stringizer
     /**
      * Truncate remove the number of indicated values at the end of the string
      *
-     * @param int $numberToTruncate
+     * @param int $numberToTruncate            
      *
      * @throws \InvalidArgumentException
      *
@@ -333,19 +344,18 @@ class Stringizer
     }
 
     /*
-    public function enableTransformerExceptions()
-    {
-        $this->isTransformerException = true;
-    }
-    */
-
+     * public function enableTransformerExceptions()
+     * {
+     * $this->isTransformerException = true;
+     * }
+     */
     public function setEncoding($encoding)
     {
         if (! isset($encoding))
             throw new \Exception("Given encoding value not valid");
-
+        
         $this->encoding = $encoding;
-
+        
         mb_internal_encoding($this->encoding);
     }
 
