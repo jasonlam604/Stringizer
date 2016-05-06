@@ -20,6 +20,5 @@ class TransformerTest extends PHPUnit_Framework_TestCase
     public function testTransformerNullException()
     {
         $t = new Transformer(null);
-
     }
 }

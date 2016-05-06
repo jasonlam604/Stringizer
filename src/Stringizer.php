@@ -29,6 +29,7 @@ use Stringizer\Transformers\RemoveAccents;
 use Stringizer\Transformers\Camelize;
 use Stringizer\Transformers\RemoveWhitespace;
 use Stringizer\Transformers\Contains;
+use Stringizer\Transformers\SubStringCount;
 
 /**
  * Stringizer
@@ -130,6 +131,16 @@ class Stringizer
     public function containsIncaseSensitive($needle)
     {
         return (new Contains($this->value, $needle))->enableCaseInsensitive()->execute();
+    }
+
+    public function containsCount($needle)
+    {
+        return (new SubStringCount($this->value, $needle))->execute();
+    }
+
+    public function containsCountIncaseSensitive($needle)
+    {
+        return (new SubString($this->value, $needle))->enableCaseInsensitive()->execute();
     }
 
     public function endsWith($needle)
