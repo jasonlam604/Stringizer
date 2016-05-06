@@ -1,3 +1,5 @@
+sudo: false
+
 language: php
 
 php:
@@ -5,12 +7,14 @@ php:
   - 7
   - hhvm
 
-before_install:
-- composer require phpunit/phpunit:4.8.* satooshi/php-coveralls:dev-master
-- composer install --dev
- 
+before_script:
+  - if [[ "$TRAVIS_PHP_VERSION" == '5.6' ]]; then composer require satooshi/php-coveralls:dev-master squizlabs/php_codesniffer:2.* -n ; fi
+  - if [[ "$TRAVIS_PHP_VERSION" != '5.6' ]]; then composer install -n ; fi
+
 script:
-- ./vendor/bin/phpunit --coverage-clover ./tests/logs/clover.xml
- 
+  - if [[ "$TRAVIS_PHP_VERSION" == '5.6' ]]; then mkdir -p build/logs && phpunit --coverage-clover build/logs/clover.xml ; fi
+  - if [[ "$TRAVIS_PHP_VERSION" != '5.6' ]]; then phpunit ; fi
+  - if [[ "$TRAVIS_PHP_VERSION" == '5.6' ]]; then vendor/bin/phpcs ; fi
+
 after_script:
-- php vendor/bin/coveralls -v
+  - if [[ "$TRAVIS_PHP_VERSION" == '5.6' ]]; then php vendor/bin/coveralls -v ; fi
