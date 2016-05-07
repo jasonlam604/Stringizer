@@ -1,7 +1,6 @@
 <?php
 namespace Stringizer\Transformers;
 
-use Stringizer\Stringizer;
 
 /**
  * Dasherize, break up camelize string and seperate with dashes,
@@ -25,7 +24,7 @@ class Dasherize extends Transformer implements TransformerInterface
     public function execute()
     {
         preg_match_all('((?:^|[A-Z])[^A-Z]*)', $this->getValue(), $matches);
-        
+
         return mb_strtolower(implode("-", $matches[0]));
     }
 }
