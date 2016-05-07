@@ -13,16 +13,20 @@
     stopOnFailure="false"
 	bootstrap="vendor/autoload.php">
 	
-  <testsuites>
-    <testsuite name="Stringizer Tests">
-       <directory>./tests/</directory>
-    </testsuite>
-  </testsuites>
+    <testsuites>
+        <testsuite name="Stringizer Tests">
+           <directory>./tests/</directory>
+        </testsuite>
+    </testsuites>
   
-  <filter>
-    <whitelist processUncoveredFilesFromWhitelist="true">
-       <directory>./src/</directory>
-    </whitelist>
-  </filter>
+    <filter>
+       <whitelist processUncoveredFilesFromWhitelist="true">
+         <directory>./src/</directory>
+       </whitelist>
+    </filter>
+  
+    <logging>
+      <log type="coverage-clover" target="build/logs/clover.xml"/>
+    </logging>
   
 </phpunit>
