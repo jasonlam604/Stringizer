@@ -30,6 +30,7 @@ use Stringizer\Transformers\Camelize;
 use Stringizer\Transformers\RemoveWhitespace;
 use Stringizer\Transformers\Contains;
 use Stringizer\Transformers\SubStringCount;
+use Stringizer\Transformers\Dasherize;
 
 /**
  * Stringizer
@@ -141,6 +142,11 @@ class Stringizer
     public function containsCountIncaseSensitive($needle)
     {
         return (new SubString($this->value, $needle))->enableCaseInsensitive()->execute();
+    }
+
+    public function dasherize()
+    {
+        return (new Dasherize($this->value))->execute();
     }
 
     public function endsWith($needle)
