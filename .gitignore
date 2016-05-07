@@ -1,6 +1,5 @@
 /vendor
 composer.lock
 .settings
-.DS_Store
 .project
 .buildpath
