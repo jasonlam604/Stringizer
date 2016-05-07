@@ -1,8 +1,6 @@
 <?php
 namespace Stringizer\Transformers;
 
-use Stringizer\Stringizer;
-
 /**
  * RemoveWhitespace, remove any whitespace from the string (before, after and any in between)
  *
@@ -20,6 +18,6 @@ class RemoveWhitespace extends Transformer implements TransformerInterface
 
     public function execute()
     {
-        return $string = preg_replace('/\s+/', '', $this->getValue());
+        return preg_replace('/\s+/', '', $this->getValue());
     }
 }

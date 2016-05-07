@@ -20,15 +20,15 @@ class Pad extends Transformer implements TransformerInterface
     public function __construct($value, $padValue, $padAmount, $padType)
     {
         parent::__construct($value);
-        
+
         if ($padType != STR_PAD_RIGHT && $padType != STR_PAD_LEFT && $padType != STR_PAD_BOTH) {
             throw new \InvalidArgumentException("Invalid pad side option");
         }
-        
+
         $this->padValue = $padValue;
-        
+
         $this->padType = $padType;
-        
+
         $this->padAmount = $padAmount;
     }
 
@@ -37,13 +37,13 @@ class Pad extends Transformer implements TransformerInterface
      */
     public function execute()
     {
-        return $this->mb_str_pad($this->getValue(), $this->padAmount, $this->padValue, $this->padType);
+        return $this->mbStrPad($this->getValue(), $this->padAmount, $this->padValue, $this->padType);
     }
 
     /**
      * Code from http://php.net/manual/en/function.str-pad.php
      */
-    private function mb_str_pad($str, $pad_len, $pad_str = ' ', $dir = STR_PAD_RIGHT, $encoding = NULL)
+    private function mbStrPad($str, $pad_len, $pad_str = ' ', $dir = STR_PAD_RIGHT, $encoding = NULL)
     {
         $encoding = $encoding === NULL ? mb_internal_encoding() : $encoding;
         $padBefore = $dir === STR_PAD_BOTH || $dir === STR_PAD_LEFT;
