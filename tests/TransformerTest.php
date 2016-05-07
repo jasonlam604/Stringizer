@@ -1,5 +1,4 @@
 <?php
-use Stringizer\Stringizer;
 use Stringizer\Transformers\Transformer;
 
 /**

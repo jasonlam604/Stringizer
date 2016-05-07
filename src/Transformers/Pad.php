@@ -20,15 +20,15 @@ class Pad extends Transformer implements TransformerInterface
     public function __construct($value, $padValue, $padAmount, $padType)
     {
         parent::__construct($value);
-
+        
         if ($padType != STR_PAD_RIGHT && $padType != STR_PAD_LEFT && $padType != STR_PAD_BOTH) {
             throw new \InvalidArgumentException("Invalid pad side option");
         }
-
+        
         $this->padValue = $padValue;
-
+        
         $this->padType = $padType;
-
+        
         $this->padAmount = $padAmount;
     }
 

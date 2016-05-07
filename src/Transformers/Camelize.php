@@ -21,7 +21,17 @@ class Camelize extends Transformer implements TransformerInterface
     public function execute()
     {
         $s = new Stringizer($this->getValue());
-        $s->replace(array("_","-"),array(" "," "))->lowercase()->uppercaseWords()->replace(" ","")->lowercaseFirst(true);
+        $s->replace(array(
+            "_",
+            "-"
+        ), array(
+            " ",
+            " "
+        ))
+            ->lowercase()
+            ->uppercaseWords()
+            ->replace(" ", "")
+            ->lowercaseFirst(true);
         return $s->getString();
     }
 }

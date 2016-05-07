@@ -13,14 +13,14 @@ class RemoveWhitespaceTest extends PHPUnit_Framework_TestCase
     {
         $s = new Stringizer("Fizz Buzz Fizz Buzz Fizz Buzz");
         $this->assertEquals("FizzBuzzFizzBuzzFizzBuzz", $s->removeWhitespace());
-
+        
         $s = new Stringizer(" Ș Ŧ ŗ Í ñ ĝ ì z ĕ ŕ ");
         $this->assertEquals("ȘŦŗÍñĝìzĕŕ", $s->removeWhitespace());
-
+        
         // For some reason HHVM fails on this, commenting for now, need to revisit
         /*
-        $s = new Stringizer(" Hello  \t \n \r \x0B   World ");
-        $this->assertEquals("HelloWorld", $s->removeWhitespace());
-        */
+         * $s = new Stringizer(" Hello \t \n \r \x0B World ");
+         * $this->assertEquals("HelloWorld", $s->removeWhitespace());
+         */
     }
 }
