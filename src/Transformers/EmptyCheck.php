@@ -1,6 +1,8 @@
 <?php
 namespace Stringizer\Transformers;
 
+use Stringizer\Stringizer;
+
 /**
  * Empty, checks if value is empty this includes the what is defined by the PHP empty function, see
  * http://php.net/manual/en/function.empty.php prior and includes a value that contains whitespace
@@ -20,6 +22,9 @@ class EmptyCheck extends Transformer implements TransformerInterface
 
     public function execute()
     {
-        return empty(trim($this->getValue()));
+        $s = new Stringizer($this->getValue());
+        $s->removeWhitespace();
+
+        return empty(trim($s->getString()));
     }
 }
