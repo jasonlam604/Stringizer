@@ -395,6 +395,11 @@ class Stringizer
         return $this->valueOriginal;
     }
 
+    public function setString($value)
+    {
+        $this->value = $value;
+    }
+
     public function getString()
     {
         return $this->__toString();

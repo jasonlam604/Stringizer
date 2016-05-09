@@ -42,4 +42,14 @@ class StringizerTest extends PHPUnit_Framework_TestCase
     {
         new Stringizer((object) array());
     }
+
+    public function testSetter()
+    {
+        $s = new Stringizer("fizz");
+        $this->assertEquals("fizz", $s);
+
+        $s->setString("buzz");
+        $this->assertEquals("buzz", $s);
+
+    }
 }
