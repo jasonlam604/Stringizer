@@ -32,6 +32,8 @@ use Stringizer\Transformers\Contains;
 use Stringizer\Transformers\SubStringCount;
 use Stringizer\Transformers\Dasherize;
 use Stringizer\Transformers\StripTags;
+use Stringizer\Transformers\EnsureLeft;
+use Stringizer\Transformers\EnsureRight;
 
 /**
  * Stringizer
@@ -63,15 +65,6 @@ class Stringizer
      * @var string
      */
     private $encoding;
-
-    /**
-     * Flag indicator represent throwing exceptions on tranformers that result in nothing
-     * ie: TruncateMatch and the given string is not found by default applis no change
-     * but an exception is required then the flag 'isTransformerException is to be enabled
-     *
-     * NOT Being used, comment for now
-     */
-    // private $isTransformerException;
 
     /**
      * Constructor
@@ -153,6 +146,16 @@ class Stringizer
     public function endsWith($needle)
     {
         return (new EndsWith($this->value, $needle))->execute();
+    }
+
+    public function ensureLeft($prefix)
+    {
+        return (new EnsureLeft($this->value, $prefix))->execute();
+    }
+
+    public function ensureRight($suffix)
+    {
+        return (new EnsureRight($this->value, $suffix))->execute();
     }
 
     public function hashCode()
@@ -269,7 +272,7 @@ class Stringizer
         return (new StartsWith($this->value, $needle))->execute();
     }
 
-    public function stripTags($allowableTags='')
+    public function stripTags($allowableTags = '')
     {
         return (new StripTags($this->value, $allowableTags))->execute();
     }
@@ -366,12 +369,6 @@ class Stringizer
         return (new Width($this->value))->execute();
     }
 
-    /*
-     * public function enableTransformerExceptions()
-     * {
-     * $this->isTransformerException = true;
-     * }
-     */
     public function setEncoding($encoding)
     {
         if (! isset($encoding))
