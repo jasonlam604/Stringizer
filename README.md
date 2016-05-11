@@ -5,4 +5,67 @@ Stringizer is a standalone String Utility Library
 
 ## Status
 
-Under Development and Unstable.
+Release 1.0.0
+
+## Installation
+
+It's recommended that you use [Composer](https://getcomposer.org/) to install Stringizer.
+
+```bash
+$ composer require jasonlam604/stringizer "^1.0.0"
+```
+
+This will install Stringizer and all required dependencies. Stringizer requires PHP 5.6.0 or newer.
+
+## Usage
+
+Sample usage:
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$s = new Stringizer("こんにちは世界");
+
+$s->ensureRight(" さようなら");
+
+// The following outputs: こんにちは世界 さようなら
+
+echo $s->getString(); 
+
+```
+
+Full documentation in progress... coming soon
+
+## Tests
+
+To execute the test suite, you'll need phpunit.
+
+```bash
+$ phpunit
+```
+
+## Contributing
+
+Accepting Pull-Requests!
+
+## Learn More
+
+Learn more at these links:
+
+- Web site in progress
+- Documentation in progress
+
+## Credits
+
+- [Jason Lam](https://github.com/jasonlam604)
+
+
+## License
+
+The Stringizer is licensed under the MIT license. See [License File](LICENSE.md) for more information.
+
+
+
+
