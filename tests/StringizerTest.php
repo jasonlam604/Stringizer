@@ -30,9 +30,19 @@ class StringizerTest extends PHPUnit_Framework_TestCase
     /**
      * @expectedException InvalidArgumentException
      */
-    public function testInvalidArguementArray()
+    public function testInvalidArguementArrayEmpty()
     {
         new Stringizer(array());
+    }
+
+    /**
+     * @expectedException InvalidArgumentException
+     */
+    public function testInvalidArguementArray()
+    {
+        new Stringizer(array(
+            "string"
+        ));
     }
 
     /**
@@ -50,6 +60,5 @@ class StringizerTest extends PHPUnit_Framework_TestCase
 
         $s->setString("buzz");
         $this->assertEquals("buzz", $s);
-
     }
 }
