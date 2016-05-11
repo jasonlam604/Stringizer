@@ -137,7 +137,7 @@ class Stringizer
 
     public function containsCountIncaseSensitive($needle)
     {
-        return (new SubString($this->value, $needle))->enableCaseInsensitive()->execute();
+        return (new SubStringCount($this->value, $needle))->enableCaseInsensitive()->execute();
     }
 
     public function dasherize()
