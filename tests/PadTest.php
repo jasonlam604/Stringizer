@@ -1,5 +1,6 @@
 <?php
 use Stringizer\Stringizer;
+use Stringizer\Transformers\Pad;
 
 /**
  * Pad Unit Tests
@@ -59,7 +60,7 @@ class PadTest extends PHPUnit_Framework_TestCase
     {
         $s = new Stringizer("10");
         $this->assertEquals("00010", $s->padLeft("0", 5));
-        
+
         $s = new Stringizer("10.00");
         $this->assertEquals("10.000", $s->padLeft("0", 6));
     }
@@ -68,17 +69,28 @@ class PadTest extends PHPUnit_Framework_TestCase
     {
         $s = new Stringizer("Alien");
         $this->assertEquals("Alien     ", $s->padRight(" ", 10));
-        
+
         $s = new Stringizer("Alien");
         $this->assertEquals("-=-=-Alien", $s->padLeft("-=", 10));
-        
+
         $s = new Stringizer("Alien");
         $this->assertEquals("__Alien___", $s->padBoth("_", 10));
-        
+
         $s = new Stringizer("Alien");
         $this->assertEquals("Alien_", $s->padRight("___", 6));
-        
+
         $s = new Stringizer("Alien");
         $this->assertEquals("Alien", $s->padRight("*", 3));
+    }
+
+    /**
+     * Stringizer doesn't ever send in the wrong pad but unit test completion
+     * test the class directly
+     *
+     * @expectedException InvalidArgumentException
+     */
+    public function testPadBadPadType()
+    {
+        $pad = new Pad("theString","padValue", 10, -1);
     }
 }

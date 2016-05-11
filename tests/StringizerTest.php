@@ -61,4 +61,15 @@ class StringizerTest extends PHPUnit_Framework_TestCase
         $s->setString("buzz");
         $this->assertEquals("buzz", $s);
     }
+
+    public function testEncoding()
+    {
+        $s = new Stringizer("Fizz Buzz");
+
+        $s->setEncoding("iso-8859-1");
+        $this->assertEquals("iso-8859-1", $s->getEncoding());
+
+        $s->setEncoding("UTF-8");
+        $this->assertEquals("UTF-8", $s->getEncoding());
+    }
 }

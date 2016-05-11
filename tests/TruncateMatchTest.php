@@ -23,6 +23,12 @@ class TruncateAtMatch extends PHPUnit_Framework_TestCase
         $this->assertEquals("FizzBuzz", $s->truncateMatchCaseInsensitive("foo"));
     }
 
+    public function testTruncateMatchCaseInsensitiveNoMatch()
+    {
+        $s = new Stringizer("FizzBuzzFooBar");
+        $this->assertEquals(false, $s->truncateMatchCaseInsensitive("foooooo"));
+    }
+
     public function testNoTransforamtionDueToNoMatch()
     {
         // No Match
