@@ -7,6 +7,52 @@ Stringizer is a standalone String Utility Library
 
 Release 1.0.0
 
+Currently contains the following string helpers:
+
+* Camelize
+* Concat
+* Contains
+* Contains Incase-sensitive
+* Contains Count
+* Contains Count Incase-sensitive
+* Dasherize
+* EndsWith
+* StartsWith
+* EnsureLeft
+* EnsureRight
+* HashCode
+* IndexOf
+* IndexOf Incase-sensitive
+* Empty
+* LastIndexOf
+* LastIndex Incase-sensitive
+* Length
+* Lowercase
+* Lowercase First
+* Pad Both
+* Pad Left
+* Pad Right
+* Remove Accents
+* Remove Non Ascii
+* Remove Whitespace
+* Replace
+* Replace Incase-sensitive
+* Reverse
+* Split
+* Strip Punctuation
+* Strip Tags
+* Sub String
+* Trim
+* Trim Left
+* Trim Right
+* Truncate
+* Truncate Match
+* Truncate Match Incase-sensitive
+* Uppercase
+* Uppercase Words
+* Width
+
+
 ## Installation
 
 It's recommended that you use [Composer](https://getcomposer.org/) to install Stringizer.
