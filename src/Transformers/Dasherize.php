@@ -2,7 +2,7 @@
 namespace Stringizer\Transformers;
 
 /**
- * Dasherize, break up camelize string and seperate with dashes,
+ * Dasherize - Break up a camelize string and seperate with dashes.
  *
  * ie: HelloWorldAgain ===> hello-world-again
  *
@@ -23,7 +23,7 @@ class Dasherize extends Transformer implements TransformerInterface
     public function execute()
     {
         preg_match_all('((?:^|[A-Z])[^A-Z]*)', $this->getValue(), $matches);
-        
+
         return mb_strtolower(implode("-", $matches[0]));
     }
 }

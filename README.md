@@ -13,11 +13,10 @@ Stringizer is a standalone String Utility Library
 * [Documentation and User Guide](#functions)
       * [Camelize](#camelize)
       * [Concat](#concat)
-      * [Contains](#contains)
-      * [Contains Count](#containsCount)
-      * Contains Count Incase-sensitive
-      * Dasherize
-      * EndsWith
+      * [Contains & Contains Case-Insensitive](#contains)
+      * [Contains Count & Count Case-Insenstive](#containscount)
+      * [Dasherize](#dasherize)
+      * [EndsWith](#endswith)
       * StartsWith
       * EnsureLeft
       * EnsureRight
@@ -123,7 +122,7 @@ The Stringizer is licensed under the MIT license. See [License File](LICENSE.md)
 
 ## Functions
 
-##### camelize()
+##### camelize
 
 Removes any underscores or dashes and converts a string into camel case.
 
@@ -195,4 +194,33 @@ $s->containsCountIncaseSensitive("BUZZ"); // 1, case in-sensitive 1 match found
 $s = new Stringizer("文字列のそれ 文字列のそれ 文字列のそれ 文字列のそれ");
 $this->assertEquals(4, $s->containsCount("れ")); // 4
 ```
+
+##### dasherize
+
+Break up a camelize string and seperate with dashes
+
+```php
+$s = new Stringizer("dataRate");
+$s->dasherize(); // data-rate
+```
+
+##### endsWith
+
+Checks if a string ends with the given suffix.
+
+```php  
+$s = new Stringizer("Fizz Buzz");
+$s->endsWith("zz"); // true
+```
+
+```php
+$s = new Stringizer("文字列のそれ");
+$s->endsWith("れ"); // true
+```  
+ 
+```php     
+$s = new Stringizer("文字列のそれ");
+$s->endsWith("れれれれ"); // false
+```     
+ 
 
