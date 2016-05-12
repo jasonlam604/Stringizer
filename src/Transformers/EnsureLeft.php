@@ -4,7 +4,7 @@ namespace Stringizer\Transformers;
 use Stringizer\Stringizer;
 
 /**
- * EnsureLeft, ensure string starts with prefix
+ * EnsureLeft - Ensure string starts with prefix
  *
  * @link https://github.com/jasonlam604/Stringizer
  * @copyright Copyright (c) 2016 Jason Lam

@@ -2,7 +2,7 @@
 namespace Stringizer\Transformers;
 
 /**
- * StartsWith search for the given string is at the beginning
+ * StartsWith - Checks if a string starts with the specified suffix.
  *
  * @link https://github.com/jasonlam604/Stringizer
  * @copyright Copyright (c) 2016 Jason Lam
@@ -16,7 +16,7 @@ class StartsWith extends Transformer implements TransformerInterface
     public function __construct($value, $needle)
     {
         parent::__construct($value);
-        
+
         $this->needle = $needle;
     }
 

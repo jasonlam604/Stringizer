@@ -17,9 +17,9 @@ Stringizer is a standalone String Utility Library
       * [Contains Count & Count Case-Insenstive](#containscount)
       * [Dasherize](#dasherize)
       * [EndsWith](#endswith)
-      * StartsWith
-      * EnsureLeft
-      * EnsureRight
+      * [StartsWith](#startswith)
+      * [EnsureLeft](#ensureleft)
+      * [EnsureRight](#ensureright)
       * HashCode
       * IndexOf
       * IndexOf Incase-sensitive
@@ -222,5 +222,41 @@ $s->endsWith("れ"); // true
 $s = new Stringizer("文字列のそれ");
 $s->endsWith("れれれれ"); // false
 ```     
- 
+
+##### startsWith
+
+Checks if a string starts with the specified suffix.
+
+```php        
+$s = new Stringizer("Fizz Buzz");
+$s->startsWith("Fizz B"); // true
+```
+
+```php
+$s = new Stringizer("文字列のそれ");
+$s->startsWith("文"); // true
+```
+
+```php        
+$s = new Stringizer("文字列のそれ");
+$s->startsWith("文文文文"); // false
+```
+
+##### ensureLeft
+
+Ensure string starts with prefix
+
+```php  
+$s = new Stringizer("/myapp");
+$s->ensureLeft("/"); //  /myapp
+```
+
+##### ensureRight
+
+Ensure string ends with suffix
+
+```php  
+$s = new Stringizer("/myapp");
+$s->ensureRight("/"); //  /myapp/
+```
 

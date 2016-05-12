@@ -4,7 +4,7 @@ namespace Stringizer\Transformers;
 use Stringizer\Stringizer;
 
 /**
- * EnsureRight, ensure string starts with suffix
+ * EnsureRight - Ensure string ends with suffix
  *
  * @link https://github.com/jasonlam604/Stringizer
  * @copyright Copyright (c) 2016 Jason Lam
