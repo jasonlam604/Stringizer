@@ -10,12 +10,11 @@ Stringizer is a standalone String Utility Library
 * [Contributing](#contributing)
 * [Credits](#credits)
 * [License](#license)
-* [Available functions](#functions)
+* [Documentation and User Guide](#functions)
       * [Camelize](#camelize)
       * [Concat](#concat)
-      * Contains
-      * Contains Incase-sensitive
-      * Contains Count
+      * [Contains](#contains)
+      * [Contains Count](#containsCount)
       * Contains Count Incase-sensitive
       * Dasherize
       * EndsWith
@@ -133,7 +132,7 @@ $s = new Stringizer("data_rate");
 $s->camelize(); // dataRate
 ```
 
-##### concat()
+##### concat
 
 Combine string values.
 
@@ -149,5 +148,51 @@ Combine at the beginning of the string by passing in the boolean value **true** 
 $s = new Stringizer(" buzz");
 $s->concat("fizz",true) // fizz buzz
 ```
+##### contains
 
+Search for string within another string, return true if found else return false
+
+```php
+$s = new Stringizer("fizz buzz foo bar");
+$s->contains("buzz"); // true
+```
+
+```php
+$s = new Stringizer("fizz buzz foo bar");
+$s->contains("Buzz"); // false, case sensitive
+```
+
+```php
+$s = new Stringizer("fizz buzz foo bar");
+$s->containsIncaseSensitive("Buzz"); // true, case insensitive
+```
+
+##### containsCount
+
+Count the number of string occurrences
+
+```php
+$s = new Stringizer("fizz buzz fizz buzz fizz buzz");
+$s->containsCount("buzz"); // 3
+```
+
+```php
+$s = new Stringizer("fizz buzz fizz buzz fizz buzz");
+$s->containsCount("nomatch"); // 0
+```
+
+```php
+$s = new Stringizer("fizz buzz foo bar");
+$this->assertEquals(0, $s->containsCount("BUZZ")); // 0, case sensitive no match found
+```
+
+```php
+$s = new Stringizer("fizz buzz foo bar");
+$s->containsCountIncaseSensitive("BUZZ"); // 1, case in-sensitive 1 match found
+```
+
+```php
+$s = new Stringizer("文字列のそれ 文字列のそれ 文字列のそれ 文字列のそれ");
+$this->assertEquals(4, $s->containsCount("れ")); // 4
+```
 

@@ -2,7 +2,7 @@
 namespace Stringizer\Transformers;
 
 /**
- * SubString Count, Count the number of substring occurrences
+ * SubStringCount - Count the number of string occurrences
  *
  * @link https://github.com/jasonlam604/Stringizer
  * @copyright Copyright (c) 2016 Jason Lam

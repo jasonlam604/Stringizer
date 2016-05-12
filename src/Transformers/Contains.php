@@ -4,7 +4,7 @@ namespace Stringizer\Transformers;
 use Stringizer\Transformers\StringFindPosition;
 
 /**
- * See if string contains the given needle string
+ * Contains - Search for string within another string, return true if found else return false
  *
  * @link https://github.com/jasonlam604/Stringizer
  * @copyright Copyright (c) 2016 Jason Lam
@@ -24,14 +24,14 @@ class Contains extends TransformerCaseInsensitive implements TransformerInterfac
     public function execute()
     {
         if ($this->isCaseInsensitive()) {
-            
+
             if ((new StringFindPosition($this->getValue(), $this->needle))->enableCaseInsensitive()->execute()) {
                 return true;
             } else {
                 return false;
             }
         } else {
-            
+
             if ((new StringFindPosition($this->getValue(), $this->needle))->execute()) {
                 return true;
             } else {
