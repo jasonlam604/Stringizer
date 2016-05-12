@@ -12,6 +12,47 @@ Stringizer is a standalone String Utility Library
 * [License](#license)
 * [Available functions](#functions)
       * [Camelize](#camelize)
+      * Concat
+      * Contains
+      * Contains Incase-sensitive
+      * Contains Count
+      * Contains Count Incase-sensitive
+      * Dasherize
+      * EndsWith
+      * StartsWith
+      * EnsureLeft
+      * EnsureRight
+      * HashCode
+      * IndexOf
+      * IndexOf Incase-sensitive
+      * Empty
+      * LastIndexOf
+      * LastIndex Incase-sensitive
+      * Length
+      * Lowercase
+      * Lowercase First
+      * Pad Both
+      * Pad Left
+      * Pad Right
+      * Remove Accents
+      * Remove Non Ascii
+      * Remove Whitespace
+      * Replace
+      * Replace Incase-sensitive
+      * Reverse
+      * Split
+      * Strip Punctuation
+      * Strip Tags
+      * Sub String
+      * Trim
+      * Trim Left
+      * Trim Right
+      * Truncate
+      * Truncate Match
+      * Truncate Match Incase-sensitive
+      * Uppercase
+      * Uppercase Words
+      * Width
 
 ## Overview
 
