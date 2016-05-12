@@ -2,7 +2,7 @@
 namespace Stringizer\Transformers;
 
 /**
- * String concatentor
+ * Concat - Combine string values
  *
  * @link https://github.com/jasonlam604/Stringizer
  * @copyright Copyright (c) 2016 Jason Lam
@@ -35,7 +35,7 @@ class Concat extends Transformer implements TransformerInterface
     /**
      * Set flag indicator to pre-append value when true
      *
-     * @param boolean $isPreAppend            
+     * @param boolean $isPreAppend
      */
     public function setPreAppend($isPreAppend)
     {
@@ -53,7 +53,7 @@ class Concat extends Transformer implements TransformerInterface
             else
                 throw new \InvalidArgumentException("Missing value to concat with");
         }
-        
+
         if ($this->isPreAppend)
             return $this->appendValue . $this->getValue();
         else

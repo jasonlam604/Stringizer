@@ -4,7 +4,7 @@ namespace Stringizer\Transformers;
 use Stringizer\Stringizer;
 
 /**
- * Camelize, remove any underscores or dashes and convert a string into camel casing.
+ * Camelize - Removes any underscores or dashes and converts a string into camel case.
  *
  * @link https://github.com/jasonlam604/Stringizer
  * @copyright Copyright (c) 2016 Jason Lam

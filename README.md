@@ -12,7 +12,7 @@ Stringizer is a standalone String Utility Library
 * [License](#license)
 * [Available functions](#functions)
       * [Camelize](#camelize)
-      * Concat
+      * [Concat](#concat)
       * Contains
       * Contains Incase-sensitive
       * Contains Count
@@ -128,6 +128,26 @@ The Stringizer is licensed under the MIT license. See [License File](LICENSE.md)
 
 Removes any underscores or dashes and converts a string into camel case.
 
+```php
 $s = new Stringizer("data_rate");
 $s->camelize(); // dataRate
+```
+
+##### concat()
+
+Combine string values.
+
+Combine at end of the string.
+
+```php
+$s = new Stringizer("fizz");
+$s->concat(" buzz") // fizz buzz
+```
+
+Combine at the beginning of the string by passing in the boolean value **true** in the *optional* second parameter.
+```php
+$s = new Stringizer(" buzz");
+$s->concat("fizz",true) // fizz buzz
+```
+
 
