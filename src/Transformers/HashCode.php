@@ -2,7 +2,7 @@
 namespace Stringizer\Transformers;
 
 /**
- * Hashcode, determine the hashcode of a string, algo matches the hashCode method available in a Java String class
+ * Hashcode - Determine the hashcode of a string, algorithm matches the hashCode method available in a Java String class
  *
  * Credit goes to this post http://stackoverflow.com/questions/8804875/php-internal-hashcode-function
  *
@@ -30,18 +30,18 @@ class HashCode extends Transformer implements TransformerInterface
     {
         $h = 0;
         $len = strlen($s);
-        
+
         for ($i = 0; $i < $len; $i ++) {
             $h = $this->overflow32(31 * $h + ord($s[$i]));
         }
-        
+
         return $h;
     }
 
     private function overflow32($v)
     {
         $v = $v % 4294967296;
-        
+
         if ($v > 2147483647)
             return $v - 4294967296;
         elseif ($v < - 2147483648)

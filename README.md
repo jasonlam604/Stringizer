@@ -20,10 +20,9 @@ Stringizer is a standalone String Utility Library
       * [StartsWith](#startswith)
       * [EnsureLeft](#ensureleft)
       * [EnsureRight](#ensureright)
-      * HashCode
-      * IndexOf
-      * IndexOf Incase-sensitive
-      * Empty
+      * [HashCode](#hashcode)
+      * [IndexOf & IndexOf Case-Insensitive](#indexof)
+      * [IsEmpty](#isempty)
       * LastIndexOf
       * LastIndex Incase-sensitive
       * Length
@@ -114,6 +113,7 @@ Accepting Pull-Requests!
 ## Credits
 
 - [Jason Lam](https://github.com/jasonlam604)
+
 
 ## License
 
@@ -258,5 +258,60 @@ Ensure string ends with suffix
 ```php  
 $s = new Stringizer("/myapp");
 $s->ensureRight("/"); //  /myapp/
+```
+
+##### hashCode
+
+Determine the hashcode of a string, algorithm matches the hashCode method available in a Java String class
+
+```php  
+$s = new Stringizer("Hello, World");
+$s->hashCode(); // -505841268
+```
+##### indexOf
+
+Finds position of first occurrence of a string within another.
+
+```php  
+$s = new Stringizer("Fizz Buzz Foo Bar");
+$s->indexOf("Foo"); // 10
+```
+
+If no match is found boolean false is returned.
+
+```php  
+$s = new Stringizer("Fizz Buzz Foo Bar");
+$s->indexOf("bad"); // false
+```
+
+There is a second optional parameter, position offset where to begin the search where left most value is index 0.
+
+```php  
+$s = new Stringizer("Foo Buzz Foo Bar");
+$s->indexOf("Foo", 0); // 0, since offset starts at zero the first Foo is found at index 0
+$s->indexOf("Foo", 1); // 9, since offset is past zero the next available match is at index 9
+```
+
+MultiByte
+
+```php  
+$s = new Stringizer("fòô bàř");
+$s->indexOf("bàř"); // 4
+```
+
+Case In-sensitive
+
+```php
+$s = new Stringizer("Fizz Buzz Foo Bar");
+$s->indexOfCaseInsensitive("foo"); // 10
+```
+
+##### isempty
+
+Checks if value is empty, if string contains whitespace only it is considered empty.
+
+```php
+$s = new Stringizer("\n  \n\r\t   ");
+$s->isEmpty(); // true
 ```
 

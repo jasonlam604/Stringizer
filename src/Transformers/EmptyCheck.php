@@ -4,9 +4,7 @@ namespace Stringizer\Transformers;
 use Stringizer\Stringizer;
 
 /**
- * Empty, checks if value is empty this includes the what is defined by the PHP empty function, see
- * http://php.net/manual/en/function.empty.php prior and includes a value that contains whitespace
- * such as tabs and linefeeds
+ * Empty - Checks if value is empty, if string contains whitespace only it is considered empty.
  *
  * @link https://github.com/jasonlam604/Stringizer
  * @copyright Copyright (c) 2016 Jason Lam
