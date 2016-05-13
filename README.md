@@ -14,7 +14,7 @@ Stringizer is a standalone String Utility Library
       * [Camelize](#camelize)
       * [Concat](#concat)
       * [Contains & Contains Case-Insensitive](#contains)
-      * [Contains Count & Count Case-Insenstive](#containscount)
+      * [Contains Count & Count Case-Insensitive](#containscount)
       * [Dasherize](#dasherize)
       * [EndsWith](#endswith)
       * [StartsWith](#startswith)
@@ -23,8 +23,7 @@ Stringizer is a standalone String Utility Library
       * [HashCode](#hashcode)
       * [IndexOf & IndexOf Case-Insensitive](#indexof)
       * [IsEmpty](#isempty)
-      * LastIndexOf
-      * LastIndex Incase-sensitive
+      * [LastIndexOf & LastIndexOf Case-Insensitive](#lastindexof)
       * Length
       * Lowercase
       * Lowercase First
@@ -306,7 +305,7 @@ $s = new Stringizer("Fizz Buzz Foo Bar");
 $s->indexOfCaseInsensitive("foo"); // 10
 ```
 
-##### isempty
+##### isEmpty
 
 Checks if value is empty, if string contains whitespace only it is considered empty.
 
@@ -314,4 +313,49 @@ Checks if value is empty, if string contains whitespace only it is considered em
 $s = new Stringizer("\n  \n\r\t   ");
 $s->isEmpty(); // true
 ```
+
+#### lastIndexOf
+
+Finds position of last occurrence of a string within another
+
+```php
+$s = new Stringizer("Foo Buzz Foo Bar");
+$s->lastIndexOf("Foo"); // 9
+```
+
+If no match is found boolean false is returned.
+
+```php
+$s = new Stringizer("Fizz Buzz Foo Bar");
+$s->lastIndexOf("bad"); // false
+```
+
+There is a second optional parameter, position offset where to begin the search where left most value is index 0.
+
+```php
+$s = new Stringizer("Foo Buzz Foo Bar");
+$s->lastIndexOf("Foo", 0); // 9 
+$s->lastIndexOf("Foo", 4)); // 9
+$s->lastIndexOf("Foo", 10)); // false
+```
+
+MultiByte
+
+```php
+$s = new Stringizer("fòô bàř fòô bàř fòô bàř");
+$s->lastIndexOf("fòô"); // 16
+```
+
+Case In-sensitive
+
+```php
+$s = new Stringizer("Fizz Buzz Foo Bar");
+$s->lastIndexOf("foo"); //false
+$s->lastIndexOfCaseInsensitive("foo"); // 10
+```
+
+
+
+
+
 
