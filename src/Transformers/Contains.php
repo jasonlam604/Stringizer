@@ -24,14 +24,14 @@ class Contains extends TransformerCaseInsensitive implements TransformerInterfac
     public function execute()
     {
         if ($this->isCaseInsensitive()) {
-
+            
             if ((new StringFindPosition($this->getValue(), $this->needle))->enableCaseInsensitive()->execute()) {
                 return true;
             } else {
                 return false;
             }
         } else {
-
+            
             if ((new StringFindPosition($this->getValue(), $this->needle))->execute()) {
                 return true;
             } else {

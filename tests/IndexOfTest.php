@@ -11,13 +11,13 @@ class IndexOfTest extends PHPUnit_Framework_TestCase
     {
         $s = new Stringizer("文字列のそれ");
         $this->assertEquals(2, $s->indexOf("列"));
-
+        
         $s = new Stringizer("fòô bàř");
         $this->assertEquals(4, $s->indexOf("bàř"));
-
+        
         $s = new Stringizer("Fizz Buzz Foo Bar");
         $this->assertEquals(10, $s->indexOf("Foo"));
-
+        
         $s = new Stringizer("Fizz Buzz Foo Bar");
         $this->assertEquals(FALSE, $s->indexOf("bad"));
     }
@@ -34,7 +34,7 @@ class IndexOfTest extends PHPUnit_Framework_TestCase
         // Case Sensitive
         $s = new Stringizer("Fizz Buzz Foo Bar");
         $this->assertEquals(FALSE, $s->indexOf("foo"));
-
+        
         // Case-InSensitive
         $s = new Stringizer("Fizz Buzz Foo Bar");
         $this->assertEquals(10, $s->indexOfCaseInsensitive("foo"));

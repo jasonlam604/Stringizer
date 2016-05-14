@@ -10,9 +10,10 @@ namespace Stringizer\Transformers;
  */
 class StripTags extends Transformer implements TransformerInterface
 {
+
     private $allowableTags;
 
-    public function __construct($value,$allowableTags='')
+    public function __construct($value, $allowableTags = '')
     {
         parent::__construct($value);
         $this->allowableTags = $allowableTags;

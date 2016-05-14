@@ -16,7 +16,7 @@ class StartsWith extends Transformer implements TransformerInterface
     public function __construct($value, $needle)
     {
         parent::__construct($value);
-
+        
         $this->needle = $needle;
     }
 

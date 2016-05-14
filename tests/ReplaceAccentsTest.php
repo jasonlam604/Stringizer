@@ -2,11 +2,11 @@
 use Stringizer\Stringizer;
 
 /**
- * RemoveAccents Unit Tests - full test not really necessary as this should be taken care by
+ * ReplaceAccents Unit Tests - full test not really necessary as this should be taken care by
  *
  * https://github.com/cocur/slugify as the RemoveAccents is really just facade wrapper
  */
-class RemoveAccentsTest extends PHPUnit_Framework_TestCase
+class ReplaceAccentsTest extends PHPUnit_Framework_TestCase
 {
 
     /**
@@ -15,9 +15,9 @@ class RemoveAccentsTest extends PHPUnit_Framework_TestCase
     public function testConvertAccents()
     {
         $s = new Stringizer("FizzöBuzz Fizz Buzz Fizz Buzzé");
-        $this->assertEquals("FizzoeBuzz Fizz Buzz Fizz Buzze", $s->removeAccents());
+        $this->assertEquals("FizzoeBuzz Fizz Buzz Fizz Buzze", $s->replaceAccents());
         
         $s = new Stringizer("ȘŦŗÍñĝìzĕŕ");
-        $this->assertEquals("STrIngizer", $s->removeAccents());
+        $this->assertEquals("STrIngizer", $s->replaceAccents());
     }
 }

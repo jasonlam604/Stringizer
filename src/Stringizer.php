@@ -25,7 +25,7 @@ use Stringizer\Transformers\Split;
 use Stringizer\Transformers\Replace;
 use Stringizer\Transformers\Pad;
 use Stringizer\Transformers\RemoveNonAscii;
-use Stringizer\Transformers\RemoveAccents;
+use Stringizer\Transformers\ReplaceAccents;
 use Stringizer\Transformers\Camelize;
 use Stringizer\Transformers\RemoveWhitespace;
 use Stringizer\Transformers\Contains;
@@ -250,9 +250,9 @@ class Stringizer
         return $this;
     }
 
-    public function removeAccents()
+    public function replaceAccents()
     {
-        $this->value = (new RemoveAccents($this->value))->execute();
+        $this->value = (new ReplaceAccents($this->value))->execute();
         return $this;
     }
 

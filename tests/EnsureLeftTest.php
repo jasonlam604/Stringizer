@@ -23,7 +23,7 @@ class EnsureLeftTest extends PHPUnit_Framework_TestCase
     {
         $s = new Stringizer("こんにちは世界");
         $this->assertEquals("/こんにちは世界", $s->ensureLeft("/"));
-
+        
         $s = new Stringizer("こんにちは世界");
         $this->assertEquals("さようなら こんにちは世界", $s->ensureLeft("さようなら "));
     }

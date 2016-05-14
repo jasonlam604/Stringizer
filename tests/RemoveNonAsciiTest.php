@@ -2,9 +2,9 @@
 use Stringizer\Stringizer;
 
 /**
- * Ascii Unit Tests
+ * RemoveNonAscii Unit Tests
  */
-class AsciiTest extends PHPUnit_Framework_TestCase
+class RemoveNonAsciiTest extends PHPUnit_Framework_TestCase
 {
 
     /**

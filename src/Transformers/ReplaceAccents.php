@@ -4,7 +4,7 @@ namespace Stringizer\Transformers;
 use Cocur\Slugify\Slugify;
 
 /**
- * RemoveAccents - Slugify string
+ * ReplaceAccents - Replace characters with accents with the same character without accents.
  *
  * Wrapper for cocur/slugify, see https://github.com/cocur/slugify
  *
@@ -13,7 +13,7 @@ use Cocur\Slugify\Slugify;
  * @license https://github.com/jasonlam604/Stringizer/blob/master/LICENSE (MIT License)
  *         
  */
-class RemoveAccents extends Transformer implements TransformerInterface
+class ReplaceAccents extends Transformer implements TransformerInterface
 {
 
     private $slugify;

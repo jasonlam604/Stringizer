@@ -2,7 +2,7 @@
 namespace Stringizer\Transformers;
 
 /**
- * RemoveNonAscii
+ * RemoveNonAscii - Remove non Ascii characters
  *
  * @link https://github.com/jasonlam604/Stringizer
  * @copyright Copyright (c) 2016 Jason Lam

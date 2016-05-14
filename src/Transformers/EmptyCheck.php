@@ -22,7 +22,7 @@ class EmptyCheck extends Transformer implements TransformerInterface
     {
         $s = new Stringizer($this->getValue());
         $s->removeWhitespace();
-
+        
         return empty(trim($s->getString()));
     }
 }
