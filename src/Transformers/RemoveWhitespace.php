@@ -2,7 +2,7 @@
 namespace Stringizer\Transformers;
 
 /**
- * RemoveWhitespace, remove any whitespace from the string (before, after and any in between)
+ * RemoveWhitespace - Remove any whitespace from the string (before, after and any in between)
  *
  * @link https://github.com/jasonlam604/Stringizer
  * @copyright Copyright (c) 2016 Jason Lam

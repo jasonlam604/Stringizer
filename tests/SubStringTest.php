@@ -32,5 +32,8 @@ class SubString extends PHPUnit_Framework_TestCase
         
         $s = new Stringizer("キラキラした");
         $this->assertEquals("", $s->subString(6));
+        
+        $s = new Stringizer("キラキラした キラキラした");
+        $this->assertEquals("キラキラした", $s->subString(7));
     }
 }

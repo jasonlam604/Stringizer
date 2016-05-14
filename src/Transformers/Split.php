@@ -2,7 +2,7 @@
 namespace Stringizer\Transformers;
 
 /**
- * Split, explode string into an array default delimiter is comma
+ * Split - Explode string into an array default delimiter is comma
  *
  * Note this multibyte safe see http://www.php.net/explode
  *

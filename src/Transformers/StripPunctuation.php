@@ -2,7 +2,7 @@
 namespace Stringizer\Transformers;
 
 /**
- * Strip Punctuation, Strip all of the punctuation.
+ * Strip Punctuation - Remove all of the punctuation.
  *
  * @link https://github.com/jasonlam604/Stringizer
  * @copyright Copyright (c) 2016 Jason Lam

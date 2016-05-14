@@ -2,7 +2,7 @@
 namespace Stringizer\Transformers;
 
 /**
- * Replace, match and replace string(s)
+ * Replace - Match and replace string(s)
  *
  * Note this multibyte safe see http://www.php.net/str_replace
  *

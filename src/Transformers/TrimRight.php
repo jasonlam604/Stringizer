@@ -2,7 +2,7 @@
 namespace Stringizer\Transformers;
 
 /**
- * TrimRight, remove whitespace right of the string
+ * TrimRight - Remove whitespace right of the string
  *
  * @link https://github.com/jasonlam604/Stringizer
  * @copyright Copyright (c) 2016 Jason Lam

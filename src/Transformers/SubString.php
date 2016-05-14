@@ -2,7 +2,7 @@
 namespace Stringizer\Transformers;
 
 /**
- * SubString obtain a portion of a string based on postioning (index position in the string) and length of the portion
+ * SubString - Find a portion of a string based on postioning (index position in the string) and length of the portion
  *
  * @link https://github.com/jasonlam604/Stringizer
  * @copyright Copyright (c) 2016 Jason Lam

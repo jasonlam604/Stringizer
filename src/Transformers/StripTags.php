@@ -2,7 +2,7 @@
 namespace Stringizer\Transformers;
 
 /**
- * Strip Tags - Strip HTML and PHP tags from a string, wrapper for strip_tags
+ * Strip Tags - Remove HTML and PHP tags from a string
  *
  * @link https://github.com/jasonlam604/Stringizer
  * @copyright Copyright (c) 2016 Jason Lam
