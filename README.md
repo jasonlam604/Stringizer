@@ -18,7 +18,7 @@ Stringizer is a standalone String Utility Library
       * [PHP built in toString](#__tostring)
       * [Encoding Setter](#setencoding)
       * [Encoding Getter](#getencoding)
-* [String Functions](#string-functions)
+      * [String Functions](#string-functions)
       * [Camelize](#camelize)
       * [Concat](#concat)
       * [Contains & Contains Case-Insensitive](#contains)
@@ -38,8 +38,8 @@ Stringizer is a standalone String Utility Library
       * [Pad Both](#padboth)
       * [Pad Left](#padleft)
       * [Pad Right](#padright)
-      * [Replace Accents](#replaceaccents]
-      * [Remove Non Ascii](#removeascii]
+      * [Replace Accents](#replaceaccents)
+      * [Remove Non Ascii](#removeascii)
       * [Remove Whitespace](#removewhitespace)
       * [Replace & Replace Case-Insensitive](#replace)
       * [Reverse](#reverse)
