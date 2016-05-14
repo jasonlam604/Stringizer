@@ -11,7 +11,14 @@ Stringizer is a standalone String Utility Library
 * [Contributing](#contributing)
 * [Credits](#credits)
 * [License](#license)
-* [Documentation and User Guide](#functions)
+* [Basic Functions](#basic-functions)
+      * [String Setter](#setstring)
+      * [String Getter](#getstring)
+      * [String Orginal Value Getter](#getstringoriginal)
+      * [PHP built in toString](#__tostring)
+      * [Encoding Setter](#setencoding)
+      * [Encoding Getter](#getencoding)
+* [String Functions](#string-functions)
       * [Camelize](#camelize)
       * [Concat](#concat)
       * [Contains & Contains Case-Insensitive](#contains)
@@ -31,25 +38,23 @@ Stringizer is a standalone String Utility Library
       * [Pad Both](#padboth)
       * [Pad Left](#padleft)
       * [Pad Right](#padright)
-      * Remove Accents
-      * Remove Non Ascii
-      * Remove Whitespace
-      * Replace
-      * Replace Incase-sensitive
-      * Reverse
-      * Split
-      * Strip Punctuation
-      * Strip Tags
-      * Sub String
-      * Trim
-      * Trim Left
-      * Trim Right
-      * Truncate
-      * Truncate Match
-      * Truncate Match Incase-sensitive
-      * Uppercase
-      * Uppercase Words
-      * Width
+      * [Replace Accents](#replaceaccents]
+      * [Remove Non Ascii](#removeascii]
+      * [Remove Whitespace](#removewhitespace)
+      * [Replace & Replace Case-Insensitive](#replace)
+      * [Reverse](#reverse)
+      * [Split](#split)
+      * [Strip Punctuation](#strippunctuation)
+      * [Strip Tags](#striptags)
+      * [Sub String](#substring)
+      * [Trim](#trim)
+      * [Trim Left](#trimleft)
+      * [Trim Right](#trimright)
+      * [Truncate](#truncate)
+      * [Truncate Match & Truncate Match Case-Insensitive](#truncatematch)
+      * [Uppercase](#uppercase)
+      * [Uppercase Words](#uppercasewords)
+      * [Width](#width)
 
 ## Overview
 
@@ -126,7 +131,7 @@ Accepting Pull-Requests!
 The Stringizer is licensed under the MIT license. See [License File](LICENSE.md) for more information.
 
 
-## Functions
+## String Functions
 
 ##### camelize
 
@@ -431,4 +436,317 @@ $s = new Stringizer("Alien");
 $this->assertEquals("Alien     ", $s->padRight(" ", 10)); // "Alien     " 
 ```
 
+#### replaceAccents
 
+Replace characters with accents with the same character without accents
+
+```php
+$s = new Stringizer("FizzöBuzz Fizz Buzz Fizz Buzzé");
+$s->replaceAccents(); // FizzoeBuzz Fizz Buzz Fizz Buzze
+```
+  
+```php        
+$s = new Stringizer("ȘŦŗÍñĝìzĕŕ");
+$s->replaceAccents(); // STrIngizer
+```
+
+#### removeAscii
+
+Remove non Ascii characters
+
+```php
+$s = new Stringizer("FizzöBuzz Fizz Buzz Fizz Buzzé");
+$s->removeNonAscii(); // FizzBuzz Fizz Buzz Fizz Buzz
+```
+
+#### removewhitespace
+
+Remove any whitespace from the string (before, after and any in between)
+
+```php
+$s = new Stringizer("Fizz Buzz Fizz Buzz Fizz Buzz");
+$s->removeWhitespace(); // FizzBuzzFizzBuzzFizzBuzz
+```
+ 
+```php       
+$s = new Stringizer(" Ș Ŧ ŗ Í ñ ĝ ì z ĕ ŕ ");
+$s->removeWhitespace(); // ȘŦŗÍñĝìzĕŕ
+```
+
+#### replace
+
+Match and replace string(s)
+
+```php
+$s = new Stringizer("Fizz Buzz Fizz Buzz Fizz Buzz");
+$s->replace("Buzz", "Bar"); // Fizz Bar Fizz Bar Fizz Bar
+```
+
+Multiple replace
+
+```php
+$s = new Stringizer("Fizz Buzz Fizz Buzz Fizz Buzz");
+$s->replace(array("Fizz","Buzz"), array("Foo","Bar")); // Foo Bar Foo Bar Foo Bar
+```
+
+No Match NOT Case-Insensitive
+
+```php
+$s = new Stringizer("Fizz Buzz Fizz Buzz Fizz Buzz");
+$s->replace("buzz", "bar"); // Fizz Buzz Fizz Buzz Fizz Buzz
+```        
+        
+Match Case-Insensitive  
+```php      
+$s = new Stringizer("Fizz Buzz Fizz Buzz Fizz Buzz");
+$s->replaceIncaseSensitive("buzz", "bar"); // Fizz bar Fizz bar Fizz bar
+``` 
+
+MultiByte
+
+```php
+$s = new Stringizer("Fizz列Buzz列Fizz列Buzz列Fizz列Buzz");
+$s->replace("列", " "); // Fizz Buzz Fizz Buzz Fizz Buzz
+```
+
+#### reverse
+
+```php        
+$s = new Stringizer("mood");
+$s->reverse(); // doom
+```
+    
+MultiByte    
+    
+```php     
+$s = new Stringizer("文字列のそれ");
+$s->reverse(); // れその列字文
+```
+
+#### split
+
+Explode string into an array default delimiter is comma
+
+```php        
+$s = new Stringizer("Fizz Buzz");
+$array = $s->split(" "); // array( 0 => "Fizz", 1 => "Buzz")
+```
+
+```php 
+$s = new Stringizer("文字列のそれ");
+$array = $s->split("の"); // array( 0 => "文字列", 1 => "それ)
+```
+
+#### stripPunctuation
+
+Remove all of the punctuation
+
+```php 
+$s = new Stringizer("Hello World! It's me #stringizer");
+$s->stripPunctuation(); // Hello World Its me stringizer
+```      
+      
+```php   
+$s = new Stringizer("*-=!'\",?!Hello* World][");
+$s->stripPunctuation(); // Hello World
+```
+
+#### stripTags
+
+Remove HTML and PHP tags from a string
+
+```php 
+$s = new Stringizer("<html>Hello</html>");
+$s->stripTags(); // Hello
+```    
+       
+```php         
+$s = new Stringizer("<html><b>こんにちは世界</b></html>");
+$s->stripTags(); // こんにちは世界
+```
+     
+Optional second paramter to ignore tags (tags not to be to removed)        
+        
+```php 
+$s = new Stringizer("<html>Hello <b>World</b></html>");
+$s->stripTags("<b>"); // Hello <b>World</b>
+```
+
+```php 
+$s = new Stringizer("<html><head><title>title</title></head><body>Hello <b><span class='fake-class'>World</span></b> こんにちは世界</body></html>");
+$s->stripTags(); // titleHello World こんにちは世界
+```
+
+#### substring
+
+Find a portion of a string based on postioning (index position in the string) and length of the portion
+
+```php 
+$s = new Stringizer("Fizz Buzz Foo Bar");
+$s->subString(0, 4); // Fizz
+```
+
+```php 
+$s = new Stringizer("Fizz Buzz Foo Bar");
+$s->subString(5, 4)); // Buzz
+```
+
+```php 
+$s = new Stringizer("Fizz Buzz Foo Bar");
+$s->subString(5, 4)); // Buzz
+```
+
+MultiByte
+
+```php
+$s = new Stringizer("キラキラした キラキラした");
+$s->subString(7); // キラキラした
+``` 
+
+#### trim
+
+Remove whitespace both right and left side of the string
+
+```php
+$s = new Stringizer("\x20\x20\x20   キラキラしたfizzخالد الشمعة   ");
+$s->trim(); // キラキラしたfizzخالد الشمعة
+```
+
+#### trimLeft
+
+Remove whitespace left of the string
+
+```php
+$s = new Stringizer("\x20\x20\x20   キラキラしたfizzخالد الشمعة   ");
+$s->trimLeft()); // キラキラしたfizzخالد الشمعة   
+```
+
+#### trimRight
+
+Remove whitespace right of the string
+
+```php
+$s = new Stringizer("\x20\x20\x20   キラキラしたfizzخالد الشمعة   ");
+$s->trimRight(); // \x20\x20\x20   キラキラしたfizzخالد الشمعة
+```
+    
+#### truncate
+
+Shorten right side of string by the specified indicated amount
+
+```php
+$s = new Stringizer("fòô bàř");
+$s->truncate(4); // fòô
+```
+
+```php
+$s = new Stringizer("FizzBuzz");
+$s->truncate(4); // Fizz
+```
+
+#### truncateMatch
+
+Shorten string left or right side if given substring is match
+
+```php
+$s = new Stringizer("fòô bàř");
+$s->truncateMatch(" bàř"); // fòô
+```
+
+```php
+$s = new Stringizer("FizzBuzzFooBar");
+$s->truncateMatch("Foo"); // FizzBuzz
+```
+
+Case In-sensitive
+
+```php
+$s = new Stringizer("FizzBuzzFooBar");
+$s->truncateMatchCaseInsensitive("foo"); // FizzBuzz
+```
+
+#### uppercase
+
+Ensure entire string is uppercase
+
+```php
+$s = new Stringizer("fIzz");
+$s->uppercase(); // FIZZ
+```
+
+#### uppercaseWords
+
+Ensure entire string is uppercase
+
+```php
+$s = new Stringizer("fizz buzz foo bar");
+$s->uppercaseWords(); // Fizz Buzz Foo Bar
+```
+
+##### width
+
+Find the width of the string this is different then length for multibyte strings
+
+```php
+$s = new Stringizer("キラキラした");
+$s->width(); // 12, note multi-byte characters take up more space, typice 2 for each character
+```  
+  
+```php        
+$s = new Stringizer("FizzBuzz");
+$s->length(); // 8
+```
+
+## Basic Functions
+
+#### setstring
+
+Setting the string you want to apply string manipulations on, this will set the orginal value as well.
+
+```php
+$s = new Stringizer("dummy-value");
+$s->setString("new-dummy-value");
+
+#### getstring
+
+Retrieve the string in its most current state
+
+```php
+$s = new Stringizer("dummy-value");
+$s->getString();
+```
+
+#### getStringOriginal
+
+Retrieve the string state prior to any string manipulations
+
+```php
+$s = new Stringizer("dummy-value");
+$s->getStringOriginal();
+```
+
+#### __toString
+
+Retrieve the string in its most current state
+
+```php
+$s = new Stringizer("dummy-value");
+echo ($s); // this will output current state, defaults to using the PHP built __toString method
+```
+
+#### setEncoding
+
+Set encoding, behind the scences PHP function mb_internal_encoding is applied
+
+```php
+$s = new Stringizer("dummy-value");
+$s->setEncoding("UTF-8");
+$s->getEncoding(); // UTF-8
+```
+
+#### getEncoding
+
+```php
+$s = new Stringizer("dummy-value");
+$s->getEncoding(); // Outputs your default encoding based mb_internal_encoding
+```
