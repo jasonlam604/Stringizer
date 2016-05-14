@@ -411,7 +411,5 @@ Padding with an odd amount, the extra character is addded to the end of the stri
 ```php
 $s = new Stringizer("fizz");
 $s->padBoth("x", 11); // xxxfizzxxxx
-```         
-        
-        
-        
+```
+
