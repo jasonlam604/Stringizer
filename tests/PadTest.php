@@ -62,7 +62,7 @@ class PadTest extends PHPUnit_Framework_TestCase
         $this->assertEquals("00010", $s->padLeft("0", 5));
 
         $s = new Stringizer("10.00");
-        $this->assertEquals("10.000", $s->padLeft("0", 6));
+        $this->assertEquals("010.00", $s->padLeft("0", 6));
     }
 
     public function testPadSamplesFromPHPDotNet()

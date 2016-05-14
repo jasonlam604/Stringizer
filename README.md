@@ -29,8 +29,8 @@ Stringizer is a standalone String Utility Library
       * [Lowercase](#lowercase)
       * [Lowercase First](#lowercasefirst)
       * [Pad Both](#padboth)
-      * Pad Left
-      * Pad Right
+      * [Pad Left](#padleft)
+      * [Pad Right](#padright)
       * Remove Accents
       * Remove Non Ascii
       * Remove Whitespace
@@ -412,4 +412,23 @@ Padding with an odd amount, the extra character is addded to the end of the stri
 $s = new Stringizer("fizz");
 $s->padBoth("x", 11); // xxxfizzxxxx
 ```
+
+#### padLeft
+
+Pad string on left side with indicated string value and number of times to pad with
+
+```php
+$s = new Stringizer("10");
+$s->padLeft("0", 5); // 00010
+```
+
+#### padRight
+
+Pad string on right side with indicated string value and number of times to pad with
+
+```php
+$s = new Stringizer("Alien");
+$this->assertEquals("Alien     ", $s->padRight(" ", 10)); // "Alien     " 
+```
+
 
