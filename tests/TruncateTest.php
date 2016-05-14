@@ -9,8 +9,8 @@ class TruncateTest extends PHPUnit_Framework_TestCase
 
     public function testTruncate()
     {
-        $s = new Stringizer("キラキラした");
-        $this->assertEquals("キラキラ", $s->truncate(2));
+        $s = new Stringizer("fòô bàř");
+        $this->assertEquals("fòô", $s->truncate(4));
         
         $s = new Stringizer("FizzBuzz");
         $this->assertEquals("Fizz", $s->truncate(4));

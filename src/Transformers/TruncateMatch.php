@@ -4,7 +4,7 @@ namespace Stringizer\Transformers;
 use Stringizer\Transformers\StringFirstOccurrence;
 
 /**
- * Truncate - truncate/chop/chomp string
+ * Truncate - Shorten string left or right side if given substring is match, truncate  match and characters after match or before.
  *
  * @link https://github.com/jasonlam604/Stringizer
  * @copyright Copyright (c) 2016 Jason Lam
@@ -20,7 +20,7 @@ class TruncateMatch extends TransformerCaseInsensitive implements TransformerInt
     public function __construct($value, $stringToMatch, $truncateBefore = false)
     {
         parent::__construct($value);
-        
+
         $this->stringToMatch = $stringToMatch;
         $this->truncateBefore = $truncateBefore;
     }
@@ -34,7 +34,7 @@ class TruncateMatch extends TransformerCaseInsensitive implements TransformerInt
             $result = (new StringFirstOccurrence($this->getValue(), $this->stringToMatch, $this->truncateBefore))->enableCaseInsensitive()->execute();
         else
             $result = (new StringFirstOccurrence($this->getValue(), $this->stringToMatch, $this->truncateBefore))->execute();
-        
+
         return $result;
     }
 }

@@ -2,9 +2,9 @@
 use Stringizer\Stringizer;
 
 /**
- * Length and Width Unit Tests
+ * Length Unit Tests
  */
-class LengthWidthTest extends PHPUnit_Framework_TestCase
+class LengthTest extends PHPUnit_Framework_TestCase
 {
 
     public function testLength()
@@ -16,12 +16,9 @@ class LengthWidthTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(8, $s->length());
     }
 
-    public function testWidth()
+    public function testLengthMultiByte()
     {
         $s = new Stringizer("キラキラした");
-        $this->assertEquals(12, $s->width());
-        
-        $s = new Stringizer("FizzBuzz");
-        $this->assertEquals(8, $s->length());
+        $this->assertEquals(6, $s->length());
     }
 }

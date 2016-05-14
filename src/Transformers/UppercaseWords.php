@@ -2,7 +2,7 @@
 namespace Stringizer\Transformers;
 
 /**
- * Uppercase
+ * Uppercase - Ensure each word in the string is uppercase and the rest are lowercase
  *
  * @link https://github.com/jasonlam604/Stringizer
  * @copyright Copyright (c) 2016 Jason Lam

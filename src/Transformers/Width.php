@@ -2,7 +2,7 @@
 namespace Stringizer\Transformers;
 
 /**
- * Width, determine the width of the string this is different then length for multibyte strings
+ * Width - Find the width of the string this is different then length for multibyte strings
  *
  * Reference http://php.net/manual/en/function.mb-strwidth.php
  *

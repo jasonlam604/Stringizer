@@ -71,28 +71,19 @@ class Stringizer
     /**
      * Constructor
      *
-     * @param string $stringValue            
-     * @param string $stringEncoding            
+     * @param string $stringValue
+     * @param string $stringEncoding
      *
      * @throws \InvalidArgumentException
      */
     public function __construct($stringValue, $encoding = null)
     {
-        if (empty($stringValue)) {
-            throw new \InvalidArgumentException("Given value is null not a string");
-        } elseif (is_array($stringValue)) {
-            throw new \InvalidArgumentException("Given value is an array not a string");
-        } elseif (is_object($stringValue) && ! method_exists($stringValue, "__toString")) {
-            throw new \InvalidArgumentException("Given object does not have a __toString method");
-        }
-        
-        $this->value = (string) $stringValue;
-        
-        $this->valueOriginal = $this->value;
-        
+
+        $this->setString($stringValue);
+
         if (empty($encoding))
             $encoding = \mb_internal_encoding();
-        
+
         $this->setEncoding($encoding);
     }
 
@@ -105,11 +96,11 @@ class Stringizer
     /**
      * Append 2 String values
      *
-     * @param string $value            
+     * @param string $value
      *
      * @param string $preAppend
      *            flag when true to prepend value
-     *            
+     *
      * @return \Stringizer\Stringizer
      */
     public function concat($value, $preAppend = false)
@@ -321,7 +312,7 @@ class Stringizer
     /**
      * Truncate remove the number of indicated values at the end of the string
      *
-     * @param int $numberToTruncate            
+     * @param int $numberToTruncate
      *
      * @throws \InvalidArgumentException
      *
@@ -385,9 +376,9 @@ class Stringizer
     {
         if (! isset($encoding))
             throw new \Exception("Given encoding value not valid");
-        
+
         $this->encoding = $encoding;
-        
+
         mb_internal_encoding($this->encoding);
     }
 
@@ -401,9 +392,21 @@ class Stringizer
         return $this->valueOriginal;
     }
 
-    public function setString($value)
+    public function setString($stringValue)
     {
-        $this->value = $value;
+
+        if (empty($stringValue)) {
+            throw new \InvalidArgumentException("Given value is null not a string");
+        } elseif (is_array($stringValue)) {
+            throw new \InvalidArgumentException("Given value is an array not a string");
+        } elseif (is_object($stringValue) && ! method_exists($stringValue, "__toString")) {
+            throw new \InvalidArgumentException("Given object does not have a __toString method");
+        }
+
+        $this->value = (string) $stringValue;
+
+        $this->valueOriginal = $this->value;
+
     }
 
     public function getString()

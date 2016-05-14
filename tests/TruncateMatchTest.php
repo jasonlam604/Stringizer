@@ -10,8 +10,8 @@ class TruncateAtMatch extends PHPUnit_Framework_TestCase
     public function testTruncateMatch()
     {
         // Notice there are two symbols of ラ it truncates at first match
-        $s = new Stringizer("文字列のそれ");
-        $this->assertEquals("文字列", $s->truncateMatch("の"));
+        $s = new Stringizer("fòô bàř");
+        $this->assertEquals("fòô", $s->truncateMatch(" bàř"));
         
         $s = new Stringizer("FizzBuzzFooBar");
         $this->assertEquals("FizzBuzz", $s->truncateMatch("Foo"));

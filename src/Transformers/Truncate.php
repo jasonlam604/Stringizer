@@ -4,7 +4,7 @@ namespace Stringizer\Transformers;
 use Stringizer\Transformers\SubString;
 
 /**
- * Truncate - truncate/chop/chomp string
+ * Truncate - Shorten right side of string by the specified indicated amount
  *
  * @link https://github.com/jasonlam604/Stringizer
  * @copyright Copyright (c) 2016 Jason Lam
@@ -18,7 +18,7 @@ class Truncate extends Transformer implements TransformerInterface
     public function __construct($value, $numberToTruncate)
     {
         parent::__construct($value);
-        
+
         $this->numberToTruncate = $numberToTruncate;
     }
 
@@ -28,7 +28,7 @@ class Truncate extends Transformer implements TransformerInterface
     public function execute()
     {
         $length = mb_strlen($this->getValue());
-        
+
         if (filter_var($this->numberToTruncate, FILTER_VALIDATE_INT) === false) {
             throw new \InvalidArgumentException("Value to truncate by is not a number");
         } elseif (filter_var($this->numberToTruncate, FILTER_VALIDATE_INT, array(
