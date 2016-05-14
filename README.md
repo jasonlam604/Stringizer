@@ -25,10 +25,10 @@ Stringizer is a standalone String Utility Library
       * [IndexOf & IndexOf Case-Insensitive](#indexof)
       * [IsEmpty](#isempty)
       * [LastIndexOf & LastIndexOf Case-Insensitive](#lastindexof)
-      * Length
-      * Lowercase
-      * Lowercase First
-      * Pad Both
+      * [Length](#length)
+      * [Lowercase](#lowercase)
+      * [Lowercase First](#lowercasefirst)
+      * [Pad Both](#padboth)
       * Pad Left
       * Pad Right
       * Remove Accents
@@ -53,7 +53,13 @@ Stringizer is a standalone String Utility Library
 
 ## Overview
 
-Stringizer is a stringer helper that is made up of existing PHP multibyte-string functions and a variety of  string manipulation solutions found on Stackoverflow.com.
+Stringizer is a stringer helper that is made up of existing PHP multibyte-string functions and a variety of  string manipulation solutions found on Stackoverflow.com.  
+
+Why Stringizer:
+
+- Built in Multibyte support
+- Chaining of functions
+- In some case removing the hassle of you trying to figure out the right regex solution
 
 ## Status
 
@@ -355,8 +361,57 @@ $s->lastIndexOf("foo"); //false
 $s->lastIndexOfCaseInsensitive("foo"); // 10
 ```
 
+#### length
 
+Find the length of the string
 
+```php
+$s = new Stringizer("FizzBuzz");
+$s->length(); // 8
+```
 
+Multibyte
 
+```php
+$s = new Stringizer("キラキラした");
+$s->length(); // 6
+```
 
+#### lowercase
+
+Ensure the string is entirely lower case
+
+```php
+$s = new Stringizer("FiZZ");
+$s->lowercase(); // fizz
+```
+
+#### lowercaseFirst
+
+First letter of the string is lower cased
+
+```php
+$s = new Stringizer("FiZz");
+$s->lowercaseFirst(); // fIZZ
+```
+
+#### padBoth
+
+Pad string on both sides with indicated value
+
+Padding with an even amount
+
+```php
+$s = new Stringizer("fizz");
+$s->padBoth("x", 10); // xxxfizzxxx
+```  
+
+Padding with an odd amount, the extra character is addded to the end of the string
+
+```php
+$s = new Stringizer("fizz");
+$s->padBoth("x", 11); // xxxfizzxxxx
+```         
+        
+        
+        

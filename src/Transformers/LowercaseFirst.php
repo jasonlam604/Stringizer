@@ -2,7 +2,7 @@
 namespace Stringizer\Transformers;
 
 /**
- * Lowercase first letter of string
+ * Lowercase - First letter of the string is lower cased
  *
  * @link https://github.com/jasonlam604/Stringizer
  * @copyright Copyright (c) 2016 Jason Lam
