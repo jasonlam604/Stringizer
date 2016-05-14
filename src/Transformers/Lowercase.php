@@ -2,7 +2,7 @@
 namespace Stringizer\Transformers;
 
 /**
- * Lowercase string
+ * Lowercase - Ensure the string is entirely lower case
  *
  * @link https://github.com/jasonlam604/Stringizer
  * @copyright Copyright (c) 2016 Jason Lam

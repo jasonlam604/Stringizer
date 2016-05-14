@@ -2,7 +2,7 @@
 namespace Stringizer\Transformers;
 
 /**
- * Length, determine the length of the string
+ * Length - Find the length of the string
  *
  * @link https://github.com/jasonlam604/Stringizer
  * @copyright Copyright (c) 2016 Jason Lam
