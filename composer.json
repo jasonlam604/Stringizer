@@ -1,8 +1,8 @@
 {
     "name": "jasonlam604/stringizer",
     "type": "library",
-    "description": "Stringizer is a string manipulation Library that supports method chaining",
-    "keywords": ["library","string","manipulation","chaining"],
+    "description": "Stringizer is a PHP string manipulation library with support for method chaining and multibyte handling",
+    "keywords": ["library","string","manipulation","chaining","multibyte","php","transformer","stringizer"],
     "license": "MIT",
     "homepage": "https://github.com/jasonlam604/Stringizer",
     "authors": [
