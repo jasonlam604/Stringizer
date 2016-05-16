@@ -1,5 +1,5 @@
 # Stringizer
-Stringizer is a standalone String Utility Library
+Stringizer is a PHP string manipulation library with support for method chaining and multibyte handling
 
 [![Build Status](https://travis-ci.org/jasonlam604/Stringizer.svg?branch=master)](https://travis-ci.org/jasonlam604/Stringizer) [![Coverage Status](https://coveralls.io/repos/github/jasonlam604/Stringizer/badge.svg?branch=master)](https://coveralls.io/github/jasonlam604/Stringizer?branch=master) [![SensioLabsInsight](https://insight.sensiolabs.com/projects/de25b7db-2be0-4e1a-a3e5-806767ea0438/mini.png)](https://insight.sensiolabs.com/projects/de25b7db-2be0-4e1a-a3e5-806767ea0438)
 [![Latest Stable Version](https://poser.pugx.org/jasonlam604/stringizer/v/stable)](https://packagist.org/packages/jasonlam604/stringizer) [![License](https://poser.pugx.org/jasonlam604/stringizer/license)](https://packagist.org/packages/jasonlam604/stringizer)
@@ -58,7 +58,8 @@ Stringizer is a standalone String Utility Library
 
 ## Overview
 
-Stringizer is a stringer helper that is made up of existing PHP multibyte-string functions and a variety of  string manipulation solutions found on Stackoverflow.com.  
+Stringizer is a string library made up of existing PHP multibyte-string functions and a variety of string manipulation solutions found on Stackoverflow.com.  The intent is to save you time looking up string maninpulation 
+solutions yourself and provide the convience of method chaining.
 
 Why Stringizer:
 
