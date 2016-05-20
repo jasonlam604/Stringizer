@@ -6,7 +6,7 @@ Stringizer is a PHP string manipulation library with support for method chaining
 
 * [Overview](#overview)
 * [Key Highlights](#key-highlights)
-* [Status](#status)
+* [Version](#version)
 * [Installation](#installation)
 * [Tests](#tests)
 * [Contributing](#contributing)
@@ -68,9 +68,9 @@ solutions yourself and provide the convience of method chaining.
 - Chaining of functions
 - In some case removing the hassle of you trying to figure out the right regex solution
 
-## Status
+## Version
 
-Release 2.0.0
+[![Latest Stable Version](https://poser.pugx.org/jasonlam604/stringizer/v/stable)](https://packagist.org/packages/jasonlam604/stringizer)
 
 ## Installation
 
