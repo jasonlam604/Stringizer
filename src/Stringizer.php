@@ -36,6 +36,7 @@ use Stringizer\Transformers\EnsureLeft;
 use Stringizer\Transformers\EnsureRight;
 use Stringizer\Transformers\EmptyCheck;
 use Stringizer\Transformers\StripPunctuation;
+use Stringizer\Transformers\Alpha;
 
 /**
  * Stringizer
@@ -78,7 +79,6 @@ class Stringizer
      */
     public function __construct($stringValue, $encoding = null)
     {
-
         $this->setString($stringValue);
 
         if (empty($encoding))
@@ -164,6 +164,11 @@ class Stringizer
     public function indexOfCaseInsensitive($needle, $offset = 0)
     {
         return (new IndexOf($this->value, $needle, $offset))->enableCaseInsensitive()->execute();
+    }
+
+    public function isAlpha()
+    {
+        return (new Alpha($this->value))->execute();
     }
 
     public function isEmpty()
