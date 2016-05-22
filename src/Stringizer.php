@@ -37,6 +37,7 @@ use Stringizer\Transformers\EnsureRight;
 use Stringizer\Transformers\EmptyCheck;
 use Stringizer\Transformers\StripPunctuation;
 use Stringizer\Transformers\Alpha;
+use Stringizer\Transformers\AlphaNumeric;
 
 /**
  * Stringizer
@@ -169,6 +170,11 @@ class Stringizer
     public function isAlpha()
     {
         return (new Alpha($this->value))->execute();
+    }
+
+    public function isAlphaNumeric()
+    {
+        return (new AlphaNumeric($this->value))->execute();
     }
 
     public function isEmpty()

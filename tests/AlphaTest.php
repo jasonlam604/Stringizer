@@ -27,7 +27,7 @@ class AlphaTest extends PHPUnit_Framework_TestCase
 
     public function testInValidAlphaHasMultiByte()
     {
-        $s = new Stringizer("こんにちは 世界");
+        $s = new Stringizer("こんにちは");
         $this->assertEquals(false, $s->isAlpha());
     }
 }
