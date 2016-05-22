@@ -38,6 +38,8 @@ use Stringizer\Transformers\EmptyCheck;
 use Stringizer\Transformers\StripPunctuation;
 use Stringizer\Transformers\Alpha;
 use Stringizer\Transformers\AlphaNumeric;
+use Stringizer\Transformers\AlphaNumericSpace;
+use Stringizer\Transformers\AlphaNumericSpaceDash;
 
 /**
  * Stringizer
@@ -175,6 +177,16 @@ class Stringizer
     public function isAlphaNumeric()
     {
         return (new AlphaNumeric($this->value))->execute();
+    }
+
+    public function isAlphaNumericSpace()
+    {
+        return (new AlphaNumericSpace($this->value))->execute();
+    }
+
+    public function isAlphaNumericSpaceDash()
+    {
+        return (new AlphaNumericSpaceDash($this->value))->execute();
     }
 
     public function isEmpty()
