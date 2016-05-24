@@ -20,10 +20,10 @@ class Transformer
 
     public function __construct($value)
     {
-        if (! isset($value) || empty($value)) {
+        if (! isset($value) ) {
             throw new \InvalidArgumentException("String to transform contains a null");
         }
-        
+
         $this->value = $value;
     }
 

@@ -41,6 +41,7 @@ use Stringizer\Transformers\AlphaNumeric;
 use Stringizer\Transformers\AlphaNumericSpace;
 use Stringizer\Transformers\AlphaNumericSpaceDash;
 use Stringizer\Transformers\Email;
+use Stringizer\Transformers\Number;
 
 /**
  * Stringizer
@@ -198,6 +199,11 @@ class Stringizer
     public function isEmpty()
     {
         return (new EmptyCheck($this->value))->execute();
+    }
+
+    public function isNumber()
+    {
+        return (new Number($this->value))->execute();
     }
 
     public function lastIndexOf($needle, $offset = 0)
@@ -424,7 +430,7 @@ class Stringizer
     public function setString($stringValue)
     {
 
-        if (empty($stringValue)) {
+        if (!isset($stringValue)) {
             throw new \InvalidArgumentException("Given value is null not a string");
         } elseif (is_array($stringValue)) {
             throw new \InvalidArgumentException("Given value is an array not a string");
