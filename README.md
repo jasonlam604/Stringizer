@@ -101,11 +101,11 @@ Sample usage:
 
 require 'vendor/autoload.php';
 
-$s = new Stringizer("こんにちは世界");
+$s = new Stringizer("myapp");
 
-$s->ensureRight(" さようなら");
+$s->ensureRight("/");
 
-// The following outputs: こんにちは世界 さようなら
+// The following outputs: myapp/
 
 echo $s->getString(); 
 
