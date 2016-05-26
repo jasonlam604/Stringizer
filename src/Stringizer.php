@@ -43,6 +43,7 @@ use Stringizer\Transformers\AlphaNumericSpaceDash;
 use Stringizer\Transformers\Email;
 use Stringizer\Transformers\Number;
 use Stringizer\Transformers\Date;
+use Stringizer\Transformers\Decimal;
 
 /**
  * Stringizer
@@ -195,6 +196,11 @@ class Stringizer
     public function isDate()
     {
         return (new Date($this->value))->execute();
+    }
+
+    public function isDecimal()
+    {
+        return (new Decimal($this->value))->execute();
     }
 
     public function isEmail()
