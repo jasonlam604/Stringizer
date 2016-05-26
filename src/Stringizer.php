@@ -42,6 +42,7 @@ use Stringizer\Transformers\AlphaNumericSpace;
 use Stringizer\Transformers\AlphaNumericSpaceDash;
 use Stringizer\Transformers\Email;
 use Stringizer\Transformers\Number;
+use Stringizer\Transformers\Date;
 
 /**
  * Stringizer
@@ -189,6 +190,11 @@ class Stringizer
     public function isAlphaNumericSpaceDash()
     {
         return (new AlphaNumericSpaceDash($this->value))->execute();
+    }
+
+    public function isDate()
+    {
+        return (new Date($this->value))->execute();
     }
 
     public function isEmail()
