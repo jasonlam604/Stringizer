@@ -31,7 +31,15 @@ Stringizer is a PHP string manipulation library with support for method chaining
       * [EnsureRight](#ensureright)
       * [HashCode](#hashcode)
       * [IndexOf & IndexOf Case-Insensitive](#indexof)
+      * [IsAlpha](#isalpha)
+      * [IsAlphaNumeric](#isalphanumeric)
+      * [IsAlphaNumeric with Space](#isalphanumericspace)
+      * [IsAlphaNumeric with Space and Dash](#isalphanumericspacedash)
+      * [IsDate](#isdate)
+      * [IsDecimal](#isdecimal)
+      * [IsEmail](#isemail)
       * [IsEmpty](#isempty)
+      * [IsNumber](#isnumber)
       * [LastIndexOf & LastIndexOf Case-Insensitive](#lastindexof)
       * [Length](#length)
       * [Lowercase](#lowercase)
@@ -319,6 +327,113 @@ $s = new Stringizer("Fizz Buzz Foo Bar");
 $s->indexOfCaseInsensitive("foo"); // 10
 ```
 
+##### isAlpha
+
+Checks if value is contains alpha values only.
+
+```php
+$s = new Stringizer("FooBar");
+$s->isAlpha(); // true
+```
+
+```php
+$s = new Stringizer("Foo Bar");
+$s->isAlpha(); // false
+```
+
+##### isAlphaNumeric
+
+Checks if value is contains alphanumeric values only
+
+```php
+$s = new Stringizer("F00Bar");
+$s->isAlphaNumeric(); // true
+```
+
+```php
+$s = new Stringizer("F00 Bar");
+$s->isAlphaNumeric(); // false
+```
+
+##### isAlphaNumericSpace
+
+Checks if value is contains alphanumeric values only including space(s).
+
+```php
+$s = new Stringizer("F00 Bar");
+$s->isAlphaNumericSpace(); // true
+```
+
+```php
+$s = new Stringizer("F00 Bar !");
+$s->isAlphaNumericSpace(); // false
+```
+
+##### isAlphaNumericSpaceDash
+
+Checks if value is contains alphanumeric values only including space(s) and dash(es).
+
+```php
+$s = new Stringizer("Marie-Anne Lucy");
+$s->isAlphaNumericSpaceDash(); // true
+```
+
+```php
+$s = new Stringizer("Marie-Ann Lucy!");
+$s->isAlphaNumericSpaceDash(); // false
+```
+
+##### isDate
+
+Checks if value is valid date based on the PHP function strtotime.
+
+Requirement, default timezone must be set first
+
+```php
+date_default_timezone_set('America/Vancouver');
+$s = new Stringizer("2015-03-15");
+$s->isDate(); // true
+```
+
+```php
+date_default_timezone_set('America/Vancouver');
+$s = new Stringizer("January 1st");
+$s->isDate(); // true
+```
+
+##### isDecimal
+
+Checks if value is contains decimal value, whole numbers are considered valid.
+
+```php
+$s = new Stringizer("19.99");
+$s->isDecimal(); // true
+```
+
+```php
+$s = new Stringizer("19");
+$s->isDecimal(); // true
+```
+
+```php
+$s = new Stringizer("19x");
+$s->isDecimal(); // false
+```
+
+##### isEmail
+
+Checks if value is a valid email.
+
+```php
+$s = new Stringizer("John.Doe@fake.com");
+$s->isEmail(); // true
+```
+
+```php
+$s = new Stringizer("John.Doe@fake@.com");
+$s->isEmail(); // false
+```
+
 ##### isEmpty
 
 Checks if value is empty, if string contains whitespace only it is considered empty.
@@ -326,6 +441,15 @@ Checks if value is empty, if string contains whitespace only it is considered em
 ```php
 $s = new Stringizer("\n  \n\r\t   ");
 $s->isEmpty(); // true
+```
+
+##### isNumber
+
+Checks if value is a whole number, can be a negative number but can not be a decimal number.
+
+```php
+$s = new Stringizer("1234");
+$s->isNumber() // true
 ```
 
 #### lastIndexOf
