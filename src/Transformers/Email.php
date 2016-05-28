@@ -2,7 +2,7 @@
 namespace Stringizer\Transformers;
 
 /**
- * Email - Checks if value is a valid email
+ * Email - Checks if value is a valid email.
  *
  * @link https://github.com/jasonlam604/Stringizer
  * @copyright Copyright (c) 2016 Jason Lam

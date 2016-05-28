@@ -2,7 +2,7 @@
 namespace Stringizer\Transformers;
 
 /**
- * AlphaNumericSpaceDash - Checks if value is contains alphanumeric, dash and space values only, does not support MultiByte
+ * AlphaNumericSpaceDash - Checks if value is contains alphanumeric values only including space(s) and dash(es).
  *
  * @link https://github.com/jasonlam604/Stringizer
  * @copyright Copyright (c) 2016 Jason Lam

@@ -2,7 +2,7 @@
 namespace Stringizer\Transformers;
 
 /**
- * Date - Checks if value is valid date based on the PHP function strtotime
+ * Date - Checks if value is valid date based on the PHP function strtotime.
  *
  * Note, assertion that date_default_timezone_set is set, It is not safe to rely on the system's timezone settings.
  *

@@ -2,7 +2,7 @@
 namespace Stringizer\Transformers;
 
 /**
- * Alpha - Checks if value is contains alpha, does not support MultiByte
+ * Alpha - Checks if value is contains alpha values only.
  *
  * @link https://github.com/jasonlam604/Stringizer
  * @copyright Copyright (c) 2016 Jason Lam

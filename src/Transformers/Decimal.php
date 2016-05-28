@@ -2,7 +2,7 @@
 namespace Stringizer\Transformers;
 
 /**
- * Decimal - Checks if value is contains decimal value, whole numbers are considered valid
+ * Decimal - Checks if value is contains decimal value, whole numbers are considered valid.
  *
  * @link https://github.com/jasonlam604/Stringizer
  * @copyright Copyright (c) 2016 Jason Lam
