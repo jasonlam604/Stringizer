@@ -75,7 +75,7 @@ PSR Compliance and Code Quality:
 * [PSR-2: Coding Style](http://www.php-fig.org/psr/psr-2/)
 * [PSR-4: Autoloader](http://www.php-fig.org/psr/psr-4/)
 * [100% Unit Test Coverage, results by Coveralls.io](https://coveralls.io/github/jasonlam604/Stringizer)
-* [Platinum Code Quality Analysis by SensioLabsInsight](https://insight.sensiolabs.com/)
+* [Platinum Code Quality Analysis by SensioLabsInsight](https://insight.sensiolabs.com/projects/de25b7db-2be0-4e1a-a3e5-806767ea0438)
 * [Continuous Integration and regression unit testing using Travis CI](https://travis-ci.org/jasonlam604/Stringizer)
 
 ## Key Highlights
