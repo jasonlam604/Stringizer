@@ -19,7 +19,7 @@ Stringizer is a PHP string manipulation library with support for method chaining
       * [PHP built in toString](#__tostring)
       * [Encoding Setter](#setencoding)
       * [Encoding Getter](#getencoding)
-      * [String Functions](#string-functions)
+* [String Functions](#string-functions)
       * [Camelize](#camelize)
       * [Concat](#concat)
       * [Contains & Contains Case-Insensitive](#contains)
