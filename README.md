@@ -87,14 +87,14 @@ It's recommended that you use [Composer](https://getcomposer.org/) to install St
 Manual install with composer
 
 ```bash
-$ composer require jasonlam604/stringizer "^2.0.0"
+$ composer require jasonlam604/stringizer "^2.1.0"
 ```
 
 Using the composer.json file
 
 ```json
 "require": {
-    "jasonlam604/stringizer": "^2.0.0"
+    "jasonlam604/stringizer": "^2.1.0"
 }
 ```
 
