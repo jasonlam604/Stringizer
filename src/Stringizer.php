@@ -44,6 +44,8 @@ use Stringizer\Transformers\Email;
 use Stringizer\Transformers\Number;
 use Stringizer\Transformers\Date;
 use Stringizer\Transformers\Decimal;
+use Stringizer\Transformers\Ipv4;
+use Stringizer\Transformers\Ipv6;
 
 /**
  * Stringizer
@@ -211,6 +213,16 @@ class Stringizer
     public function isEmpty()
     {
         return (new EmptyCheck($this->value))->execute();
+    }
+
+    public function isIpv4()
+    {
+        return (new Ipv4($this->value))->execute();
+    }
+
+    public function isIpv6()
+    {
+        return (new Ipv6($this->value))->execute();
     }
 
     public function isNumber()
