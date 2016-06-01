@@ -46,6 +46,7 @@ use Stringizer\Transformers\Date;
 use Stringizer\Transformers\Decimal;
 use Stringizer\Transformers\Ipv4;
 use Stringizer\Transformers\Ipv6;
+use Stringizer\Transformers\HexDecimal;
 
 /**
  * Stringizer
@@ -213,6 +214,11 @@ class Stringizer
     public function isEmpty()
     {
         return (new EmptyCheck($this->value))->execute();
+    }
+
+    public function isHexDecimal()
+    {
+        return (new HexDecimal($this->value))->execute();
     }
 
     public function isIpv4()
