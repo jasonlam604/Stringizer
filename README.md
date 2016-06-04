@@ -117,7 +117,10 @@ Sample usage:
 ```php
 <?php
 
+// Composer Autoloader
 require 'vendor/autoload.php';
+
+use Stringizer\Stringizer;
 
 $s = new Stringizer("myapp");
 
