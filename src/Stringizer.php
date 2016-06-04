@@ -143,7 +143,8 @@ class Stringizer
 
     public function dasherize()
     {
-        return (new Dasherize($this->value))->execute();
+        $this->value = (new Dasherize($this->value))->execute();
+        return $this;
     }
 
     public function endsWith($needle)
@@ -153,17 +154,20 @@ class Stringizer
 
     public function ensureLeft($prefix)
     {
-        return (new EnsureLeft($this->value, $prefix))->execute();
+        $this->value = (new EnsureLeft($this->value, $prefix))->execute();
+        return $this;
     }
 
     public function ensureRight($suffix)
     {
-        return (new EnsureRight($this->value, $suffix))->execute();
+        $this->value = (new EnsureRight($this->value, $suffix))->execute();
+        return $this;
     }
 
     public function hashCode()
     {
-        return (new HashCode($this->value))->execute();
+        $this->value = (string) (new HashCode($this->value))->execute();
+        return $this;
     }
 
     public function indexOf($needle, $offset = 0)
@@ -337,12 +341,14 @@ class Stringizer
 
     public function stripPunctuation()
     {
-        return (new StripPunctuation($this->value))->execute();
+        $this->value = (new StripPunctuation($this->value))->execute();
+        return $this;
     }
 
     public function stripTags($allowableTags = '')
     {
-        return (new StripTags($this->value, $allowableTags))->execute();
+        $this->value = (new StripTags($this->value, $allowableTags))->execute();
+        return $this;
     }
 
     public function split($delimiter = ",")
