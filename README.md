@@ -39,7 +39,10 @@ Stringizer is a PHP string manipulation library with support for method chaining
       * [IsDecimal](#isdecimal)
       * [IsEmail](#isemail)
       * [IsEmpty](#isempty)
+      * [IsHexDecimal](#ishexdecimal)
       * [IsNumber](#isnumber)
+      * [IsIpv4](#isipv4)
+      * [IsIpv6](#isipv6)
       * [LastIndexOf & LastIndexOf Case-Insensitive](#lastindexof)
       * [Length](#length)
       * [Lowercase](#lowercase)
@@ -97,14 +100,14 @@ It's recommended that you use [Composer](https://getcomposer.org/) to install St
 Manual install with composer
 
 ```bash
-$ composer require jasonlam604/stringizer "^2.1.0"
+$ composer require jasonlam604/stringizer "^2.2.0"
 ```
 
 Using the composer.json file
 
 ```json
 "require": {
-    "jasonlam604/stringizer": "^2.1.0"
+    "jasonlam604/stringizer": "^2.2.0"
 }
 ```
 
@@ -127,7 +130,6 @@ $s = new Stringizer("myapp");
 $s->ensureRight("/");
 
 // The following outputs: myapp/
-
 echo $s->getString(); 
 
 ```
@@ -456,6 +458,15 @@ $s = new Stringizer("\n  \n\r\t   ");
 $s->isEmpty(); // true
 ```
 
+#### ishexdecimal
+
+Checks if value is hexdecimal.
+
+```php
+$s = new Stringizer("AB10BC99");
+$s->isHexDecimal(); // true
+```
+
 ##### isNumber
 
 Checks if value is a whole number, can be a negative number but can not be a decimal number.
@@ -463,6 +474,24 @@ Checks if value is a whole number, can be a negative number but can not be a dec
 ```php
 $s = new Stringizer("1234");
 $s->isNumber() // true
+```
+
+##### isIPv4
+
+Checks if value is a valid IP, IPv4.
+
+```php
+$s = new Stringizer("192.168.1.1");
+$s->isIpv4() // true
+```
+
+##### isIPv6
+
+Checks if value is a valid IP, IPv6.
+
+```php
+$s = new Stringizer("2001:cdba:0000:0000:0000:0000:3257:9652");
+$s->isIpv6() // true
 ```
 
 #### lastIndexOf
