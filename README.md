@@ -627,7 +627,7 @@ $s = new Stringizer("FizzöBuzz Fizz Buzz Fizz Buzzé");
 $s->removeNonAscii(); // FizzBuzz Fizz Buzz Fizz Buzz
 ```
 
-#### removewhitespace
+#### removeWhitespace
 
 Remove any whitespace from the string (before, after and any in between)
 
