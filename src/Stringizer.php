@@ -47,6 +47,8 @@ use Stringizer\Transformers\Decimal;
 use Stringizer\Transformers\Ipv4;
 use Stringizer\Transformers\Ipv6;
 use Stringizer\Transformers\HexDecimal;
+use Stringizer\Transformers\LowercaseCheck;
+use Stringizer\Transformers\UppercaseCheck;
 
 /**
  * Stringizer
@@ -168,6 +170,16 @@ class Stringizer
     {
         $this->value = (string) (new HashCode($this->value))->execute();
         return $this;
+    }
+
+    public function hasLowercase()
+    {
+        return (new LowercaseCheck($this->value))->execute();
+    }
+
+    public function hasUppercase()
+    {
+        return (new UppercaseCheck($this->value))->execute();
     }
 
     public function indexOf($needle, $offset = 0)
