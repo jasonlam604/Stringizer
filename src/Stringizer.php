@@ -166,6 +166,12 @@ class Stringizer
         return $this;
     }
 
+    public function first($numberOfCharacters)
+    {
+        $this->value = (new SubString($this->value, 0, $numberOfCharacters))->execute();
+        return $this;
+    }
+
     public function hashCode()
     {
         $this->value = (string) (new HashCode($this->value))->execute();
