@@ -258,6 +258,12 @@ class Stringizer
         return (new Number($this->value))->execute();
     }
 
+    public function last($numberOfCharacters)
+    {
+        $this->value = (new SubString($this->value, ($this->length() - $numberOfCharacters)))->execute();
+        return $this;
+    }
+
     public function lastIndexOf($needle, $offset = 0)
     {
         return (new LastIndexOf($this->value, $needle, $offset))->execute();

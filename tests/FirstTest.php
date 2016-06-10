@@ -26,6 +26,9 @@ class FirstTest extends PHPUnit_Framework_TestCase
     {
         $s = new Stringizer("ȘŦŗÍñĝìzĕŕ");
         $this->assertEquals("ȘŦŗÍñĝ", $s->first(6));
+
+        $s = new Stringizer("こんにちは");
+        $this->assertEquals("こ", $s->first(1));
     }
 
     public function testInValidFirst()
