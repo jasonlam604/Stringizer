@@ -105,6 +105,12 @@ class Stringizer
         return $this;
     }
 
+    public function charAt($index)
+    {
+        $this->value = (new SubString($this->value,$index,1))->execute();
+        return $this;
+    }
+
     /**
      * Append 2 String values
      *
