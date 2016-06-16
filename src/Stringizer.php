@@ -49,6 +49,7 @@ use Stringizer\Transformers\Ipv6;
 use Stringizer\Transformers\HexDecimal;
 use Stringizer\Transformers\LowercaseCheck;
 use Stringizer\Transformers\UppercaseCheck;
+use Stringizer\Transformers\Random;
 
 /**
  * Stringizer
@@ -325,6 +326,24 @@ class Stringizer
     public function padRight($padValue, $padAmount)
     {
         $this->value = (new Pad($this->value, $padValue, $padAmount, STR_PAD_RIGHT))->execute();
+        return $this;
+    }
+
+    public function randomAlpha($length=10)
+    {
+        $this->value = (new Random(Random::$RANDOM_ALPHA,$length))->execute();
+        return $this;
+    }
+
+    public function randomNumeric($length=10)
+    {
+        $this->value = (new Random(Random::$RANDOM_NUMERIC,$length))->execute();
+        return $this;
+    }
+
+    public function randomAlphanumeric($length=10)
+    {
+        $this->value = (new Random(Random::$RANDOM_ALPHA_NUMERIC,$length))->execute();
         return $this;
     }
 
