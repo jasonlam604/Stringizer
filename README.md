@@ -32,7 +32,8 @@ Stringizer is a PHP string manipulation library with support for method chaining
       * [Contains Count & Count Case-Insensitive](#containscount)
       * [Dasherize](#dasherize)
       * [EndsWith](#endswith)
-      * [StartsWith](#startswith)
+      * [HasLowerCase](#haslowercase)
+      * [HasUpper](#hasuppercase)
       * [EnsureLeft](#ensureleft)
       * [EnsureRight](#ensureright)
       * [HashCode](#hashcode)
@@ -62,6 +63,7 @@ Stringizer is a PHP string manipulation library with support for method chaining
       * [Replace & Replace Case-Insensitive](#replace)
       * [Reverse](#reverse)
       * [Split](#split)
+      * [StartsWith](#startswith)
       * [Strip Punctuation](#strippunctuation)
       * [Strip Tags](#striptags)
       * [Sub String](#substring)
@@ -265,25 +267,6 @@ $s = new Stringizer("文字列のそれ");
 $s->endsWith("れれれれ"); // false
 ```     
 
-##### startsWith
-
-Checks if a string starts with the specified suffix.
-
-```php        
-$s = new Stringizer("Fizz Buzz");
-$s->startsWith("Fizz B"); // true
-```
-
-```php
-$s = new Stringizer("文字列のそれ");
-$s->startsWith("文"); // true
-```
-
-```php        
-$s = new Stringizer("文字列のそれ");
-$s->startsWith("文文文文"); // false
-```
-
 ##### ensureLeft
 
 Ensure string starts with prefix
@@ -310,6 +293,36 @@ Determine the hashcode of a string, algorithm matches the hashCode method availa
 $s = new Stringizer("Hello, World");
 $s->hashCode(); // -505841268
 ```
+
+
+##### hasLowercase
+
+Checks if value is contains only lowercase values.
+
+```php  
+$s = new Stringizer("stŗiñĝìzĕŕ");
+$s->hasLowercase()); // true
+```
+
+```php  
+$s = new Stringizer("sTŗiñĝìzĕŕ");
+$s->hasLowercase()); // false
+```
+
+##### hasUppercase
+
+Checks if value is contains only uppercase values.
+
+```php  
+$s = new Stringizer("STÃÑ");
+$s->hasUppercase()); // true
+```
+
+```php  
+$s = new Stringizer("StÃÑ");
+$s->hasUppercase()); // false
+```
+
 ##### indexOf
 
 Finds position of first occurrence of a string within another.
@@ -709,6 +722,25 @@ $array = $s->split(" "); // array( 0 => "Fizz", 1 => "Buzz")
 ```php 
 $s = new Stringizer("文字列のそれ");
 $array = $s->split("の"); // array( 0 => "文字列", 1 => "それ)
+```
+
+##### startsWith
+
+Checks if a string starts with the specified suffix.
+
+```php        
+$s = new Stringizer("Fizz Buzz");
+$s->startsWith("Fizz B"); // true
+```
+
+```php
+$s = new Stringizer("文字列のそれ");
+$s->startsWith("文"); // true
+```
+
+```php        
+$s = new Stringizer("文字列のそれ");
+$s->startsWith("文文文文"); // false
 ```
 
 #### stripPunctuation

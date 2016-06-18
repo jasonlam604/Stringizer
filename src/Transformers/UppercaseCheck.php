@@ -4,7 +4,7 @@ namespace Stringizer\Transformers;
 use Stringizer\Stringizer;
 
 /**
- * UppercaseCheck - Checks if value is contains any uppercase values.
+ * UppercaseCheck - Checks if value is contains only uppercase values.
  *
  * @link https://github.com/jasonlam604/Stringizer
  * @copyright Copyright (c) 2016 Jason Lam

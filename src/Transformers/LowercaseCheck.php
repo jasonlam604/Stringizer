@@ -4,7 +4,7 @@ namespace Stringizer\Transformers;
 use Stringizer\Stringizer;
 
 /**
- * LowerCaseCheck - Checks if value is contains any lowercase values.
+ * LowerCaseCheck - Checks if value is contains only lowercase values.
  *
  * @link https://github.com/jasonlam604/Stringizer
  * @copyright Copyright (c) 2016 Jason Lam
