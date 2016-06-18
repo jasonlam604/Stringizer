@@ -32,10 +32,11 @@ Stringizer is a PHP string manipulation library with support for method chaining
       * [Contains Count & Count Case-Insensitive](#containscount)
       * [Dasherize](#dasherize)
       * [EndsWith](#endswith)
-      * [HasLowerCase](#haslowercase)
-      * [HasUpper](#hasuppercase)
       * [EnsureLeft](#ensureleft)
       * [EnsureRight](#ensureright)
+      * [First](#first)
+      * [HasLowerCase](#haslowercase)
+      * [HasUpper](#hasuppercase)
       * [HashCode](#hashcode)
       * [IndexOf & IndexOf Case-Insensitive](#indexof)
       * [IsAlpha](#isalpha)
@@ -50,6 +51,7 @@ Stringizer is a PHP string manipulation library with support for method chaining
       * [IsNumber](#isnumber)
       * [IsIpv4](#isipv4)
       * [IsIpv6](#isipv6)
+      * [Last](#last)
       * [LastIndexOf & LastIndexOf Case-Insensitive](#lastindexof)
       * [Length](#length)
       * [Lowercase](#lowercase)
@@ -285,6 +287,15 @@ $s = new Stringizer("/myapp");
 $s->ensureRight("/"); //  /myapp/
 ```
 
+##### first
+
+Grabs a section from the beginning of the string, the size of the section is determine by the given indicated value.
+
+```php  
+$s = new Stringizer("ȘŦŗÍñĝìzĕŕ");
+$s->first(6); // ȘŦŗÍñĝ
+```
+
 ##### hashCode
 
 Determine the hashcode of a string, algorithm matches the hashCode method available in a Java String class
@@ -511,6 +522,15 @@ Checks if value is a valid IP, IPv6.
 ```php
 $s = new Stringizer("2001:cdba:0000:0000:0000:0000:3257:9652");
 $s->isIpv6() // true
+```
+
+##### last
+
+Grabs a section from the end of the string, the size of the section is determine by the given indicated value.
+
+```php  
+$s = new Stringizer("ȘŦŗÍñĝìzĕŕ");
+$s->last(4); // ìzĕŕ
 ```
 
 #### lastIndexOf
