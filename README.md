@@ -27,6 +27,7 @@ Stringizer is a PHP string manipulation library with support for method chaining
       * [Encoding Getter](#getencoding)
 * [String Functions](#string-functions)
       * [Camelize](#camelize)
+      * [CharAt](#charat)
       * [Concat](#concat)
       * [Contains & Contains Case-Insensitive](#contains)
       * [Contains Count & Count Case-Insensitive](#containscount)
@@ -59,6 +60,9 @@ Stringizer is a PHP string manipulation library with support for method chaining
       * [Pad Both](#padboth)
       * [Pad Left](#padleft)
       * [Pad Right](#padright)
+      * [RandomAlpha](#randomalpha)
+      * [RandomNumeric](#randomnumeric)
+      * [RandomAlphaNumeric](#randomalphanumeric)
       * [Replace Accents](#replaceaccents)
       * [Remove Non Ascii](#removeascii)
       * [Remove Whitespace](#removewhitespace)
@@ -175,6 +179,25 @@ Removes any underscores or dashes and converts a string into camel case.
 ```php
 $s = new Stringizer("data_rate");
 $s->camelize(); // dataRate
+```
+
+##### charAt
+
+Obtain character at specific position in a string where the first position is consider 0.
+
+```php
+$s = new Stringizer("Foo Bar Fizz Buzz");
+$s->charAt(4); // B
+```
+
+```php
+$s = new Stringizer("ȘŦŗÍñĝìzĕŕ");
+$s->charAt(1); // Ŧ
+```
+
+```php
+$s = new Stringizer("ȘŦŗÍñĝìzĕŕ");
+$s->charAt(0); // S
 ```
 
 ##### concat
@@ -641,6 +664,41 @@ Pad string on right side with indicated string value and number of times to pad 
 ```php
 $s = new Stringizer("Alien");
 $this->assertEquals("Alien     ", $s->padRight(" ", 10)); // "Alien     " 
+```
+
+#### randomAlpha
+
+Generate a random alpha value, default length of 10 characters.
+
+```php
+$s = new Stringizer("");
+$s->randomAlpha(); // aYvPXitjCJ
+```
+
+```php
+$s = new Stringizer("");
+$s->randomAlpha(20); // cmbOUofxAvWeyMGgPHK
+```
+
+#### randomNumeric
+
+Generate a random  string value containing only numeric values, default length of 10 characters. It
+is important to note this is a string value because otherwise if a value with leading zeros such
+as 0123456789 would then be 123456789 as type int; but, then would not be length of 10 characters (or the
+desired indicated expected length)
+
+```php
+$s = new Stringizer("");
+$s->randomNumeric(); // 8277761361
+```
+
+#### randomAlphaNumeric
+
+Generate a random alphanumeric value, default length of 10 characters.
+
+```php
+$s = new Stringizer("");
+$s->randomAlphanumeric(); // w5quanvlUP
 ```
 
 #### replaceAccents
