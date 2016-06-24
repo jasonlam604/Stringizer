@@ -50,7 +50,6 @@ use Stringizer\Transformers\HexDecimal;
 use Stringizer\Transformers\LowercaseCheck;
 use Stringizer\Transformers\UppercaseCheck;
 use Stringizer\Transformers\Random;
-use Stringizer\Transformers\LineCount;
 
 /**
  * Stringizer
