@@ -50,6 +50,7 @@ use Stringizer\Transformers\HexDecimal;
 use Stringizer\Transformers\LowercaseCheck;
 use Stringizer\Transformers\UppercaseCheck;
 use Stringizer\Transformers\Random;
+use Stringizer\Transformers\LineCount;
 
 /**
  * Stringizer
@@ -279,6 +280,11 @@ class Stringizer
     public function lastIndexOfCaseInsensitive($needle, $offset = 0)
     {
         return (new LastIndexOf($this->value, $needle, $offset, true))->enableCaseInsensitive()->execute();
+    }
+
+    public function lineCount()
+    {
+        return (new SubStringCount($this->value,"\n"))->execute();
     }
 
     /**
