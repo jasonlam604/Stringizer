@@ -15,6 +15,7 @@ Stringizer is a PHP string manipulation library with support for method chaining
 * [Version](#version)
 * [Installation](#installation)
 * [Tests](#tests)
+* [Submitting Bugs / Issues](#submit-issues)
 * [Contributing](#contributing)
 * [Credits](#credits)
 * [License](#license)
@@ -155,6 +156,10 @@ To execute the test suite, you'll need phpunit.
 ```bash
 $ phpunit
 ```
+
+## Submit Issues
+
+Feel free to open any Issues, Bugs or suggestions!
 
 ## Contributing
 
