@@ -50,6 +50,7 @@ use Stringizer\Transformers\HexDecimal;
 use Stringizer\Transformers\LowercaseCheck;
 use Stringizer\Transformers\UppercaseCheck;
 use Stringizer\Transformers\Random;
+use Stringizer\Transformers\WordCount;
 
 /**
  * Stringizer
@@ -495,6 +496,11 @@ class Stringizer
     public function width()
     {
         return (new Width($this->value))->execute();
+    }
+
+    public function wordCount()
+    {
+        return (new WordCount($this->value))->execute();
     }
 
     public function setEncoding($encoding)
