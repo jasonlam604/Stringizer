@@ -85,8 +85,7 @@ Stringizer is a PHP string manipulation library with support for method chaining
 
 ## Overview
 
-Stringizer is a string library made up of existing PHP multibyte-string functions and a variety of string manipulation solutions found on Stackoverflow.com.  The intent is to save you time looking up string maninpulation 
-solutions yourself and provide the convience of method chaining.
+Stringizer is a string library made up of existing PHP multibyte-string functions and a variety of string manipulation solutions found on Stackoverflow.com.  The intent is to save you time looking up string maninpulation solutions yourself and provide the convience of method chaining.
 
 PSR Compliance and Code Quality:
 * [PSR-0: Autoloading Standard](http://www.php-fig.org/psr/psr-0/)
@@ -100,7 +99,7 @@ PSR Compliance and Code Quality:
 
 ## Key Highlights
 
-- Built in Multibyte support
+- Built in Multibyte support, where applicable and possible
 - Chaining of functions
 - In some case removing the hassle of you trying to figure out the right regex solution
 
