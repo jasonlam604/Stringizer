@@ -51,6 +51,7 @@ use Stringizer\Transformers\LowercaseCheck;
 use Stringizer\Transformers\UppercaseCheck;
 use Stringizer\Transformers\Random;
 use Stringizer\Transformers\WordCount;
+use Stringizer\Transformers\SentenceCount;
 
 /**
  * Stringizer
@@ -387,6 +388,11 @@ class Stringizer
     {
         $this->value = (new Reverse($this->value))->execute();
         return $this;
+    }
+
+    public function sentenceCount()
+    {
+        return (new SentenceCount($this->value))->execute();
     }
 
     public function startsWith($needle)
