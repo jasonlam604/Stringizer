@@ -56,6 +56,7 @@ Stringizer is a PHP string manipulation library with support for method chaining
       * [Last](#last)
       * [LastIndexOf & LastIndexOf Case-Insensitive](#lastindexof)
       * [Length](#length)
+      * [LineCount(#linecount)
       * [Lowercase](#lowercase)
       * [Lowercase First](#lowercasefirst)
       * [Pad Both](#padboth)
@@ -69,6 +70,7 @@ Stringizer is a PHP string manipulation library with support for method chaining
       * [Remove Whitespace](#removewhitespace)
       * [Replace & Replace Case-Insensitive](#replace)
       * [Reverse](#reverse)
+      * [SentenceCount](#sentencecount)
       * [Split](#split)
       * [StartsWith](#startswith)
       * [Strip Punctuation](#strippunctuation)
@@ -82,6 +84,7 @@ Stringizer is a PHP string manipulation library with support for method chaining
       * [Uppercase](#uppercase)
       * [Uppercase Words](#uppercasewords)
       * [Width](#width)
+      * [WordCount](#wordcount)
 
 ## Overview
 
@@ -114,14 +117,14 @@ It's recommended that you use [Composer](https://getcomposer.org/) to install St
 Manual install with composer
 
 ```bash
-$ composer require jasonlam604/stringizer "^2.3.0"
+$ composer require jasonlam604/stringizer "^2.4.0"
 ```
 
 Using the composer.json file
 
 ```json
 "require": {
-    "jasonlam604/stringizer": "^2.3.0"
+    "jasonlam604/stringizer": "^2.4.0"
 }
 ```
 
@@ -616,6 +619,15 @@ $s = new Stringizer("キラキラした");
 $s->length(); // 6
 ```
 
+#### lineCount
+
+Count the number of lines based line feed, \n.
+
+```php
+$s = new Stringizer("ȘŦŗÍñĝìzĕŕ\nȘŦŗÍñĝìzĕŕ\nȘŦŗÍñĝìzĕŕ");
+$s->lineCount(); // 2
+```
+
 #### lowercase
 
 Ensure the string is entirely lower case
@@ -790,6 +802,15 @@ MultiByte
 ```php     
 $s = new Stringizer("文字列のそれ");
 $s->reverse(); // れその列字文
+```
+
+#### sentenceCount
+
+Count the number of sentences based sentences ending with one the following: . ! or ?
+
+```php
+$s = new Stringizer("ȘŦŗÍñĝìzĕŕ jumped over the stringy stick. ȘŦŗÍñĝìzĕŕ jumped over the stringy stick again!  Or did it?");
+$s->sentenceCount(); // 3
 ```
 
 #### split
@@ -983,6 +1004,15 @@ $s->width(); // 12, note multi-byte characters take up more space, typice 2 for 
 ```php        
 $s = new Stringizer("FizzBuzz");
 $s->length(); // 8
+```
+
+#### wordCount
+
+Count the number of words.
+
+```php
+$s = new Stringizer("ȘŦŗÍñĝìzĕŕ こんにちは ȘŦŗÍñĝìzĕŕ こんにちは ȘŦŗÍñĝìzĕŕ");
+$s->wordCount(); // 5
 ```
 
 ## Basic Functions
