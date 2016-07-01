@@ -28,7 +28,7 @@ class SentenceCountTest extends PHPUnit_Framework_TestCase
             tempus. Fusce ac eleifend nunc, consectetur elementum odio. Sed faucibus scelerisque lacus at pharetra. Etiam eu rutrum nulla. Suspendisse potenti.
             In interdum diam eros, vitae efficitur lacus dignissim vitae. Praesent malesuada euismod quam in volutpat. Aenean non varius ipsum. Vestibulum ante
             ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Etiam euismod non urna ut porttitor. In euismod ornare felis, sed eleifend
-            elit tempus ut. Vivamus auctor, odio quis commodo lacinia, elit turpis euismod dolor, ut mollis lacus risus non diam. In lorem neque, dictum et sapien
+            elit tempus ut! Vivamus auctor, odio quis commodo lacinia, elit turpis euismod dolor, ut mollis lacus risus non diam. In lorem neque, dictum et sapien
             ac, maximus luctus enim. Integer sed ex ac enim tempor commodo in dignissim felis. Phasellus at pulvinar mi. Vivamus quis ante at lectus lacinia
             condimentum non sit amet justo. Aenean eget leo semper, dignissim ligula nec, rhoncus lorem. Nullam vestibulum aliquet enim, a egestas est
             pellentesque at. Curabitur purus tortor, suscipit quis lacus quis, consequat rutrum felis.Duis vestibulum elit vel eros feugiat, eget ullamcorper dui
@@ -37,7 +37,7 @@ class SentenceCountTest extends PHPUnit_Framework_TestCase
             ornare semper massa, sed aliquet tortor condimentum ac. Nullam semper porta rutrum. Morbi arcu nunc, porta ut tellus varius, suscipit iaculis felis. Vestibulum
             ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Suspendisse vestibulum faucibus dui, et cursus arcu malesuada quis. Sed
             eget sapien sit amet enim pretium mattis. Aenean pulvinar auctor leo, in lacinia urna ultricies in. Suspendisse at velit vestibulum, maximus risus sit amet,
-            fringilla ipsum. Nullam congue, quam et tincidunt placerat, diam felis semper erat, at tempor libero neque eget magna. Quisque fermentum, massa eu sollicitudin
+            fringilla ipsum? Nullam congue, quam et tincidunt placerat, diam felis semper erat, at tempor libero neque eget magna. Quisque fermentum, massa eu sollicitudin
             mollis, libero urna tincidunt enim, laoreet laoreet nisl ligula sed felis. Ut id risus sagittis, tincidunt sem facilisis, tincidunt diam. Cras auctor mauris vel
             libero bibendum, eu sodales est tempus. Sed molestie eget ante a rhoncus. Praesent semper suscipit leo eget pharetra. In luctus mi dui, eget pellentesque arcu
             auctor nec. Suspendisse potenti.");
