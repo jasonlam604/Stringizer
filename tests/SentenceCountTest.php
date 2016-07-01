@@ -20,6 +20,12 @@ class SentenceCountTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(1, $s->sentenceCount());
     }
 
+    public function testValid3Sentences()
+    {
+        $s = new Stringizer("ȘŦŗÍñĝìzĕŕ jumped over the stringy stick. ȘŦŗÍñĝìzĕŕ jumped over the stringy stick again!  Or did it?");
+        $this->assertEquals(3, $s->sentenceCount());
+    }
+
     public function testValidMultiSentence()
     {
         $s = new Stringizer("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sed turpis ac elit viverra luctus id nec ex. Pellentesque consequat leo velit,
