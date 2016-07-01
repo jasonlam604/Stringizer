@@ -56,7 +56,7 @@ Stringizer is a PHP string manipulation library with support for method chaining
       * [Last](#last)
       * [LastIndexOf & LastIndexOf Case-Insensitive](#lastindexof)
       * [Length](#length)
-      * [LineCount(#linecount)
+      * [LineCount](#linecount)
       * [Lowercase](#lowercase)
       * [Lowercase First](#lowercasefirst)
       * [Pad Both](#padboth)
