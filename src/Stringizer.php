@@ -52,7 +52,6 @@ use Stringizer\Transformers\UppercaseCheck;
 use Stringizer\Transformers\Random;
 use Stringizer\Transformers\WordCount;
 use Stringizer\Transformers\SentenceCount;
-use Stringizer\Transformers\ReplaceSmartQuotes;
 use Stringizer\Transformers\Url;
 
 /**
