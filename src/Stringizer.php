@@ -52,6 +52,8 @@ use Stringizer\Transformers\UppercaseCheck;
 use Stringizer\Transformers\Random;
 use Stringizer\Transformers\WordCount;
 use Stringizer\Transformers\SentenceCount;
+use Stringizer\Transformers\ReplaceSmartQuotes;
+use Stringizer\Transformers\Url;
 
 /**
  * Stringizer
@@ -265,6 +267,11 @@ class Stringizer
     public function isNumber()
     {
         return (new Number($this->value))->execute();
+    }
+
+    public function isUrl($santize=false)
+    {
+        return (new Url($this->value,$santize))->execute();
     }
 
     public function last($numberOfCharacters)
