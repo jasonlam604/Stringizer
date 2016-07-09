@@ -53,6 +53,7 @@ use Stringizer\Transformers\Random;
 use Stringizer\Transformers\WordCount;
 use Stringizer\Transformers\SentenceCount;
 use Stringizer\Transformers\Url;
+use Stringizer\Transformers\Chars;
 
 /**
  * Stringizer
@@ -113,6 +114,11 @@ class Stringizer
     {
         $this->value = (new SubString($this->value,$index,1))->execute();
         return $this;
+    }
+
+    public function chars()
+    {
+        return $this->value = (new Chars($this->value))->execute();
     }
 
     /**
