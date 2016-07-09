@@ -228,6 +228,14 @@ class Stringizer
         return (new AlphaNumericSpaceDash($this->value))->execute();
     }
 
+    /**
+     * Alias for isEmpty
+     */
+    public function isBlank()
+    {
+        return (new EmptyCheck($this->value))->execute();
+    }
+
     public function isDate()
     {
         return (new Date($this->value))->execute();
