@@ -54,6 +54,7 @@ use Stringizer\Transformers\WordCount;
 use Stringizer\Transformers\SentenceCount;
 use Stringizer\Transformers\Url;
 use Stringizer\Transformers\Chars;
+use Stringizer\Transformers\CollapseWhitespace;
 
 /**
  * Stringizer
@@ -119,6 +120,12 @@ class Stringizer
     public function chars()
     {
         return $this->value = (new Chars($this->value))->execute();
+    }
+
+    public function collapseWhitespace()
+    {
+        $this->value = (new CollapseWhitespace($this->value))->execute();
+        return $this;
     }
 
     /**
