@@ -4,7 +4,7 @@
     "description": "Stringizer is a PHP string manipulation library with support for method chaining and multibyte handling",
     "keywords": ["laravel","library","toolkit","string","manipulation","chaining","multibyte","php","transformer","stringizer"],
     "license": "MIT",
-    "homepage": "https://github.com/jasonlam604/Stringizer",
+    "homepage": "http://jasonlam604.github.io/Stringizer/",
     "authors": [
         {
             "name": "Jason Lam",
