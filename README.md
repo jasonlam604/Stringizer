@@ -29,6 +29,8 @@ Stringizer is a PHP string manipulation library with support for method chaining
 * [String Functions](#string-functions)
       * [Camelize](#camelize)
       * [CharAt](#charat)
+      * [Chars](#chars)
+      * [CollapseWhitespace](#collapsewhitespace)
       * [Concat](#concat)
       * [Contains & Contains Case-Insensitive](#contains)
       * [Contains Count & Count Case-Insensitive](#containscount)
@@ -45,6 +47,7 @@ Stringizer is a PHP string manipulation library with support for method chaining
       * [IsAlphaNumeric](#isalphanumeric)
       * [IsAlphaNumeric with Space](#isalphanumericspace)
       * [IsAlphaNumeric with Space and Dash](#isalphanumericspacedash)
+      * [IsBlank](#isblank)
       * [IsDate](#isdate)
       * [IsDecimal](#isdecimal)
       * [IsEmail](#isemail)
@@ -53,6 +56,7 @@ Stringizer is a PHP string manipulation library with support for method chaining
       * [IsNumber](#isnumber)
       * [IsIpv4](#isipv4)
       * [IsIpv6](#isipv6)
+      * [IsUrl](#isurl)
       * [Last](#last)
       * [LastIndexOf & LastIndexOf Case-Insensitive](#lastindexof)
       * [Length](#length)
@@ -117,14 +121,14 @@ It's recommended that you use [Composer](https://getcomposer.org/) to install St
 Manual install with composer
 
 ```bash
-$ composer require jasonlam604/stringizer "^2.4.0"
+$ composer require jasonlam604/stringizer "^2.5.0"
 ```
 
 Using the composer.json file
 
 ```json
 "require": {
-    "jasonlam604/stringizer": "^2.4.0"
+    "jasonlam604/stringizer": "^2.5.0"
 }
 ```
 
@@ -197,6 +201,15 @@ $s = new Stringizer("Foo Bar Fizz Buzz");
 $s->charAt(4); // B
 ```
 
+##### chars
+
+Return the given string as an array where each index contains a character.
+
+```php
+$s = new Stringizer("ȘŦŗÍñĝìzĕŕ");
+$s->chars(); // an array made up 10 indexes ["Ș","Ŧ","ŗ","Í","ñ","ĝ","ì","z","ĕ","ŕ"]
+```
+
 ```php
 $s = new Stringizer("ȘŦŗÍñĝìzĕŕ");
 $s->charAt(1); // Ŧ
@@ -205,6 +218,15 @@ $s->charAt(1); // Ŧ
 ```php
 $s = new Stringizer("ȘŦŗÍñĝìzĕŕ");
 $s->charAt(0); // S
+```
+
+##### collapseWhitespace
+
+Remove extra whitespace, leave only one whitespace between characters where there is more then one whitespace value.
+
+```php
+$s = new Stringizer(""ȘŦŗÍñĝ\n\nìzĕŕ \n\t    \r"");
+$s->concat("collapseWhitespace") // ȘŦŗÍñĝ ìzĕŕ
 ```
 
 ##### concat
@@ -458,6 +480,15 @@ $s = new Stringizer("Marie-Ann Lucy!");
 $s->isAlphaNumericSpaceDash(); // false
 ```
 
+##### isBlank
+
+Checks if value is blank (alias to isEmpty), if string contains whitespace only it is considered empty.
+
+```php
+$s = new Stringizer("\n  \n\r\t   ");
+$s->isBlank(); // true
+```
+
 ##### isDate
 
 Checks if value is valid date based on the PHP function strtotime.
@@ -552,6 +583,15 @@ Checks if value is a valid IP, IPv6.
 ```php
 $s = new Stringizer("2001:cdba:0000:0000:0000:0000:3257:9652");
 $s->isIpv6() // true
+```
+
+##### isUrl
+
+Checks if value is contains a valid URL
+
+```php
+$s = new Stringizer("https://github.com");
+$s->isUrl(); // true
 ```
 
 ##### last
