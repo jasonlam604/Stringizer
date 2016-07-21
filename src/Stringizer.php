@@ -55,6 +55,7 @@ use Stringizer\Transformers\SentenceCount;
 use Stringizer\Transformers\Url;
 use Stringizer\Transformers\Chars;
 use Stringizer\Transformers\CollapseWhitespace;
+use Stringizer\Transformers\Base64Check;
 
 /**
  * Stringizer
@@ -239,6 +240,11 @@ class Stringizer
     public function isAlphaNumericSpaceDash()
     {
         return (new AlphaNumericSpaceDash($this->value))->execute();
+    }
+
+    public function isBase64()
+    {
+        return (new Base64Check($this->value))->execute();
     }
 
     /**
