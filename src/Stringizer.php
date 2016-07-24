@@ -56,6 +56,7 @@ use Stringizer\Transformers\Url;
 use Stringizer\Transformers\Chars;
 use Stringizer\Transformers\CollapseWhitespace;
 use Stringizer\Transformers\Base64Check;
+use Stringizer\Transformers\Base64;
 
 /**
  * Stringizer
@@ -104,6 +105,18 @@ class Stringizer
             $encoding = \mb_internal_encoding();
 
         $this->setEncoding($encoding);
+    }
+
+    public function base64Encode()
+    {
+        $this->value = (new Base64($this->value))->execute();
+        return $this;
+    }
+
+    public function base64Decode()
+    {
+        $this->value = (new Base64($this->value,true))->execute();
+        return $this;
     }
 
     public function camelize()
