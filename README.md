@@ -27,6 +27,8 @@ Stringizer is a PHP string manipulation library with support for method chaining
       * [Encoding Setter](#setencoding)
       * [Encoding Getter](#getencoding)
 * [String Functions](#string-functions)
+      * [Base64Encode](#base64decode)
+      * [Base64Decode](#base64encode)
       * [Camelize](#camelize)
       * [CharAt](#charat)
       * [Chars](#chars)
@@ -47,6 +49,7 @@ Stringizer is a PHP string manipulation library with support for method chaining
       * [IsAlphaNumeric](#isalphanumeric)
       * [IsAlphaNumeric with Space](#isalphanumericspace)
       * [IsAlphaNumeric with Space and Dash](#isalphanumericspacedash)
+      * [IsBase64]($isbase64)
       * [IsBlank](#isblank)
       * [IsDate](#isdate)
       * [IsDecimal](#isdecimal)
@@ -182,6 +185,24 @@ The Stringizer is licensed under the MIT license. See [License File](LICENSE.md)
 
 
 ## String Functions
+
+##### base64Decode
+
+Bae64 decode string
+
+```php
+$s = new Stringizer("44GT44KT44Gr44Gh44Gv");
+$s->base64Decode(); // こんにちは
+```
+
+##### base64Encode
+
+Base64 Encode String
+
+```php
+$s = new Stringizer("ȘŦŗÍñĝìzĕŕ");
+$s->base64Encode(); // yJjFpsWXw43DscSdw6x6xJXFlQ==
+```
 
 ##### camelize
 
@@ -478,6 +499,16 @@ $s->isAlphaNumericSpaceDash(); // true
 ```php
 $s = new Stringizer("Marie-Ann Lucy!");
 $s->isAlphaNumericSpaceDash(); // false
+```
+
+##### isBase64
+
+Checks if value is a valid Base64 string
+
+```php
+// Decoded value is ȘŦŗÍñĝìzĕŕ
+$s = new Stringizer("yJjFpsWXw43DscSdw6x6xJXFlQ==");
+$s->isBase64(); // true
 ```
 
 ##### isBlank
