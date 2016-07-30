@@ -8,25 +8,14 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-    <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-80912709-1', 'auto');
-  ga('send', 'pageview');
-</script>
   </head>
   <body>
     <section class="page-header">
       <h1 class="project-name">Stringizer</h1>
       <h2 class="project-tagline">PHP String Manipulation Library with MultiByte support</h2>
-      <a href="#installation" class="btn">Install with Composer</a>
-      <a href="https://github.com/jasonlam604/Stringizer" class="btn">Download on GitHub</a>
-      <!--
+      <a href="https://github.com/jasonlam604/Stringizer" class="btn">View on GitHub</a>
       <a href="https://github.com/jasonlam604/Stringizer/zipball/master" class="btn">Download .zip</a>
       <a href="https://github.com/jasonlam604/Stringizer/tarball/master" class="btn">Download .tar.gz</a>
-      -->
     </section>
 
     <section class="main-content">
@@ -68,6 +57,8 @@
 <a href="#string-functions">String Functions</a>
 
 <ul>
+<li><a href="#base64decode">Base64Encode</a></li>
+<li><a href="#base64encode">Base64Decode</a></li>
 <li><a href="#camelize">Camelize</a></li>
 <li><a href="#charat">CharAt</a></li>
 <li><a href="#chars">Chars</a></li>
@@ -88,6 +79,7 @@
 <li><a href="#isalphanumeric">IsAlphaNumeric</a></li>
 <li><a href="#isalphanumericspace">IsAlphaNumeric with Space</a></li>
 <li><a href="#isalphanumericspacedash">IsAlphaNumeric with Space and Dash</a></li>
+<li><a href="%24isbase64">IsBase64</a></li>
 <li><a href="#isblank">IsBlank</a></li>
 <li><a href="#isdate">IsDate</a></li>
 <li><a href="#isdecimal">IsDecimal</a></li>
@@ -174,12 +166,12 @@
 
 <p>Manual install with composer</p>
 
-<div class="highlight highlight-source-shell"><pre>$ composer require jasonlam604/stringizer <span class="pl-s"><span class="pl-pds">"</span>^2.5.0<span class="pl-pds">"</span></span></pre></div>
+<div class="highlight highlight-source-shell"><pre>$ composer require jasonlam604/stringizer <span class="pl-s"><span class="pl-pds">"</span>^2.6.0<span class="pl-pds">"</span></span></pre></div>
 
 <p>Using the composer.json file</p>
 
 <div class="highlight highlight-source-json"><pre><span class="pl-s"><span class="pl-pds">"</span>require<span class="pl-pds">"</span></span>: {
-    <span class="pl-s"><span class="pl-pds">"</span>jasonlam604/stringizer<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>^2.5.0<span class="pl-pds">"</span></span>
+    <span class="pl-s"><span class="pl-pds">"</span>jasonlam604/stringizer<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>^2.6.0<span class="pl-pds">"</span></span>
 }</pre></div>
 
 <p>This will install Stringizer and all required dependencies. Stringizer requires PHP 5.6.0 or newer.</p>
@@ -235,6 +227,22 @@
 
 <h2>
 <a id="string-functions" class="anchor" href="#string-functions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>String Functions</h2>
+
+<h5>
+<a id="base64decode" class="anchor" href="#base64decode" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>base64Decode</h5>
+
+<p>Bae64 decode string</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$s</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">Stringizer</span>(<span class="pl-s"><span class="pl-pds">"</span>44GT44KT44Gr44Gh44Gv<span class="pl-pds">"</span></span>);</span>
+<span class="pl-s1"><span class="pl-smi">$s</span><span class="pl-k">-&gt;</span>base64Decode(); <span class="pl-c">// こんにちは</span></span></pre></div>
+
+<h5>
+<a id="base64encode" class="anchor" href="#base64encode" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>base64Encode</h5>
+
+<p>Base64 Encode String</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$s</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">Stringizer</span>(<span class="pl-s"><span class="pl-pds">"</span>ȘŦŗÍñĝìzĕŕ<span class="pl-pds">"</span></span>);</span>
+<span class="pl-s1"><span class="pl-smi">$s</span><span class="pl-k">-&gt;</span>base64Encode(); <span class="pl-c">// yJjFpsWXw43DscSdw6x6xJXFlQ==</span></span></pre></div>
 
 <h5>
 <a id="camelize" class="anchor" href="#camelize" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>camelize</h5>
@@ -471,6 +479,15 @@
 
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$s</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">Stringizer</span>(<span class="pl-s"><span class="pl-pds">"</span>Marie-Ann Lucy!<span class="pl-pds">"</span></span>);</span>
 <span class="pl-s1"><span class="pl-smi">$s</span><span class="pl-k">-&gt;</span>isAlphaNumericSpaceDash(); <span class="pl-c">// false</span></span></pre></div>
+
+<h5>
+<a id="isbase64" class="anchor" href="#isbase64" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>isBase64</h5>
+
+<p>Checks if value is a valid Base64 string</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-c">// Decoded value is ȘŦŗÍñĝìzĕŕ</span></span>
+<span class="pl-s1"><span class="pl-smi">$s</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">Stringizer</span>(<span class="pl-s"><span class="pl-pds">"</span>yJjFpsWXw43DscSdw6x6xJXFlQ==<span class="pl-pds">"</span></span>);</span>
+<span class="pl-s1"><span class="pl-smi">$s</span><span class="pl-k">-&gt;</span>isBase64(); <span class="pl-c">// true</span></span></pre></div>
 
 <h5>
 <a id="isblank" class="anchor" href="#isblank" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>isBlank</h5>
