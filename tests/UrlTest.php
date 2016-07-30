@@ -36,4 +36,16 @@ class UrlTest extends PHPUnit_Framework_TestCase
         $s = new Stringizer("https:///github.com");
         $this->assertEquals(false, $s->isUrl());
     }
+
+    public function testUrlSantize()
+    {
+
+        $s = new Stringizer("http://jason��lam604.co�m");
+
+        // Unsantized should fail
+        $this->assertEquals(false, $s->isUrl());
+
+        // Santize should pass
+        $this->assertEquals(true, $s->isUrl(true));
+    }
 }
