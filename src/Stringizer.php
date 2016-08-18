@@ -57,6 +57,7 @@ use Stringizer\Transformers\Chars;
 use Stringizer\Transformers\CollapseWhitespace;
 use Stringizer\Transformers\Base64Check;
 use Stringizer\Transformers\Base64;
+use Stringizer\Transformers\Between;
 
 /**
  * Stringizer
@@ -157,6 +158,12 @@ class Stringizer
         $transformer = new Concat($this->value, $value);
         $transformer->setPreAppend($preAppend);
         $this->value = $transformer->execute();
+        return $this;
+    }
+
+    public function between($left,$right)
+    {
+        $this->value = (new Between($this->value,$left,$right))->execute();
         return $this;
     }
 
