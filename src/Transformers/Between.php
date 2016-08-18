@@ -1,8 +1,6 @@
 <?php
 namespace Stringizer\Transformers;
 
-use Stringizer\Stringizer;
-
 /**
  * Between - Extracts a string between left and right strings.
  *
