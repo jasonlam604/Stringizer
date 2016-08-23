@@ -58,6 +58,7 @@ use Stringizer\Transformers\CollapseWhitespace;
 use Stringizer\Transformers\Base64Check;
 use Stringizer\Transformers\Base64;
 use Stringizer\Transformers\Between;
+use Stringizer\Transformers\CamelToSnake;
 
 /**
  * Stringizer
@@ -123,6 +124,12 @@ class Stringizer
     public function camelize()
     {
         $this->value = (new Camelize($this->value))->execute();
+        return $this;
+    }
+
+    public function camelToSnake()
+    {
+        $this->value = (new CamelToSnake($this->value))->execute();
         return $this;
     }
 
