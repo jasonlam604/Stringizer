@@ -59,6 +59,7 @@ use Stringizer\Transformers\Base64Check;
 use Stringizer\Transformers\Base64;
 use Stringizer\Transformers\Between;
 use Stringizer\Transformers\CamelToSnake;
+use Stringizer\Transformers\ChompLeft;
 
 /**
  * Stringizer
@@ -142,6 +143,12 @@ class Stringizer
     public function chars()
     {
         return $this->value = (new Chars($this->value))->execute();
+    }
+
+    public function chompLeft($prefix)
+    {
+        $this->value = (new ChompLeft($this->value,$prefix))->execute();
+        return $this;
     }
 
     public function collapseWhitespace()
