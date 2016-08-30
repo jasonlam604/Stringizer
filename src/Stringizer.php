@@ -60,6 +60,7 @@ use Stringizer\Transformers\Base64;
 use Stringizer\Transformers\Between;
 use Stringizer\Transformers\CamelToSnake;
 use Stringizer\Transformers\ChompLeft;
+use Stringizer\Transformers\ChompRight;
 
 /**
  * Stringizer
@@ -148,6 +149,12 @@ class Stringizer
     public function chompLeft($prefix)
     {
         $this->value = (new ChompLeft($this->value,$prefix))->execute();
+        return $this;
+    }
+
+    public function chompRight($prefix)
+    {
+        $this->value = (new ChompRight($this->value,$prefix))->execute();
         return $this;
     }
 
