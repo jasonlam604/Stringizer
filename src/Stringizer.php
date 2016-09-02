@@ -61,6 +61,7 @@ use Stringizer\Transformers\Between;
 use Stringizer\Transformers\CamelToSnake;
 use Stringizer\Transformers\ChompLeft;
 use Stringizer\Transformers\ChompRight;
+use Stringizer\Transformers\BooleanConverter;
 
 /**
  * Stringizer
@@ -497,6 +498,11 @@ class Stringizer
         return $this;
     }
 
+    public function toBoolean()
+    {
+        return (new BooleanConverter($this->value))->execute();
+    }
+
     public function trim()
     {
         $this->value = (new Trim($this->value))->execute();
@@ -617,7 +623,6 @@ class Stringizer
         $this->value = (string) $stringValue;
 
         $this->valueOriginal = $this->value;
-
     }
 
     public function getString()
