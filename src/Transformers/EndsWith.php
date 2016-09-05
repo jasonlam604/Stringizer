@@ -6,7 +6,7 @@ namespace Stringizer\Transformers;
  *
  * @link https://github.com/jasonlam604/Stringizer
  * @copyright Copyright (c) 2016 Jason Lam
- * @license https://github.com/jasonlam604/Stringizer/blob/master/LICENSE (MIT License)
+ * @license https://github.com/jasonlam604/Stringizer/blob/master/LICENSE.md (MIT License)
  */
 class EndsWith extends Transformer implements TransformerInterface
 {
@@ -16,7 +16,7 @@ class EndsWith extends Transformer implements TransformerInterface
     public function __construct($value, $needle)
     {
         parent::__construct($value);
-        
+
         $this->needle = $needle;
     }
 

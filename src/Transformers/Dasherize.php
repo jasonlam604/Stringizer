@@ -10,7 +10,7 @@ namespace Stringizer\Transformers;
  *
  * @link https://github.com/jasonlam604/Stringizer
  * @copyright Copyright (c) 2016 Jason Lam
- * @license https://github.com/jasonlam604/Stringizer/blob/master/LICENSE (MIT License)
+ * @license https://github.com/jasonlam604/Stringizer/blob/master/LICENSE.md (MIT License)
  */
 class Dasherize extends Transformer implements TransformerInterface
 {
@@ -23,7 +23,7 @@ class Dasherize extends Transformer implements TransformerInterface
     public function execute()
     {
         preg_match_all('((?:^|[A-Z])[^A-Z]*)', $this->getValue(), $matches);
-        
+
         return mb_strtolower(implode("-", $matches[0]));
     }
 }

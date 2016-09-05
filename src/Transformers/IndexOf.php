@@ -6,8 +6,8 @@ namespace Stringizer\Transformers;
  *
  * @link https://github.com/jasonlam604/Stringizer
  * @copyright Copyright (c) 2016 Jason Lam
- * @license https://github.com/jasonlam604/Stringizer/blob/master/LICENSE (MIT License)
- *         
+ * @license https://github.com/jasonlam604/Stringizer/blob/master/LICENSE.md (MIT License)
+ *
  */
 class IndexOf extends TransformerCaseInsensitive implements TransformerInterface
 {
@@ -19,7 +19,7 @@ class IndexOf extends TransformerCaseInsensitive implements TransformerInterface
     public function __construct($value, $needle, $fromIndex = 0)
     {
         parent::__construct($value);
-        
+
         $this->needle = $needle;
         $this->fromIndex = $fromIndex;
     }

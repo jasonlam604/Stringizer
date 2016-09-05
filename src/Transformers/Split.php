@@ -8,7 +8,7 @@ namespace Stringizer\Transformers;
  *
  * @link https://github.com/jasonlam604/Stringizer
  * @copyright Copyright (c) 2016 Jason Lam
- * @license https://github.com/jasonlam604/Stringizer/blob/master/LICENSE (MIT License)
+ * @license https://github.com/jasonlam604/Stringizer/blob/master/LICENSE.md (MIT License)
  */
 class Split extends Transformer implements TransformerInterface
 {
@@ -18,7 +18,7 @@ class Split extends Transformer implements TransformerInterface
     public function __construct($value, $delimiter)
     {
         parent::__construct($value);
-        
+
         $this->delimiter = $delimiter;
     }
 

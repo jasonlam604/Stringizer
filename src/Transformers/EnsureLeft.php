@@ -8,7 +8,7 @@ use Stringizer\Stringizer;
  *
  * @link https://github.com/jasonlam604/Stringizer
  * @copyright Copyright (c) 2016 Jason Lam
- * @license https://github.com/jasonlam604/Stringizer/blob/master/LICENSE (MIT License)
+ * @license https://github.com/jasonlam604/Stringizer/blob/master/LICENSE.md (MIT License)
  */
 class EnsureLeft extends Transformer implements TransformerInterface
 {

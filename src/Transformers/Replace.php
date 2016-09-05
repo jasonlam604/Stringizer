@@ -8,7 +8,7 @@ namespace Stringizer\Transformers;
  *
  * @link https://github.com/jasonlam604/Stringizer
  * @copyright Copyright (c) 2016 Jason Lam
- * @license https://github.com/jasonlam604/Stringizer/blob/master/LICENSE (MIT License)
+ * @license https://github.com/jasonlam604/Stringizer/blob/master/LICENSE.md (MIT License)
  */
 class Replace extends TransformerCaseInsensitive implements TransformerInterface
 {
@@ -30,9 +30,9 @@ class Replace extends TransformerCaseInsensitive implements TransformerInterface
     public function __construct($value, $needles, $replacements)
     {
         parent::__construct($value);
-        
+
         $this->needles = $needles;
-        
+
         $this->replacements = $replacements;
     }
 

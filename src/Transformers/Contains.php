@@ -8,7 +8,7 @@ use Stringizer\Transformers\StringFindPosition;
  *
  * @link https://github.com/jasonlam604/Stringizer
  * @copyright Copyright (c) 2016 Jason Lam
- * @license https://github.com/jasonlam604/Stringizer/blob/master/LICENSE (MIT License)
+ * @license https://github.com/jasonlam604/Stringizer/blob/master/LICENSE.md (MIT License)
  */
 class Contains extends TransformerCaseInsensitive implements TransformerInterface
 {
@@ -24,14 +24,14 @@ class Contains extends TransformerCaseInsensitive implements TransformerInterfac
     public function execute()
     {
         if ($this->isCaseInsensitive()) {
-            
+
             if ((new StringFindPosition($this->getValue(), $this->needle))->enableCaseInsensitive()->execute()) {
                 return true;
             } else {
                 return false;
             }
         } else {
-            
+
             if ((new StringFindPosition($this->getValue(), $this->needle))->execute()) {
                 return true;
             } else {
