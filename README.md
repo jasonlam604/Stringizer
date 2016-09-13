@@ -29,9 +29,13 @@ Stringizer is a PHP string manipulation library with support for method chaining
 * [String Functions](#string-functions)
       * [Base64Encode](#base64decode)
       * [Base64Decode](#base64encode)
+      * [Between](#between)
       * [Camelize](#camelize)
+      * [CamelToSnake](#cameltosnake)
       * [CharAt](#charat)
       * [Chars](#chars)
+      * [ChompLeft](#chompleft)
+      * [ChompRight](#chompright)
       * [CollapseWhitespace](#collapsewhitespace)
       * [Concat](#concat)
       * [Contains & Contains Case-Insensitive](#contains)
@@ -83,6 +87,7 @@ Stringizer is a PHP string manipulation library with support for method chaining
       * [Strip Punctuation](#strippunctuation)
       * [Strip Tags](#striptags)
       * [Sub String](#substring)
+      * [ToBoolean](#toboolean)
       * [Trim](#trim)
       * [Trim Left](#trimleft)
       * [Trim Right](#trimright)
@@ -124,14 +129,14 @@ It's recommended that you use [Composer](https://getcomposer.org/) to install St
 Manual install with composer
 
 ```bash
-$ composer require jasonlam604/stringizer "^2.6.0"
+$ composer require jasonlam604/stringizer "^2.7.0"
 ```
 
 Using the composer.json file
 
 ```json
 "require": {
-    "jasonlam604/stringizer": "^2.6.0"
+    "jasonlam604/stringizer": "^2.7.0"
 }
 ```
 
@@ -204,6 +209,15 @@ $s = new Stringizer("ȘŦŗÍñĝìzĕŕ");
 $s->base64Encode(); // yJjFpsWXw43DscSdw6x6xJXFlQ==
 ```
 
+##### between
+
+Extracts a string between left and right strings.
+
+```php
+$s = new Stringizer("<div>ȘŦŗÍñĝìzĕŕ</div>");
+$s->between("<div>", "</div>"); // ȘŦŗÍñĝìzĕŕ
+```
+
 ##### camelize
 
 Removes any underscores or dashes and converts a string into camel case.
@@ -211,6 +225,15 @@ Removes any underscores or dashes and converts a string into camel case.
 ```php
 $s = new Stringizer("data_rate");
 $s->camelize(); // dataRate
+```
+
+##### camelToSnake
+
+Converts Camel case to Snake Case.
+
+```php
+$s = new Stringizer("helloSŦŗÍñĝìzĕŕ");
+$s->camelToSnake(); // hello_sŦŗÍñĝìzĕŕ
 ```
 
 ##### charAt
@@ -239,6 +262,24 @@ $s->charAt(1); // Ŧ
 ```php
 $s = new Stringizer("ȘŦŗÍñĝìzĕŕ");
 $s->charAt(0); // S
+```
+
+##### chompLeft
+
+Removes prefix from start of string.
+
+```php
+$s = new Stringizer("ȘŦŗÍñĝìzĕŕ");
+$s->chompLeft("ȘŦŗÍñĝ"); // ìzĕŕ
+```
+
+##### chompRight
+
+Removes suffix from start of string.
+
+```php
+$s = new Stringizer("ȘŦŗÍñĝìzĕŕ");
+$s->chompRight("ìzĕŕ"); // ȘŦŗÍñĝ
 ```
 
 ##### collapseWhitespace
@@ -982,6 +1023,32 @@ MultiByte
 $s = new Stringizer("キラキラした キラキラした");
 $s->subString(7); // キラキラした
 ``` 
+
+#### toBoolean
+
+Converts a logical truth string to boolean.
+
+```php
+(new Stringizer(true))->toBoolean(); // true
+(new Stringizer(false))->toBoolean(); // false
+(new Stringizer("stringizer"))->toBoolean(); // false
+(new Stringizer("true"))->toBoolean(); // true
+(new Stringizer("false"))->toBoolean(); // false
+(new Stringizer("TRUE"))->toBoolean(); // true
+(new Stringizer("FALSE"))->toBoolean(); // false
+(new Stringizer("on"))->toBoolean(); // true
+(new Stringizer("off"))->toBoolean(); // false
+(new Stringizer("ON"))->toBoolean(); // true
+(new Stringizer("OFF"))->toBoolean(); // false
+(new Stringizer("yes"))->toBoolean(); // true
+(new Stringizer("no"))->toBoolean(); // false
+(new Stringizer("YES"))->toBoolean(); // true
+(new Stringizer("NO"))->toBoolean(); // false
+(new Stringizer(""))->toBoolean(); // false
+(new Stringizer(null))->toBoolean(); // false
+(new Stringizer(1))->toBoolean(); // true
+(new Stringizer(-1))->toBoolean(); // false
+```
 
 #### trim
 
