@@ -2,38 +2,38 @@
 use Stringizer\Stringizer;
 
 /**
- * ChompLeftTest Unit Tests
+ * ChopLeftTest Unit Tests
  */
-class ChompLeftTest extends PHPUnit_Framework_TestCase
+class ChopLeftTest extends PHPUnit_Framework_TestCase
 {
 
     public function testValid()
     {
         $s = new Stringizer("foobar");
-        $this->assertEquals("bar", $s->chompLeft("foo"));
+        $this->assertEquals("bar", $s->chopLeft("foo"));
     }
 
     public function testValidNoMatch()
     {
         $s = new Stringizer("foobar");
-        $this->assertEquals("foobar", $s->chompLeft("FU"));
+        $this->assertEquals("foobar", $s->chopLeft("FU"));
     }
 
     public function testValidMultiByte()
     {
         $s = new Stringizer("ȘŦŗÍñĝìzĕŕ");
-        $this->assertEquals("ìzĕŕ", $s->chompLeft("ȘŦŗÍñĝ"));
+        $this->assertEquals("ìzĕŕ", $s->chopLeft("ȘŦŗÍñĝ"));
 
         $s = new Stringizer("<div>こんにちは");
-        $this->assertEquals("こんにちは", $s->chompLeft("<div>"));
+        $this->assertEquals("こんにちは", $s->chopLeft("<div>"));
     }
 
     public function testValidMultiByteNoMatch()
     {
         $s = new Stringizer("ȘŦŗÍñĝìzĕŕ");
-        $this->assertEquals("ȘŦŗÍñĝìzĕŕ", $s->chompLeft("ȘŦŗÍñĝXXX"));
+        $this->assertEquals("ȘŦŗÍñĝìzĕŕ", $s->chopLeft("ȘŦŗÍñĝXXX"));
 
         $s = new Stringizer("<div>こんにちは");
-        $this->assertEquals("<div>こんにちは", $s->chompLeft("<span>"));
+        $this->assertEquals("<div>こんにちは", $s->chopLeft("<span>"));
     }
 }

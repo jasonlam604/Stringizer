@@ -34,8 +34,10 @@ Stringizer is a PHP string manipulation library with support for method chaining
       * [CamelToSnake](#cameltosnake)
       * [CharAt](#charat)
       * [Chars](#chars)
-      * [ChompLeft](#chompleft)
-      * [ChompRight](#chompright)
+      * [ChompLeft - deprecated](#chompleft)
+      * [ChompRight - deprecated](#chompright)
+      * [ChopLeft](#chopleft)
+      * [ChopRight](#chopright)
       * [CollapseWhitespace](#collapsewhitespace)
       * [Concat](#concat)
       * [Contains & Contains Case-Insensitive](#contains)
@@ -129,14 +131,14 @@ It's recommended that you use [Composer](https://getcomposer.org/) to install St
 Manual install with composer
 
 ```bash
-$ composer require jasonlam604/stringizer "^2.7.0"
+$ composer require jasonlam604/stringizer "^2.8.0"
 ```
 
 Using the composer.json file
 
 ```json
 "require": {
-    "jasonlam604/stringizer": "^2.7.0"
+    "jasonlam604/stringizer": "^2.8.0"
 }
 ```
 
@@ -266,7 +268,7 @@ $s->charAt(0); // S
 
 ##### chompLeft
 
-Removes prefix from start of string.
+Deprecated - Removes prefix from start of string.
 
 ```php
 $s = new Stringizer("ȘŦŗÍñĝìzĕŕ");
@@ -275,11 +277,29 @@ $s->chompLeft("ȘŦŗÍñĝ"); // ìzĕŕ
 
 ##### chompRight
 
-Removes suffix from start of string.
+Deprecated - Removes suffix from start of string.
 
 ```php
 $s = new Stringizer("ȘŦŗÍñĝìzĕŕ");
 $s->chompRight("ìzĕŕ"); // ȘŦŗÍñĝ
+```
+
+##### chopLeft
+
+Removes prefix from start of string.
+
+```php
+$s = new Stringizer("ȘŦŗÍñĝìzĕŕ");
+$s->chopLeft("ȘŦŗÍñĝ"); // ìzĕŕ
+```
+
+##### chopRight
+
+Removes suffix from start of string.
+
+```php
+$s = new Stringizer("ȘŦŗÍñĝìzĕŕ");
+$s->chopRight("ìzĕŕ"); // ȘŦŗÍñĝ
 ```
 
 ##### collapseWhitespace

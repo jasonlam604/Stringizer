@@ -59,8 +59,8 @@ use Stringizer\Transformers\Base64Check;
 use Stringizer\Transformers\Base64;
 use Stringizer\Transformers\Between;
 use Stringizer\Transformers\CamelToSnake;
-use Stringizer\Transformers\ChompLeft;
-use Stringizer\Transformers\ChompRight;
+use Stringizer\Transformers\ChopLeft;
+use Stringizer\Transformers\ChopRight;
 use Stringizer\Transformers\BooleanConverter;
 
 /**
@@ -147,15 +147,33 @@ class Stringizer
         return $this->value = (new Chars($this->value))->execute();
     }
 
+    /**
+     * @deprecated Since 2.8.0 named incorrectly see chopLeft
+     */
     public function chompLeft($prefix)
     {
-        $this->value = (new ChompLeft($this->value,$prefix))->execute();
+        $this->value = (new ChopLeft($this->value,$prefix))->execute();
         return $this;
     }
 
+    /**
+     * @deprecated Since 2.8.0 named incorrectly see chopRight
+     */
     public function chompRight($prefix)
     {
-        $this->value = (new ChompRight($this->value,$prefix))->execute();
+        $this->value = (new ChopRight($this->value,$prefix))->execute();
+        return $this;
+    }
+
+    public function chopLeft($prefix)
+    {
+        $this->value = (new ChopLeft($this->value,$prefix))->execute();
+        return $this;
+    }
+
+    public function chopRight($prefix)
+    {
+        $this->value = (new ChopRight($this->value,$prefix))->execute();
         return $this;
     }
 

@@ -2,13 +2,13 @@
 namespace Stringizer\Transformers;
 
 /**
- * ChompRight - Removes suffix from start of string.
+ * ChopRight - Removes suffix from start of string.
  *
  * @link https://github.com/jasonlam604/Stringizer
  * @copyright Copyright (c) 2016 Jason Lam
  * @license https://github.com/jasonlam604/Stringizer/blob/master/LICENSE.md (MIT License)
  */
-class ChompRight extends Transformer implements TransformerInterface
+class ChopRight extends Transformer implements TransformerInterface
 {
 
     private $suffix;

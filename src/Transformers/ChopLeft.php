@@ -2,13 +2,13 @@
 namespace Stringizer\Transformers;
 
 /**
- * ChompLeft - Removes prefix from start of string.
+ * ChopLeft - Removes prefix from start of string.
  *
  * @link https://github.com/jasonlam604/Stringizer
  * @copyright Copyright (c) 2016 Jason Lam
  * @license https://github.com/jasonlam604/Stringizer/blob/master/LICENSE.md (MIT License)
  */
-class ChompLeft extends Transformer implements TransformerInterface
+class ChopLeft extends Transformer implements TransformerInterface
 {
 
     private $prefix;
