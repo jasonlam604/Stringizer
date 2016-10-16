@@ -62,6 +62,7 @@ use Stringizer\Transformers\CamelToSnake;
 use Stringizer\Transformers\ChopLeft;
 use Stringizer\Transformers\ChopRight;
 use Stringizer\Transformers\BooleanConverter;
+use Stringizer\Transformers\Repeat;
 
 /**
  * Stringizer
@@ -444,6 +445,12 @@ class Stringizer
     public function randomAlphanumeric($length=10)
     {
         $this->value = (new Random(Random::$RANDOM_ALPHA_NUMERIC,$length))->execute();
+        return $this;
+    }
+
+    public function repeat($repeatNumber)
+    {
+        $this->value = (new Repeat($this->value, $repeatNumber))->execute();
         return $this;
     }
 
