@@ -63,6 +63,7 @@ use Stringizer\Transformers\ChopLeft;
 use Stringizer\Transformers\ChopRight;
 use Stringizer\Transformers\BooleanConverter;
 use Stringizer\Transformers\Repeat;
+use Stringizer\Transformers\SwapCase;
 
 /**
  * Stringizer
@@ -520,6 +521,12 @@ class Stringizer
     public function subString($start, $length = null)
     {
         $this->value = (new SubString($this->value, $start, $length))->execute();
+        return $this;
+    }
+
+    public function swapCase()
+    {
+        $this->value = (new SwapCase($this->value))->execute();
         return $this;
     }
 
