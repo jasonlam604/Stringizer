@@ -29,7 +29,9 @@ class SwapCase extends Transformer implements TransformerInterface
     {
         $arr = preg_split('//u', $this->getValue(), - 1, PREG_SPLIT_NO_EMPTY);
 
-        for ($i = 0; $i < count($arr); $i ++) {
+        $len = count($arr);
+
+        for ($i = 0; $i < $len; $i ++) {
 
             if (ctype_alpha($arr[$i])) {
 
