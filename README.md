@@ -81,6 +81,7 @@ Stringizer is a PHP string manipulation library with support for method chaining
       * [Replace Accents](#replaceaccents)
       * [Remove Non Ascii](#removeascii)
       * [Remove Whitespace](#removewhitespace)
+      * [Repeat](#repeat)
       * [Replace & Replace Case-Insensitive](#replace)
       * [Reverse](#reverse)
       * [SentenceCount](#sentencecount)
@@ -89,6 +90,7 @@ Stringizer is a PHP string manipulation library with support for method chaining
       * [Strip Punctuation](#strippunctuation)
       * [Strip Tags](#striptags)
       * [Sub String](#substring)
+      * [SwapCase](#swapcase)
       * [ToBoolean](#toboolean)
       * [Trim](#trim)
       * [Trim Left](#trimleft)
@@ -131,14 +133,14 @@ It's recommended that you use [Composer](https://getcomposer.org/) to install St
 Manual install with composer
 
 ```bash
-$ composer require jasonlam604/stringizer "^2.8.0"
+$ composer require jasonlam604/stringizer "^2.9.0"
 ```
 
 Using the composer.json file
 
 ```json
 "require": {
-    "jasonlam604/stringizer": "^2.8.0"
+    "jasonlam604/stringizer": "^2.9.0"
 }
 ```
 
@@ -849,9 +851,23 @@ $s = new Stringizer("");
 $s->randomAlphanumeric(); // w5quanvlUP
 ```
 
+#### repeat
+
+Returns a string repeated n times.
+
+```php
+$s = new Stringizer("FizzöBuzz");
+$s->repeat(2); // FizzöBuzzFizzöBuzz
+```
+
+```php
+$s = new Stringizer("こ");
+$s->repeat(5); // こここここ
+```
+
 #### replaceAccents
 
-Replace characters with accents with the same character without accents
+Replace characters with accents with the same character without accents.
 
 ```php
 $s = new Stringizer("FizzöBuzz Fizz Buzz Fizz Buzzé");
@@ -1043,6 +1059,15 @@ MultiByte
 $s = new Stringizer("キラキラした キラキラした");
 $s->subString(7); // キラキラした
 ``` 
+
+#### swapCase
+
+Swap the case of each character.
+
+```php
+$s = new Stringizer("hELLO wORLD");
+$s->swapCase(); // Hello World
+```
 
 #### toBoolean
 
