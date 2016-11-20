@@ -36,6 +36,9 @@ class RepeatTest extends PHPUnit_Framework_TestCase
         $s = new Stringizer("こ");
         $this->assertEquals("こ", $s->repeat(1));
 
+        $s = new Stringizer("こ");
+        $this->assertEquals("こここここ", $s->repeat(5));
+
         $s = new Stringizer("こんにちは");
         $this->assertEquals("こんにちはこんにちは", $s->repeat(2));
     }
