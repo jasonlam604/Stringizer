@@ -2,31 +2,24 @@
 <html lang="en-us">
   <head>
     <meta charset="UTF-8">
-    <title>Stringizer</title>
+    <title>Stringizer by jasonlam604</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-     <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-80912709-1', 'auto');
-  ga('send', 'pageview');
-</script>
   </head>
   <body>
     <section class="page-header">
       <h1 class="project-name">Stringizer</h1>
       <h2 class="project-tagline">PHP String Manipulation Library with MultiByte support</h2>
-      <a href="#installation" class="btn">Install with Composer</a>
-      <a href="https://github.com/jasonlam604/Stringizer" class="btn">Download on GitHub</a>
+      <a href="https://github.com/jasonlam604/Stringizer" class="btn">View on GitHub</a>
+      <a href="https://github.com/jasonlam604/Stringizer/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/jasonlam604/Stringizer/tarball/master" class="btn">Download .tar.gz</a>
     </section>
 
     <section class="main-content">
-
+      
 
 <p>  </p>
 
@@ -66,9 +59,15 @@
 <ul>
 <li><a href="#base64decode">Base64Encode</a></li>
 <li><a href="#base64encode">Base64Decode</a></li>
+<li><a href="#between">Between</a></li>
 <li><a href="#camelize">Camelize</a></li>
+<li><a href="#cameltosnake">CamelToSnake</a></li>
 <li><a href="#charat">CharAt</a></li>
 <li><a href="#chars">Chars</a></li>
+<li><a href="#chompleft">ChompLeft - deprecated</a></li>
+<li><a href="#chompright">ChompRight - deprecated</a></li>
+<li><a href="#chopleft">ChopLeft</a></li>
+<li><a href="#chopright">ChopRight</a></li>
 <li><a href="#collapsewhitespace">CollapseWhitespace</a></li>
 <li><a href="#concat">Concat</a></li>
 <li><a href="#contains">Contains &amp; Contains Case-Insensitive</a></li>
@@ -112,6 +111,7 @@
 <li><a href="#replaceaccents">Replace Accents</a></li>
 <li><a href="#removeascii">Remove Non Ascii</a></li>
 <li><a href="#removewhitespace">Remove Whitespace</a></li>
+<li><a href="#repeat">Repeat</a></li>
 <li><a href="#replace">Replace &amp; Replace Case-Insensitive</a></li>
 <li><a href="#reverse">Reverse</a></li>
 <li><a href="#sentencecount">SentenceCount</a></li>
@@ -120,6 +120,8 @@
 <li><a href="#strippunctuation">Strip Punctuation</a></li>
 <li><a href="#striptags">Strip Tags</a></li>
 <li><a href="#substring">Sub String</a></li>
+<li><a href="#swapcase">SwapCase</a></li>
+<li><a href="#toboolean">ToBoolean</a></li>
 <li><a href="#trim">Trim</a></li>
 <li><a href="#trimleft">Trim Left</a></li>
 <li><a href="#trimright">Trim Right</a></li>
@@ -136,7 +138,7 @@
 <h2>
 <a id="overview" class="anchor" href="#overview" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Overview</h2>
 
-<p>Stringizer is a string library made up of existing PHP multibyte-string functions and a variety of string manipulation solutions found on Stackoverflow.com.  The intent is to save you time looking up string maninpulation solutions yourself and provide the convience of method chaining.</p>
+<p>Stringizer is a string library made up of existing PHP multibyte-string functions and a variety of string manipulation solutions found on Stackoverflow.com.  The intent is to save you time looking up string maninpulation solutions yourself and provide the convience of method chaining. Awarded the <a href="http://www.phpclasses.org/package/9790-PHP-Manipulate-multibyte-text-strings-as-objects.html">Innovation Award</a> in June 2016 from PHPClasses.org.</p>
 
 <p>PSR Compliance and Code Quality:</p>
 
@@ -173,12 +175,12 @@
 
 <p>Manual install with composer</p>
 
-<div class="highlight highlight-source-shell"><pre>$ composer require jasonlam604/stringizer <span class="pl-s"><span class="pl-pds">"</span>^2.6.0<span class="pl-pds">"</span></span></pre></div>
+<div class="highlight highlight-source-shell"><pre>$ composer require jasonlam604/stringizer <span class="pl-s"><span class="pl-pds">"</span>^2.9.0<span class="pl-pds">"</span></span></pre></div>
 
 <p>Using the composer.json file</p>
 
 <div class="highlight highlight-source-json"><pre><span class="pl-s"><span class="pl-pds">"</span>require<span class="pl-pds">"</span></span>: {
-    <span class="pl-s"><span class="pl-pds">"</span>jasonlam604/stringizer<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>^2.6.0<span class="pl-pds">"</span></span>
+    <span class="pl-s"><span class="pl-pds">"</span>jasonlam604/stringizer<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>^2.9.0<span class="pl-pds">"</span></span>
 }</pre></div>
 
 <p>This will install Stringizer and all required dependencies. Stringizer requires PHP 5.6.0 or newer.</p>
@@ -252,12 +254,28 @@
 <span class="pl-s1"><span class="pl-smi">$s</span><span class="pl-k">-&gt;</span>base64Encode(); <span class="pl-c">// yJjFpsWXw43DscSdw6x6xJXFlQ==</span></span></pre></div>
 
 <h5>
+<a id="between" class="anchor" href="#between" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>between</h5>
+
+<p>Extracts a string between left and right strings.</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$s</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">Stringizer</span>(<span class="pl-s"><span class="pl-pds">"</span>&lt;div&gt;ȘŦŗÍñĝìzĕŕ&lt;/div&gt;<span class="pl-pds">"</span></span>);</span>
+<span class="pl-s1"><span class="pl-smi">$s</span><span class="pl-k">-&gt;</span>between(<span class="pl-s"><span class="pl-pds">"</span>&lt;div&gt;<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>&lt;/div&gt;<span class="pl-pds">"</span></span>); <span class="pl-c">// ȘŦŗÍñĝìzĕŕ</span></span></pre></div>
+
+<h5>
 <a id="camelize" class="anchor" href="#camelize" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>camelize</h5>
 
 <p>Removes any underscores or dashes and converts a string into camel case.</p>
 
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$s</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">Stringizer</span>(<span class="pl-s"><span class="pl-pds">"</span>data_rate<span class="pl-pds">"</span></span>);</span>
 <span class="pl-s1"><span class="pl-smi">$s</span><span class="pl-k">-&gt;</span>camelize(); <span class="pl-c">// dataRate</span></span></pre></div>
+
+<h5>
+<a id="cameltosnake" class="anchor" href="#cameltosnake" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>camelToSnake</h5>
+
+<p>Converts Camel case to Snake Case.</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$s</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">Stringizer</span>(<span class="pl-s"><span class="pl-pds">"</span>helloSŦŗÍñĝìzĕŕ<span class="pl-pds">"</span></span>);</span>
+<span class="pl-s1"><span class="pl-smi">$s</span><span class="pl-k">-&gt;</span>camelToSnake(); <span class="pl-c">// hello_sŦŗÍñĝìzĕŕ</span></span></pre></div>
 
 <h5>
 <a id="charat" class="anchor" href="#charat" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>charAt</h5>
@@ -280,6 +298,38 @@
 
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$s</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">Stringizer</span>(<span class="pl-s"><span class="pl-pds">"</span>ȘŦŗÍñĝìzĕŕ<span class="pl-pds">"</span></span>);</span>
 <span class="pl-s1"><span class="pl-smi">$s</span><span class="pl-k">-&gt;</span>charAt(<span class="pl-c1">0</span>); <span class="pl-c">// S</span></span></pre></div>
+
+<h5>
+<a id="chompleft" class="anchor" href="#chompleft" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>chompLeft</h5>
+
+<p>Deprecated - Removes prefix from start of string.</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$s</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">Stringizer</span>(<span class="pl-s"><span class="pl-pds">"</span>ȘŦŗÍñĝìzĕŕ<span class="pl-pds">"</span></span>);</span>
+<span class="pl-s1"><span class="pl-smi">$s</span><span class="pl-k">-&gt;</span>chompLeft(<span class="pl-s"><span class="pl-pds">"</span>ȘŦŗÍñĝ<span class="pl-pds">"</span></span>); <span class="pl-c">// ìzĕŕ</span></span></pre></div>
+
+<h5>
+<a id="chompright" class="anchor" href="#chompright" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>chompRight</h5>
+
+<p>Deprecated - Removes suffix from start of string.</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$s</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">Stringizer</span>(<span class="pl-s"><span class="pl-pds">"</span>ȘŦŗÍñĝìzĕŕ<span class="pl-pds">"</span></span>);</span>
+<span class="pl-s1"><span class="pl-smi">$s</span><span class="pl-k">-&gt;</span>chompRight(<span class="pl-s"><span class="pl-pds">"</span>ìzĕŕ<span class="pl-pds">"</span></span>); <span class="pl-c">// ȘŦŗÍñĝ</span></span></pre></div>
+
+<h5>
+<a id="chopleft" class="anchor" href="#chopleft" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>chopLeft</h5>
+
+<p>Removes prefix from start of string.</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$s</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">Stringizer</span>(<span class="pl-s"><span class="pl-pds">"</span>ȘŦŗÍñĝìzĕŕ<span class="pl-pds">"</span></span>);</span>
+<span class="pl-s1"><span class="pl-smi">$s</span><span class="pl-k">-&gt;</span>chopLeft(<span class="pl-s"><span class="pl-pds">"</span>ȘŦŗÍñĝ<span class="pl-pds">"</span></span>); <span class="pl-c">// ìzĕŕ</span></span></pre></div>
+
+<h5>
+<a id="chopright" class="anchor" href="#chopright" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>chopRight</h5>
+
+<p>Removes suffix from start of string.</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$s</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">Stringizer</span>(<span class="pl-s"><span class="pl-pds">"</span>ȘŦŗÍñĝìzĕŕ<span class="pl-pds">"</span></span>);</span>
+<span class="pl-s1"><span class="pl-smi">$s</span><span class="pl-k">-&gt;</span>chopRight(<span class="pl-s"><span class="pl-pds">"</span>ìzĕŕ<span class="pl-pds">"</span></span>); <span class="pl-c">// ȘŦŗÍñĝ</span></span></pre></div>
 
 <h5>
 <a id="collapsewhitespace" class="anchor" href="#collapsewhitespace" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>collapseWhitespace</h5>
@@ -730,9 +780,20 @@ desired indicated expected length)</p>
 <span class="pl-s1"><span class="pl-smi">$s</span><span class="pl-k">-&gt;</span>randomAlphanumeric(); <span class="pl-c">// w5quanvlUP</span></span></pre></div>
 
 <h4>
+<a id="repeat" class="anchor" href="#repeat" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>repeat</h4>
+
+<p>Returns a string repeated n times.</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$s</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">Stringizer</span>(<span class="pl-s"><span class="pl-pds">"</span>FizzöBuzz<span class="pl-pds">"</span></span>);</span>
+<span class="pl-s1"><span class="pl-smi">$s</span><span class="pl-k">-&gt;</span>repeat(<span class="pl-c1">2</span>); <span class="pl-c">// FizzöBuzzFizzöBuzz</span></span></pre></div>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$s</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">Stringizer</span>(<span class="pl-s"><span class="pl-pds">"</span>こ<span class="pl-pds">"</span></span>);</span>
+<span class="pl-s1"><span class="pl-smi">$s</span><span class="pl-k">-&gt;</span>repeat(<span class="pl-c1">5</span>); <span class="pl-c">// こここここ</span></span></pre></div>
+
+<h4>
 <a id="replaceaccents" class="anchor" href="#replaceaccents" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>replaceAccents</h4>
 
-<p>Replace characters with accents with the same character without accents</p>
+<p>Replace characters with accents with the same character without accents.</p>
 
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$s</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">Stringizer</span>(<span class="pl-s"><span class="pl-pds">"</span>FizzöBuzz Fizz Buzz Fizz Buzzé<span class="pl-pds">"</span></span>);</span>
 <span class="pl-s1"><span class="pl-smi">$s</span><span class="pl-k">-&gt;</span>replaceAccents(); <span class="pl-c">// FizzoeBuzz Fizz Buzz Fizz Buzze</span></span></pre></div>
@@ -881,6 +942,39 @@ desired indicated expected length)</p>
 <span class="pl-s1"><span class="pl-smi">$s</span><span class="pl-k">-&gt;</span>subString(<span class="pl-c1">7</span>); <span class="pl-c">// キラキラした</span></span></pre></div>
 
 <h4>
+<a id="swapcase" class="anchor" href="#swapcase" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>swapCase</h4>
+
+<p>Swap the case of each character.</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$s</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">Stringizer</span>(<span class="pl-s"><span class="pl-pds">"</span>hELLO wORLD<span class="pl-pds">"</span></span>);</span>
+<span class="pl-s1"><span class="pl-smi">$s</span><span class="pl-k">-&gt;</span>swapCase(); <span class="pl-c">// Hello World</span></span></pre></div>
+
+<h4>
+<a id="toboolean" class="anchor" href="#toboolean" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>toBoolean</h4>
+
+<p>Converts a logical truth string to boolean.</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1">(<span class="pl-k">new</span> <span class="pl-c1">Stringizer</span>(<span class="pl-c1">true</span>))<span class="pl-k">-&gt;</span>toBoolean(); <span class="pl-c">// true</span></span>
+<span class="pl-s1">(<span class="pl-k">new</span> <span class="pl-c1">Stringizer</span>(<span class="pl-c1">false</span>))<span class="pl-k">-&gt;</span>toBoolean(); <span class="pl-c">// false</span></span>
+<span class="pl-s1">(<span class="pl-k">new</span> <span class="pl-c1">Stringizer</span>(<span class="pl-s"><span class="pl-pds">"</span>stringizer<span class="pl-pds">"</span></span>))<span class="pl-k">-&gt;</span>toBoolean(); <span class="pl-c">// false</span></span>
+<span class="pl-s1">(<span class="pl-k">new</span> <span class="pl-c1">Stringizer</span>(<span class="pl-s"><span class="pl-pds">"</span>true<span class="pl-pds">"</span></span>))<span class="pl-k">-&gt;</span>toBoolean(); <span class="pl-c">// true</span></span>
+<span class="pl-s1">(<span class="pl-k">new</span> <span class="pl-c1">Stringizer</span>(<span class="pl-s"><span class="pl-pds">"</span>false<span class="pl-pds">"</span></span>))<span class="pl-k">-&gt;</span>toBoolean(); <span class="pl-c">// false</span></span>
+<span class="pl-s1">(<span class="pl-k">new</span> <span class="pl-c1">Stringizer</span>(<span class="pl-s"><span class="pl-pds">"</span>TRUE<span class="pl-pds">"</span></span>))<span class="pl-k">-&gt;</span>toBoolean(); <span class="pl-c">// true</span></span>
+<span class="pl-s1">(<span class="pl-k">new</span> <span class="pl-c1">Stringizer</span>(<span class="pl-s"><span class="pl-pds">"</span>FALSE<span class="pl-pds">"</span></span>))<span class="pl-k">-&gt;</span>toBoolean(); <span class="pl-c">// false</span></span>
+<span class="pl-s1">(<span class="pl-k">new</span> <span class="pl-c1">Stringizer</span>(<span class="pl-s"><span class="pl-pds">"</span>on<span class="pl-pds">"</span></span>))<span class="pl-k">-&gt;</span>toBoolean(); <span class="pl-c">// true</span></span>
+<span class="pl-s1">(<span class="pl-k">new</span> <span class="pl-c1">Stringizer</span>(<span class="pl-s"><span class="pl-pds">"</span>off<span class="pl-pds">"</span></span>))<span class="pl-k">-&gt;</span>toBoolean(); <span class="pl-c">// false</span></span>
+<span class="pl-s1">(<span class="pl-k">new</span> <span class="pl-c1">Stringizer</span>(<span class="pl-s"><span class="pl-pds">"</span>ON<span class="pl-pds">"</span></span>))<span class="pl-k">-&gt;</span>toBoolean(); <span class="pl-c">// true</span></span>
+<span class="pl-s1">(<span class="pl-k">new</span> <span class="pl-c1">Stringizer</span>(<span class="pl-s"><span class="pl-pds">"</span>OFF<span class="pl-pds">"</span></span>))<span class="pl-k">-&gt;</span>toBoolean(); <span class="pl-c">// false</span></span>
+<span class="pl-s1">(<span class="pl-k">new</span> <span class="pl-c1">Stringizer</span>(<span class="pl-s"><span class="pl-pds">"</span>yes<span class="pl-pds">"</span></span>))<span class="pl-k">-&gt;</span>toBoolean(); <span class="pl-c">// true</span></span>
+<span class="pl-s1">(<span class="pl-k">new</span> <span class="pl-c1">Stringizer</span>(<span class="pl-s"><span class="pl-pds">"</span>no<span class="pl-pds">"</span></span>))<span class="pl-k">-&gt;</span>toBoolean(); <span class="pl-c">// false</span></span>
+<span class="pl-s1">(<span class="pl-k">new</span> <span class="pl-c1">Stringizer</span>(<span class="pl-s"><span class="pl-pds">"</span>YES<span class="pl-pds">"</span></span>))<span class="pl-k">-&gt;</span>toBoolean(); <span class="pl-c">// true</span></span>
+<span class="pl-s1">(<span class="pl-k">new</span> <span class="pl-c1">Stringizer</span>(<span class="pl-s"><span class="pl-pds">"</span>NO<span class="pl-pds">"</span></span>))<span class="pl-k">-&gt;</span>toBoolean(); <span class="pl-c">// false</span></span>
+<span class="pl-s1">(<span class="pl-k">new</span> <span class="pl-c1">Stringizer</span>(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>))<span class="pl-k">-&gt;</span>toBoolean(); <span class="pl-c">// false</span></span>
+<span class="pl-s1">(<span class="pl-k">new</span> <span class="pl-c1">Stringizer</span>(<span class="pl-c1">null</span>))<span class="pl-k">-&gt;</span>toBoolean(); <span class="pl-c">// false</span></span>
+<span class="pl-s1">(<span class="pl-k">new</span> <span class="pl-c1">Stringizer</span>(<span class="pl-c1">1</span>))<span class="pl-k">-&gt;</span>toBoolean(); <span class="pl-c">// true</span></span>
+<span class="pl-s1">(<span class="pl-k">new</span> <span class="pl-c1">Stringizer</span>(<span class="pl-k">-</span><span class="pl-c1">1</span>))<span class="pl-k">-&gt;</span>toBoolean(); <span class="pl-c">// false</span></span></pre></div>
+
+<h4>
 <a id="trim" class="anchor" href="#trim" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>trim</h4>
 
 <p>Remove whitespace both right and left side of the string</p>
@@ -1024,6 +1118,6 @@ desired indicated expected length)</p>
 
     </section>
 
-
+  
   </body>
 </html>
