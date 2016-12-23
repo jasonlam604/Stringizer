@@ -38,7 +38,7 @@ class Transformer
      *
      * @param string $value
      */
-    public function setValue($value) {
+    private function setValue($value) {
 
         if (! isset($value) ) {
             throw new \InvalidArgumentException("String to transform contains a null");
