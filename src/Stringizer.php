@@ -64,6 +64,7 @@ use Stringizer\Transformers\ChopRight;
 use Stringizer\Transformers\BooleanConverter;
 use Stringizer\Transformers\Repeat;
 use Stringizer\Transformers\SwapCase;
+use Stringizer\Transformers\Join;
 
 /**
  * Stringizer
@@ -360,6 +361,12 @@ class Stringizer
     public function isUrl($santize=false)
     {
         return (new Url($this->value,$santize))->execute();
+    }
+
+    public function join($values,$separator=",")
+    {
+        $this->value = (new Join($values,$separator))->execute();
+        return $this;
     }
 
     public function last($numberOfCharacters)
