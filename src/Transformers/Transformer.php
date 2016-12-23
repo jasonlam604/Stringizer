@@ -20,11 +20,7 @@ class Transformer
 
     public function __construct($value)
     {
-        if (! isset($value) ) {
-            throw new \InvalidArgumentException("String to transform contains a null");
-        }
-
-        $this->value = $value;
+        $this->setValue($value);
     }
 
     /**
@@ -35,5 +31,19 @@ class Transformer
     public function getValue()
     {
         return $this->value;
+    }
+
+    /**
+     * Setter
+     *
+     * @param string $value
+     */
+    public function setValue($value) {
+
+        if (! isset($value) ) {
+            throw new \InvalidArgumentException("String to transform contains a null");
+        }
+
+        $this->value = $value;
     }
 }

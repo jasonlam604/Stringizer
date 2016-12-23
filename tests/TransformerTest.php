@@ -11,6 +11,9 @@ class TransformerTest extends PHPUnit_Framework_TestCase
     {
         $t = new Transformer("dummy-value");
         $this->assertEquals("dummy-value", $t->getValue());
+
+        $t->setValue("new-dummy-value");
+        $this->assertEquals("new-dummy-value", $t->getValue());
     }
 
     /**
