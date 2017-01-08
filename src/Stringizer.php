@@ -65,6 +65,7 @@ use Stringizer\Transformers\BooleanConverter;
 use Stringizer\Transformers\Repeat;
 use Stringizer\Transformers\SwapCase;
 use Stringizer\Transformers\Join;
+use Stringizer\Transformers\HexColor;
 
 /**
  * Stringizer
@@ -336,6 +337,11 @@ class Stringizer
     public function isEmpty()
     {
         return (new EmptyCheck($this->value))->execute();
+    }
+
+    public function isHexColor()
+    {
+        return (new HexColor($this->value))->execute();
     }
 
     public function isHexDecimal()
