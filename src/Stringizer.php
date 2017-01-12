@@ -66,6 +66,7 @@ use Stringizer\Transformers\Repeat;
 use Stringizer\Transformers\SwapCase;
 use Stringizer\Transformers\Join;
 use Stringizer\Transformers\HexColor;
+use Stringizer\Transformers\RgbColor;
 
 /**
  * Stringizer
@@ -362,6 +363,11 @@ class Stringizer
     public function isNumber()
     {
         return (new Number($this->value))->execute();
+    }
+
+    public function isRgbColor()
+    {
+        return (new RgbColor($this->value))->execute();
     }
 
     public function isUrl($santize=false)
