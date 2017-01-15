@@ -67,6 +67,7 @@ use Stringizer\Transformers\SwapCase;
 use Stringizer\Transformers\Join;
 use Stringizer\Transformers\HexColor;
 use Stringizer\Transformers\RgbColor;
+use Stringizer\Transformers\MultiByte;
 
 /**
  * Stringizer
@@ -358,6 +359,11 @@ class Stringizer
     public function isIpv6()
     {
         return (new Ipv6($this->value))->execute();
+    }
+
+    public function isMultiByte()
+    {
+        return (new MultiByte($this->value))->execute();
     }
 
     public function isNumber()
