@@ -61,11 +61,15 @@ Stringizer is a PHP string manipulation library with support for method chaining
       * [IsDecimal](#isdecimal)
       * [IsEmail](#isemail)
       * [IsEmpty](#isempty)
+      * [IsHexColor](#ishexcolor)
       * [IsHexDecimal](#ishexdecimal)
-      * [IsNumber](#isnumber)
       * [IsIpv4](#isipv4)
       * [IsIpv6](#isipv6)
+      * [IsNumber](#isnumber)
+      * [IsMultiByte](#ismultibyte)
+      * [IsRgbColor](#isrgbcolor)
       * [IsUrl](#isurl)
+      * [Join](#join)
       * [Last](#last)
       * [LastIndexOf & LastIndexOf Case-Insensitive](#lastindexof)
       * [Length](#length)
@@ -133,14 +137,14 @@ It's recommended that you use [Composer](https://getcomposer.org/) to install St
 Manual install with composer
 
 ```bash
-$ composer require jasonlam604/stringizer "^2.9.0"
+$ composer require jasonlam604/stringizer "^2.10.0"
 ```
 
 Using the composer.json file
 
 ```json
 "require": {
-    "jasonlam604/stringizer": "^2.9.0"
+    "jasonlam604/stringizer": "^2.10.0"
 }
 ```
 
@@ -643,22 +647,32 @@ $s = new Stringizer("\n  \n\r\t   ");
 $s->isEmpty(); // true
 ```
 
-#### ishexdecimal
+#### isHexColor
+
+Checks if value is valid Hex Color.
+
+```php
+$s = new Stringizer("CCDDEE");
+$s->isHexColor(); // true
+```
+
+```php
+$s = new Stringizer("#CCDDEE");
+$s->isHexColor(); // false
+```
+
+```php
+$s = new Stringizer("ZZZZZZ");
+$s->isHexColor(); // false
+```
+
+#### isHexDecimal
 
 Checks if value is hexdecimal.
 
 ```php
 $s = new Stringizer("AB10BC99");
 $s->isHexDecimal(); // true
-```
-
-##### isNumber
-
-Checks if value is a whole number, can be a negative number but can not be a decimal number.
-
-```php
-$s = new Stringizer("1234");
-$s->isNumber() // true
 ```
 
 ##### isIPv4
@@ -679,6 +693,38 @@ $s = new Stringizer("2001:cdba:0000:0000:0000:0000:3257:9652");
 $s->isIpv6() // true
 ```
 
+##### isNumber
+
+Checks if value is a whole number, can be a negative number but can not be a decimal number.
+
+```php
+$s = new Stringizer("1234");
+$s->isNumber() // true
+```
+
+##### isMultiByte
+
+Checks if value is MultiByte
+
+```php
+$s = new Stringizer("ȘŦŗÍñĝìzĕŕ");
+$s->isMultiByte() // true
+```
+
+```php
+$s = new Stringizer("Stringizer");
+$s->isMultiByte() // false
+```
+
+##### isRgbColor
+
+Checks if value is valid RGB Color
+
+```php
+$s = new Stringizer("rgb(255,255,255)");
+$s->isRgbColor() // true
+```
+
 ##### isUrl
 
 Checks if value is contains a valid URL
@@ -686,6 +732,30 @@ Checks if value is contains a valid URL
 ```php
 $s = new Stringizer("https://github.com");
 $s->isUrl(); // true
+```
+
+##### join
+
+Concatenates the elements of a to create a single string. The separator string sep is placed between elements in the resulting string.  If there is an existing
+value it is over-written.  Default seperator is a comma, if no separator is required then use a blank string.
+
+
+Uses default separator a comma
+```php
+$s = new Stringizer("original-string-overwritten");
+$s->join(array("Hello","World","Again")); // Hello,World,Again
+```
+
+Uses a pipe as the separator
+```php
+$s = new Stringizer("");
+$s->join(array("こ","ん","に","ち","は"), "|") // こ|ん|に|ち|は
+```
+
+No separator, use of a blank strinng
+```php
+$s = new Stringizer("");
+$s->join(array("こ","ん","に","ち","は"), "") // こんにちは
 ```
 
 ##### last
