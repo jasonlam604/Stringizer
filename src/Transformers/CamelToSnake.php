@@ -18,6 +18,6 @@ class CamelToSnake extends Transformer implements TransformerInterface
 
     public function execute()
     {
-        return preg_replace_callback('/[A-Z]/', create_function('$match', 'return "_" . strtolower($match[0]);'), $this->getValue());
+        return mb_strtolower(preg_replace('/(?<=\\w)(?=[A-Z])/',"_$1", $this->getValue()));
     }
 }

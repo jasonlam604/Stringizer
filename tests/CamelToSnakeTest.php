@@ -13,9 +13,9 @@ class CameleToSnakeTest extends PHPUnit_Framework_TestCase
         $this->assertEquals("hello_world", $s->camelToSnake());
 
         $s = new Stringizer("MyFunctionName");
-        $this->assertEquals("_my_function_name", $s->camelToSnake());
+        $this->assertEquals("my_function_name", $s->camelToSnake());
 
         $s = new Stringizer("helloSŦŗÍñĝìzĕŕ");
-        $this->assertEquals("hello_sŦŗÍñĝìzĕŕ", $s->camelToSnake());
+        $this->assertEquals("hello_sŧŗíñĝìzĕŕ", $s->camelToSnake());
     }
 }
