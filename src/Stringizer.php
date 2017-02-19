@@ -68,6 +68,7 @@ use Stringizer\Transformers\Join;
 use Stringizer\Transformers\HexColor;
 use Stringizer\Transformers\RgbColor;
 use Stringizer\Transformers\MultiByte;
+use Stringizer\Transformers\Semver;
 
 /**
  * Stringizer
@@ -374,6 +375,11 @@ class Stringizer
     public function isRgbColor()
     {
         return (new RgbColor($this->value))->execute();
+    }
+
+    public function isSemver()
+    {
+        return (new Semver($this->value))->execute();
     }
 
     public function isUrl($santize=false)
