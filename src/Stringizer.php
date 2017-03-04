@@ -69,6 +69,7 @@ use Stringizer\Transformers\HexColor;
 use Stringizer\Transformers\RgbColor;
 use Stringizer\Transformers\MultiByte;
 use Stringizer\Transformers\Semver;
+use Stringizer\Transformers\Ascii;
 
 /**
  * Stringizer
@@ -307,6 +308,11 @@ class Stringizer
     public function isAlphaNumericSpaceDash()
     {
         return (new AlphaNumericSpaceDash($this->value))->execute();
+    }
+
+    public function isAscii()
+    {
+        return (new Ascii($this->value))->execute();
     }
 
     public function isBase64()
