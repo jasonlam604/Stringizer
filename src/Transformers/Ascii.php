@@ -11,14 +11,23 @@ namespace Stringizer\Transformers;
 class Ascii extends Transformer implements TransformerInterface
 {
 
-    public function __construct($value)
+    private $pattern;
+
+    public function __construct($value, $isPrintableOnly = false)
     {
         parent::__construct($value);
+
+        if ($isPrintableOnly) {
+            $this->pattern = '/^[\x20-\x7E]+$/';
+        } else {
+            $this->pattern = '/^[\x00-\x7F]+$/';
+        }
     }
 
     public function execute()
     {
-        if (preg_match('/^[\x00-\x7F]+$/', $this->getValue())) {
+       // if (preg_match('/^[\x00-\x7F]+$/', $this->getValue())) {
+        if (preg_match($this->pattern, $this->getValue())) {
             return true;
         } else {
             return false;

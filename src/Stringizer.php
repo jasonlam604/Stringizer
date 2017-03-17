@@ -310,9 +310,9 @@ class Stringizer
         return (new AlphaNumericSpaceDash($this->value))->execute();
     }
 
-    public function isAscii()
+    public function isAscii($isPrintableOnly=false)
     {
-        return (new Ascii($this->value))->execute();
+        return (new Ascii($this->value,$isPrintableOnly))->execute();
     }
 
     public function isBase64()
