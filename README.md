@@ -54,6 +54,7 @@ Stringizer is a PHP string manipulation library with support for method chaining
 * [HasUpper](#hasuppercase)
 * [HashCode](#hashcode)
 * [IndexOf & IndexOf Case-Insensitive](#indexof)
+* [IsAscii](#isascii)
 * [IsAlpha](#isalpha)
 * [IsAlphaNumeric](#isalphanumeric)
 * [IsAlphaNumeric with Space](#isalphanumericspace)
@@ -71,6 +72,7 @@ Stringizer is a PHP string manipulation library with support for method chaining
 * [IsNumber](#isnumber)
 * [IsMultiByte](#ismultibyte)
 * [IsRgbColor](#isrgbcolor)
+* [IsSemver](#issemver)
 * [IsUrl](#isurl)
 * [Join](#join)
 * [Last](#last)
@@ -140,14 +142,14 @@ It's recommended that you use [Composer](https://getcomposer.org/) to install St
 Manual install with composer
 
 ```bash
-$ composer require jasonlam604/stringizer "^2.10.0"
+$ composer require jasonlam604/stringizer "^2.11.0"
 ```
 
 Using the composer.json file
 
 ```json
 "require": {
-    "jasonlam604/stringizer": "^2.10.0"
+    "jasonlam604/stringizer": "^2.11.0"
 }
 ```
 
@@ -515,6 +517,21 @@ $s = new Stringizer("Fizz Buzz Foo Bar");
 $s->indexOfCaseInsensitive("foo"); // 10
 ```
 
+##### isAscii
+
+Checks if value contains valid ASCII values only. Optional parameter to allow only printable characters
+
+```php
+$s = new Stringizer("abcdefghi....12334567890....ABC..XY!!!@#$%^&*()_+=-<>?:;/.,~][}{\|'");
+$s->isAscii(); // true
+```
+
+```php
+$s = new Stringizer("\x19test\x7F");
+$s->isAscii(); // true
+$s->isAscii(true); // false
+```
+
 ##### isAlpha
 
 Checks if value is contains alpha values only.
@@ -726,6 +743,31 @@ Checks if value is valid RGB Color
 ```php
 $s = new Stringizer("rgb(255,255,255)");
 $s->isRgbColor() // true
+```
+
+##### isSemver
+
+Checks if value is a valid semver format, see http://semver.org/
+
+```php
+$s = new Stringizer("FooBar");
+$s->isSemver(); // false
+```
+
+```php
+$s = new Stringizer("1.0.0");
+$s->isSemver(); // true
+
+$s->setString("1.0.0-3.14.6");
+$s->isSemver(); // true
+
+$s->setString("0.0.1-beta");
+$s->isSemver(); // true
+```
+
+```php
+$s = new Stringizer("1.0");
+$s->isAlpha(); // false
 ```
 
 ##### isUrl
