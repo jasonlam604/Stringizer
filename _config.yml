@@ -2,7 +2,7 @@ title: Stringizer
 description: PHP String Manipulation Library with MultiByte support
 google_analytics: 
 show_downloads: true
-theme: jekyll-theme-cayman
+theme: jekyll-theme-architect
 
 gems:
   - jekyll-mentions
