@@ -2,9 +2,9 @@
 use Stringizer\Stringizer;
 
 /**
- * IsBlank Unit Tests
+ * Blank Unit Tests
  */
-class IsBlankTest extends PHPUnit_Framework_TestCase
+class BlankTest extends PHPUnit_Framework_TestCase
 {
 
     public function testBlankWithSpace()
