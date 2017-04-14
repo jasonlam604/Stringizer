@@ -70,6 +70,8 @@ use Stringizer\Transformers\RgbColor;
 use Stringizer\Transformers\MultiByte;
 use Stringizer\Transformers\Semver;
 use Stringizer\Transformers\Ascii;
+use Stringizer\Transformers\Latitude;
+use Stringizer\Transformers\Longitude;
 
 /**
  * Stringizer
@@ -366,6 +368,16 @@ class Stringizer
     public function isIpv6()
     {
         return (new Ipv6($this->value))->execute();
+    }
+
+    public function isLatitude()
+    {
+        return (new Latitude($this->value))->execute();
+    }
+
+    public function isLongitude()
+    {
+        return (new Longitude($this->value))->execute();
     }
 
     public function isMultiByte()
