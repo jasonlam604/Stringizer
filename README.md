@@ -71,6 +71,8 @@ Stringizer is a PHP string manipulation library with support for method chaining
 * [IsIpv6](#isipv6)
 * [IsNumber](#isnumber)
 * [IsMultiByte](#ismultibyte)
+* [IsLatitude](#islatitude)
+* [IsLongitude](#islongitude)
 * [IsRgbColor](#isrgbcolor)
 * [IsSemver](#issemver)
 * [IsUrl](#isurl)
@@ -142,14 +144,14 @@ It's recommended that you use [Composer](https://getcomposer.org/) to install St
 Manual install with composer
 
 ```bash
-$ composer require jasonlam604/stringizer "^2.11.0"
+$ composer require jasonlam604/stringizer "^2.12.0"
 ```
 
 Using the composer.json file
 
 ```json
 "require": {
-    "jasonlam604/stringizer": "^2.11.0"
+    "jasonlam604/stringizer": "^2.12.0"
 }
 ```
 
@@ -734,6 +736,34 @@ $s->isMultiByte() // true
 ```php
 $s = new Stringizer("Stringizer");
 $s->isMultiByte() // false
+```
+
+##### isLatitude
+
+Checks if value is valid Latitude value
+
+```php
+$s = new Stringizer("37.138");
+$s->isLatitude() // true
+```
+
+```php
+$s = new Stringizer("-91");
+$s->isLatitude() // false
+```
+
+##### isLongitude
+
+Checks if value is valid Longitude value
+
+```php
+$s = new Stringizer("190");
+$s->isLongitude() // true
+```
+
+```php
+$s = new Stringizer("191");
+$s->isLongitude() // false
 ```
 
 ##### isRgbColor
