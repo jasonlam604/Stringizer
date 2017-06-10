@@ -72,6 +72,7 @@ use Stringizer\Transformers\Semver;
 use Stringizer\Transformers\Ascii;
 use Stringizer\Transformers\Latitude;
 use Stringizer\Transformers\Longitude;
+use Stringizer\Transformers\Json;
 
 /**
  * Stringizer
@@ -368,6 +369,11 @@ class Stringizer
     public function isIpv6()
     {
         return (new Ipv6($this->value))->execute();
+    }
+
+    public function isJson()
+    {
+        return (new Json($this->value))->execute();
     }
 
     public function isLatitude()
