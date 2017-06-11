@@ -3,7 +3,8 @@
   Description: Stringizer is a PHP string manipulation library with support for method chaining and multibyte handling
   Author: jasonlam604
   -->
-<meta name='keywords' content='string,manipulation,chaining,multibyte,php,transformer,stringizer'>  
+<meta name='keywords' content='string,manipulation,chaining,multibyte,php,transformer,stringizer'>
+
 # Stringizer
 Stringizer is a PHP string manipulation library with support for method chaining and multibyte handling
 
