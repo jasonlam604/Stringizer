@@ -73,6 +73,7 @@ use Stringizer\Transformers\Ascii;
 use Stringizer\Transformers\Latitude;
 use Stringizer\Transformers\Longitude;
 use Stringizer\Transformers\Json;
+use Stringizer\Transformers\Isbn;
 
 /**
  * Stringizer
@@ -359,6 +360,16 @@ class Stringizer
     public function isHexDecimal()
     {
         return (new HexDecimal($this->value))->execute();
+    }
+
+    public function isIsbn10() {
+        return  (new Isbn($this->value))->execute();
+    }
+
+    public function isIsbn13() {
+        $isbn = new Isbn($this->value);
+        $isbn->checkIsbn13();
+        return $isbn->execute();
     }
 
     public function isIpv4()
