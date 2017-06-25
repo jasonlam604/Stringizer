@@ -5,10 +5,10 @@ php:
   - 7.0
   - 7.1
   # Use the newer stack for HHVM as HHVM does not support Precise
-  - php: hhvm
-    sudo: required
-    dist: trusty
-    group: edge
+  #- php: hhvm
+  #  sudo: required
+  #  dist: trusty
+  #  group: edge
 
 before_install:
 - composer require phpunit/phpunit:4.8.* satooshi/php-coveralls:dev-master
