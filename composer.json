@@ -13,7 +13,7 @@
     ],
     "require": {
         "php": ">=5.6.0",
-        "cocur/slugify" : "2.1.1"
+        "cocur/slugify" : "3.0.*"
         
     },
     "require-dev": {
