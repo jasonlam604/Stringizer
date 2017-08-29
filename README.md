@@ -68,8 +68,11 @@ Stringizer is a PHP string manipulation library with support for method chaining
 * [IsEmpty](#isempty)
 * [IsHexColor](#ishexcolor)
 * [IsHexDecimal](#ishexdecimal)
+* [IsIsbn10](#isisbn10)
+* [IsIsbn10](#isisbn13)
 * [IsIpv4](#isipv4)
 * [IsIpv6](#isipv6)
+* [IsJson](#isjson)
 * [IsNumber](#isnumber)
 * [IsMultiByte](#ismultibyte)
 * [IsLatitude](#islatitude)
@@ -145,14 +148,14 @@ It's recommended that you use [Composer](https://getcomposer.org/) to install St
 Manual install with composer
 
 ```bash
-$ composer require jasonlam604/stringizer "^2.12.0"
+$ composer require jasonlam604/stringizer "^2.13.0"
 ```
 
 Using the composer.json file
 
 ```json
 "require": {
-    "jasonlam604/stringizer": "^2.12.0"
+    "jasonlam604/stringizer": "^2.13.0"
 }
 ```
 
@@ -698,6 +701,24 @@ $s = new Stringizer("AB10BC99");
 $s->isHexDecimal(); // true
 ```
 
+##### isIsbn10
+
+Determines if value is valid ISBN10
+
+```php
+$s = new Stringizer("ISBN:0-306-40615-2");
+$s->isIsbn10() // true
+```
+
+##### isIsbn13
+
+Determines if value is valid ISBN13
+
+```php
+$s = new Stringizer("ISBN:979-1-090-63607-1");
+$s->isIsbn13() // true
+```
+
 ##### isIPv4
 
 Checks if value is a valid IP, IPv4.
@@ -714,6 +735,18 @@ Checks if value is a valid IP, IPv6.
 ```php
 $s = new Stringizer("2001:cdba:0000:0000:0000:0000:3257:9652");
 $s->isIpv6() // true
+```
+
+##### isJson
+
+Determines if value is valid JSON
+
+```php
+$s = new Stringizer("{\"foo\" : {
+ \"bar\" : \"Hello\",
+ \"baz\" : [ \"quuz\", \"norf\" ]
+}}");
+$s->isJson() // true
 ```
 
 ##### isNumber
