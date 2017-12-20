@@ -74,6 +74,7 @@ use Stringizer\Transformers\Latitude;
 use Stringizer\Transformers\Longitude;
 use Stringizer\Transformers\Json;
 use Stringizer\Transformers\Isbn;
+use Stringizer\Transformers\Hash;
 
 /**
  * Stringizer
@@ -350,6 +351,11 @@ class Stringizer
     public function isEmpty()
     {
         return (new EmptyCheck($this->value))->execute();
+    }
+
+    public function isHash($hashAlgorithm)
+    {
+        return (new Hash($this->value,$hashAlgorithm))->execute();
     }
 
     public function isHexColor()
