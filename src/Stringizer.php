@@ -246,6 +246,20 @@ class Stringizer
         return $this;
     }
 
+    /**
+     * Delete runes in str matching the pattern, similiar in Ruby
+     *
+     * Simple wrapper to Replace
+     *
+     * @param string or array $needles
+     * @return \Stringizer\Stringizer
+     */
+    public function delete($needles)
+    {
+        $this->value = (new Replace($this->value, $needles, ""))->execute();
+        return $this;
+    }
+
     public function endsWith($needle)
     {
         return (new EndsWith($this->value, $needle))->execute();
