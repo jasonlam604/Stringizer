@@ -36,6 +36,12 @@ class HashTest extends PHPUnit_Framework_TestCase
 
     public function testInValidHash()
     {
+        $s = new Stringizer("1260fc5e11");
+        $this->assertEquals(false, $s->isHash("crc32"));
+
+        $s = new Stringizer("d87f7e0c11");
+        $this->assertEquals(false, $s->isHash("crc32b"));
+
         $s = new Stringizer("abcdedfghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
         $this->assertEquals(false, $s->isHash("md4"));
 
