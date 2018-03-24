@@ -46,6 +46,7 @@ Stringizer is a PHP string manipulation library with support for method chaining
 * [Contains & Contains Case-Insensitive](#contains)
 * [Contains Count & Count Case-Insensitive](#containscount)
 * [Dasherize](#dasherize)
+* [Delete](#delete)
 * [EndsWith](#endswith)
 * [EnsureLeft](#ensureleft)
 * [EnsureRight](#ensureright)
@@ -65,6 +66,7 @@ Stringizer is a PHP string manipulation library with support for method chaining
 * [IsDecimal](#isdecimal)
 * [IsEmail](#isemail)
 * [IsEmpty](#isempty)
+* [IsHash](#ishash)
 * [IsHexColor](#ishexcolor)
 * [IsHexDecimal](#ishexdecimal)
 * [IsIsbn10](#isisbn10)
@@ -147,14 +149,14 @@ It's recommended that you use [Composer](https://getcomposer.org/) to install St
 Manual install with composer
 
 ```bash
-$ composer require jasonlam604/stringizer "^2.13.0"
+$ composer require jasonlam604/stringizer "^2.14.0"
 ```
 
 Using the composer.json file
 
 ```json
 "require": {
-    "jasonlam604/stringizer": "^2.13.0"
+    "jasonlam604/stringizer": "^2.14.0"
 }
 ```
 
@@ -398,6 +400,15 @@ Break up a camelize string and seperate with dashes
 ```php
 $s = new Stringizer("dataRate");
 $s->dasherize(); // data-rate
+```
+
+##### delete
+
+Delete runes in str matching the pattern, similiar to the delete string feature in Ruby
+
+```php
+$s = new Stringizer("Fizz 列Fizz列 Fizz");
+$s->delete("列"); //Fizz Fizz Fizz
 ```
 
 ##### endsWith
@@ -670,6 +681,40 @@ Checks if value is empty, if string contains whitespace only it is considered em
 ```php
 $s = new Stringizer("\n  \n\r\t   ");
 $s->isEmpty(); // true
+```
+
+##### isHash
+
+Checks if value is empty, if string contains whitespace only it is considered empty.
+
+```php
+$s = new Stringizer("3ca25ae354e192b26879f651a51d92aa8a34d8d3");
+$s->isHash("sha1"); // true
+```
+
+```php
+$s->setString("3ca25ae354e192b26879f651a51d92aa8a34d8d3");
+$s->isHash("Tiger160"); // true
+```
+
+```php
+$s->setString("579282cfb65ca1f109b78536effaf621b853c9f7079664a3fbe2b519f435898c");
+$this->assertEquals(true, $s->isHash("sha256"); // true
+```
+
+```php
+$s->setString("bf547c3fc5841a377eb1519c2890344dbab15c40ae4150b4b34443d2212e5b04aa9d58865bf03d8ae27840fef430b891");
+$this->assertEquals(true, $s->isHash("sha384"); // true
+```
+
+```php
+$s->setString("45bc5fa8cb45ee408c04b6269e9f1e1c17090c5ce26ffeeda2af097735b29953ce547e40ff3ad0d120e5361cc5f9cee35ea91ecd4077f3f589b4d439168f91b9");
+$this->assertEquals(true, $s->isHash("sha512"); // true
+```
+
+```php
+$s->setString("46fc0125a148788a3ac1d649566fc04eb84a746f1a6e4fa7");
+$this->assertEquals(true, $s->isHash("tiger192"); // true
 ```
 
 #### isHexColor
